@@ -1,8 +1,8 @@
 <?php
-$this->breadcrumbs=array(
-	'Timbradoses'=>array('index'),
-	'Administrar',
-);
+// $this->breadcrumbs=array(
+// 	'Timbradoses'=>array('index'),
+// 	'Administrar',
+// );
 
 $this->menu=array(
 array('label'=>'Listar','url'=>array('index')),

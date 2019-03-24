@@ -19,7 +19,5 @@ array('label'=>'Administrar','url'=>array('admin')),
 'attributes'=>array(
 		'id_misiones_diplomaticas',
 		'mision_diplomatica',
-		'created_at',
-		'updated_at',
 ),
 )); ?>
