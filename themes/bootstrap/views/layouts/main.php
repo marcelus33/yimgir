@@ -25,7 +25,7 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
  'class'=>'bootstrap.widgets.TbMenu',
  'htmlOptions'=>array('class'=>'pull-right'),
  'items'=>array(
-	 			array('label'=>'Administrar Usuarios'
+	 			array('label'=>'Usuarios'
 					, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
 					, 'visible'=>!Yii::app()->user->isGuest),
 					array('label'=>'Login'
@@ -42,43 +42,68 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
  
 <?php
 $this->widget('bootstrap.widgets.TbNavbar', array(
- 'type'=>'null',
+'type'=>'null',
  //'collapse'=>true,
- 'items'=>array(
- array(
- 'class'=>'bootstrap.widgets.TbMenu',
- 'items'=>array(
- array('label'=>'Inicio', 'url'=>array('/site')),
- array('label'=>'Entidades',
- 	'items' => array(
-				array('label' => 'Nuevo', 'url'=>$this->createUrl('/entidades/create'),),
-				array('label' => 'Administrar', 'url'=>$this->createUrl('/entidades/admin'),),
+'items'=>array(
+	array(
+		'class'=>'bootstrap.widgets.TbMenu',
+ 		'items'=>array(
+ 			array('label'=>'Inicio', 'url'=>array('/site')),
+ 			array('label'=>'Comprobantes',
+ 				'items' => array(
+							array('label' => 'Nuevo', 'url'=>$this->createUrl('/comprobantes/create'),),
+							array('label' => 'Administrar', 'url'=>$this->createUrl('/comprobantes/admin'),),
 				),
- 	),
-   array('label'=>'Recibos',
- 	'items' => array(
-					array('label' => 'Nuevo', 'url'=>$this->createUrl('/recibos/create'),),
-					array('label' => 'Administrar', 'url'=>$this->createUrl('/recibos/administrarRecibos'),),
-
-
- ),
- ),
-
-array('label'=>'Sistema', 'url'=>'#',
- 'visible'=>!Yii::app()->user->isGuest,
- 'items'=>array(
- 	array('label'=>'Backups',
- 	'url'=>array('/backup/default/index')
- 	//	'visible'=>!Yii::app()->user->isGuest,
- 	//'visible'=>Yii::app()->user->isSuperAdmin,
- 	),
- array('label'=>'Auditoria', 
- 'url'=>array('/activerecordlog/admin')
- // , 'visible'=>Yii::app()->user->isSuperAdmin
- ),
- )),
- 
- ),
+ 			),
+			array('label'=>'Clientes',
+ 				'items' => array(
+					array('label' => 'Nuevo', 'url'=>$this->createUrl('/clientes/create'),),
+					array('label' => 'Administrar', 'url'=>$this->createUrl('/clientes/administrarRecibos'),),
+				 ),
+			),
+			array('label'=>'Parametros',
+				'items'=>array(
+					array('label'=>'Timbrados',
+						'items' => array(
+								array('label' => 'Nuevo', 'url'=>$this->createUrl('/timbrados/create'),),
+								array('label' => 'Administrar', 'url'=>$this->createUrl('/timbrados/admin'),),
+						),
+					),
+					array('label'=>'Documentos de Identificacion',
+						'items' => array(
+								array('label' => 'Nuevo', 'url'=>$this->createUrl('/documentosIdentificacion/create'),),
+								array('label' => 'Administrar', 'url'=>$this->createUrl('/documentosIdentificacion/admin'),),
+						),
+					),
+					array('label'=>'Tipos de Comprobantes',
+						'items' => array(
+								array('label' => 'Nuevo', 'url'=>$this->createUrl('/tiposComprobantes/create'),),
+								array('label' => 'Administrar', 'url'=>$this->createUrl('/tiposComprobantes/admin'),),
+						),
+					),
+					array('label'=>'Misiones Diplomaticas',
+						'items' => array(
+								array('label' => 'Nuevo', 'url'=>$this->createUrl('/misionesDiplomaticas/create'),),
+								array('label' => 'Administrar', 'url'=>$this->createUrl('/misionesDiplomaticas/admin'),),
+						),
+					),
+				),
+ 			),
+			array('label'=>'Herramientas', 'url'=>'#',
+ 				'visible'=>!Yii::app()->user->isGuest,
+ 				'items'=>array(
+ 					array('label'=>'Copia de Seguridad',
+ 						'url'=>array('/backup/default/index')
+ 						//	'visible'=>!Yii::app()->user->isGuest,
+ 						//'visible'=>Yii::app()->user->isSuperAdmin,
+ 					),
+ 					array('label'=>'Auditoria', 
+ 						'url'=>array('/activerecordlog/admin')
+ 						// , 'visible'=>Yii::app()->user->isSuperAdmin
+ 					),
+ 				)
+			),
+  		),
 ))));
 ?>
 </header>

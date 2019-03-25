@@ -54,8 +54,8 @@ class TiposRegistros extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_tipo_registro' => 'Id Tipo Registro',
-			'tipo_registro' => 'Tipo Registro',
+			'id_tipo_registro' => 'Tipo de Registro',
+			'tipo_registro' => 'Tipo de Registro',
 		);
 	}
 

@@ -58,9 +58,9 @@ class TiposComprobantes extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_tipos_comprobantes' => 'Id Tipos Comprobantes',
+			'id_tipos_comprobantes' => 'Tipos de Comprobantes',
 			'id_tipos_registros_tc' => 'Id Tipos Registros Tc',
-			'tipo_comprobante' => 'Tipo Comprobante',
+			'tipo_comprobante' => 'Tipo de Comprobante',
 		);
 	}
 

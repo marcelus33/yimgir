@@ -45,7 +45,7 @@ class Comprobantes extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_comprobantes, id_clientes, id_tipos_comprobantes, id_tipo_registro, id_timbrado, id_misiones_diplomaticas, fecha_expedicion, numero_comprobante, total_importe, iva_simplificado', 'required'),
+			array('id_comprobantes, id_clientes, id_tipos_comprobantes, id_tipo_registro, id_timbrado, fecha_expedicion, numero_comprobante, total_importe, iva_simplificado', 'required'),
 			array('id_comprobantes, id_clientes, id_tipos_comprobantes, id_tipo_registro, id_timbrado, id_misiones_diplomaticas, importe_iva_5, importe_iva_10, importe_exenta, total_importe', 'numerical', 'integerOnly'=>true),
 			array('numero_comprobante', 'length', 'max'=>20),
 			array('ircp, iva_general, iva_simplificado', 'length', 'max'=>1),
@@ -78,11 +78,11 @@ class Comprobantes extends CActiveRecord
 	{
 		return array(
 			'id_comprobantes' => 'Id Comprobantes',
-			'id_clientes' => 'Id Clientes',
-			'id_tipos_comprobantes' => 'Id Tipos Comprobantes',
-			'id_tipo_registro' => 'Id Tipo Registro',
-			'id_timbrado' => 'Id Timbrado',
-			'id_misiones_diplomaticas' => 'Id Misiones Diplomaticas',
+			'id_clientes' => 'Cliente',
+			'id_tipos_comprobantes' => 'Tipo de Comprobante',
+			'id_tipo_registro' => 'Tipo de Registro',
+			'id_timbrado' => 'Timbrado',
+			'id_misiones_diplomaticas' => 'Misiones Diplomaticas',
 			'fecha_expedicion' => 'Fecha Expedicion',
 			'numero_comprobante' => 'Numero Comprobante',
 			'importe_iva_5' => 'Importe Iva 5',

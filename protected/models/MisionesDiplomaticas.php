@@ -1,13 +1,11 @@
 <?php
 
 /**
- * Este es el modelo para la tabla"misiones_diplomaticas".
+ * This is the model class for table "misiones_diplomaticas".
  *
  * The followings are the available columns in table 'misiones_diplomaticas':
  * @property integer $id_misiones_diplomaticas
  * @property string $mision_diplomatica
- * @property string $created_at
- * @property string $updated_at
  *
  * The followings are the available model relations:
  * @property Comprobantes[] $comprobantes
@@ -32,10 +30,9 @@ class MisionesDiplomaticas extends CActiveRecord
 		return array(
 			array('mision_diplomatica', 'required'),
 			array('mision_diplomatica', 'length', 'max'=>100),
-			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_misiones_diplomaticas, mision_diplomatica, created_at, updated_at', 'safe', 'on'=>'search'),
+			array('id_misiones_diplomaticas, mision_diplomatica', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,8 +56,6 @@ class MisionesDiplomaticas extends CActiveRecord
 		return array(
 			'id_misiones_diplomaticas' => 'Id Misiones Diplomaticas',
 			'mision_diplomatica' => 'Mision Diplomatica',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
 		);
 	}
 
@@ -84,8 +79,6 @@ class MisionesDiplomaticas extends CActiveRecord
 
 		$criteria->compare('id_misiones_diplomaticas',$this->id_misiones_diplomaticas);
 		$criteria->compare('mision_diplomatica',$this->mision_diplomatica,true);
-		$criteria->compare('created_at',$this->created_at,true);
-		$criteria->compare('updated_at',$this->updated_at,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
