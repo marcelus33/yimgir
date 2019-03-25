@@ -77,21 +77,21 @@ class Comprobantes extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_comprobantes' => 'Id Comprobantes',
+			'id_comprobantes' => 'Comprobante',
 			'id_clientes' => 'Cliente',
-			'id_tipos_comprobantes' => 'Tipo de Comprobante',
+			'id_tipos_comprobantes' => 'Tipos de Comprobante',
 			'id_tipo_registro' => 'Tipo de Registro',
 			'id_timbrado' => 'Timbrado',
 			'id_misiones_diplomaticas' => 'Misiones Diplomaticas',
-			'fecha_expedicion' => 'Fecha Expedicion',
-			'numero_comprobante' => 'Numero Comprobante',
+			'fecha_expedicion' => 'Fecha de Expedicion',
+			'numero_comprobante' => 'Numero de Comprobante',
 			'importe_iva_5' => 'Importe Iva 5',
 			'importe_iva_10' => 'Importe Iva 10',
 			'importe_exenta' => 'Importe Exenta',
 			'total_importe' => 'Total Importe',
-			'ircp' => 'Ircp',
-			'iva_general' => 'Iva General',
-			'iva_simplificado' => 'Iva Simplificado',
+			'ircp' => 'IRPC',
+			'iva_general' => 'IVA General',
+			'iva_simplificado' => 'IVA Simplificado',
 		);
 	}
 

@@ -37,8 +37,6 @@ return false;
 'columns'=>array(
 		'id_misiones_diplomaticas',
 		'mision_diplomatica',
-		'created_at',
-		'updated_at',
 array(
 'class'=>'bootstrap.widgets.TbButtonColumn',
 ),

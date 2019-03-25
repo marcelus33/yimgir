@@ -5,20 +5,40 @@
 
 <p class="help-block">Campos con <span class="required">*</span> son obligatorios.</p>
 
+<?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/calculodv.js') ?>
+
 <?php echo $form->errorSummary($model); ?>
-
-	<?php echo $form->textFieldRow($model,'id_documentos_identificacion',array('class'=>'span5')); ?>
-
-	<?php echo $form->textFieldRow($model,'numero_identificacion',array('class'=>'span5','maxlength'=>30)); ?>
-
-	<?php echo $form->textFieldRow($model,'dv',array('class'=>'span5')); ?>
-
-	<?php echo $form->textFieldRow($model,'nombre_razon_social',array('class'=>'span5','maxlength'=>250)); ?>
-
-	<?php echo $form->textFieldRow($model,'direccion',array('class'=>'span5','maxlength'=>100)); ?>
-
-	<?php echo $form->textFieldRow($model,'telefono',array('class'=>'span5')); ?>
-
+	<div class="row">
+		<div class="span-3">
+			<?php echo $form->labelEx($model,'id_documentos_identificacion'); ?> 
+			<?php echo $form->dropDownList($model,'id_documentos_identificacion',
+			CHtml::listData(DocumentosIdentificacion::model()->findAll(), 
+						'id_documentos_identificacion', 
+						'documento_identificacion'), 
+				array('empty'=>'Seleccione elemento')); ?>	
+			
+		</div>
+		<div class="span-3">
+				<?php echo $form->textFieldRow($model,'nombre_razon_social',array('style'=>'width: 250px','maxlength'=>250)); ?>
+		</div>
+		
+	</div>
+	<div class="row">
+		<div class="span-3">
+			<?php echo $form->textFieldRow($model,'numero_identificacion',array('class'=>'input-medium','maxlength'=>30) ); ?>
+		</div>
+		<div class="span-3">
+			<?php echo $form->textFieldRow($model,'dv',array('readonly'=>true,'style'=>'width: 30px')); ?>	
+		</div>
+	</div>
+	<div class="row">
+		<div class="span-3">
+			<?php echo $form->textFieldRow($model,'direccion',array('style'=>'width: 250px','maxlength'=>100)); ?>
+		</div>
+		<div class="span-3">
+			<?php echo $form->textFieldRow($model,'telefono',array('style'=>'width: 100px')); ?>
+		</div>
+	</div>
 <div class="form-actions">
 	<?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType'=>'submit',

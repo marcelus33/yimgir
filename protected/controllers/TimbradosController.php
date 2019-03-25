@@ -27,7 +27,7 @@ public function accessRules()
 {
 return array(
 array('allow',  // allow all users to perform 'index' and 'view' actions
-'actions'=>array('index','view'),
+'actions'=>array('index','view', 'buscarClientes'),
 'users'=>array('*'),
 ),
 array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -172,5 +172,34 @@ if(isset($_POST['ajax']) && $_POST['ajax']==='timbrados-form')
 echo CActiveForm::validate($model);
 Yii::app()->end();
 }
+}
+
+public function actionBuscarClientes()
+ {
+	
+
+	if(isset($_POST['numero_identificacion']) && ($_POST['numero_identificacion']!==''))
+	{
+		$numero_identificacion = $_POST['numero_identificacion'];
+				
+		$criteria = new CDbCriteria;
+		//timbrado no vencido y talonario HABILITADO
+        $criteria->condition = 'numero_identificacion=:nro_id'; 
+ 		$criteria->params = array(':nro_id'=>$numero_identificacion);
+
+ 		$result = Clientes::model()->find($criteria);
+         //Ya obtenemos los valores que necesitamos
+        $nombre_razon_social = $result['nombre_razon_social'];
+ 		$numero_identificacion = $result['numero_identificacion'];
+ 		$dv = $result['dv'];
+ 		
+ 	    // if ($result) //preguntamos si obtuvo algo la consulta en si
+ 			
+	    $array = array($nombre_razon_social, $dv);//, $dia_vencimiento_cuota
+
+		echo CJSON::encode($array);
+
+    } 
+
 }
 }

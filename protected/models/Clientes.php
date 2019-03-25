@@ -67,11 +67,11 @@ class Clientes extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_clientes' => 'Id Clientes',
-			'id_documentos_identificacion' => 'Id Documentos Identificacion',
+			'id_clientes' => 'ID Cliente',
+			'id_documentos_identificacion' => 'Documento de Identificacion Tipo',
 			'numero_identificacion' => 'Numero Identificacion',
-			'dv' => 'Dv',
-			'nombre_razon_social' => 'Nombre Razon Social',
+			'dv' => 'DV',
+			'nombre_razon_social' => 'Nombre o Razon Social',
 			'direccion' => 'Direccion',
 			'telefono' => 'Telefono',
 		);
