@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Este es el modelo para la tabla"misiones_diplomaticas".
+ * This is the model class for table "misiones_diplomaticas".
  *
  * The followings are the available columns in table 'misiones_diplomaticas':
  * @property integer $id_misiones_diplomaticas

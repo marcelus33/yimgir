@@ -61,21 +61,30 @@ $this->render('view',array(
 */
 public function actionCreate()
 {
-$model=new Comprobantes;
+    $model=new Comprobantes;
 
-// Uncomment the following line if AJAX validation is needed
-// $this->performAjaxValidation($model);
+    // Uncomment the following line if AJAX validation is needed
+    // $this->performAjaxValidation($model);
 
-if(isset($_POST['Comprobantes']))
-{
-$model->attributes=$_POST['Comprobantes'];
-if($model->save())
-$this->redirect(array('view','id'=>$model->id_comprobantes));
-}
+    if(isset($_POST['Comprobantes']))
+    {   
+        $model->attributes=$_POST['Comprobantes'];
 
-$this->render('create',array(
-'model'=>$model,
-));
+        //modificamos la fecha antes de guardar, ya que en la vista estaba d-m-Y y en la bd es Y-m-d
+        $model->fecha_expedicion = $this->cambiarFecha($model->fecha_expedicion);
+        //se sacan los puntos de los inputs por el js del separador de miles que los agregó
+        $model->importe_iva_5 = $this->sacarPuntos($model->importe_iva_5);
+        $model->importe_iva_10 = $this->sacarPuntos($model->mporte_iva_10);
+        $model->importe_exenta = $this->sacarPuntos($model->importe_exenta);
+        $model->total_importe = $this->sacarPuntos($model->total_importe);
+    
+        if($model->save())
+            $this->redirect(array('view','id'=>$model->id_comprobantes));
+    }
+
+    $this->render('create',array(
+    'model'=>$model,
+    ));
 }
 
 /**
@@ -85,16 +94,25 @@ $this->render('create',array(
 */
 public function actionUpdate($id)
 {
-$model=$this->loadModel($id);
+    $model=$this->loadModel($id);
 
-// Uncomment the following line if AJAX validation is needed
-// $this->performAjaxValidation($model);
+    // Uncomment the following line if AJAX validation is needed
+    // $this->performAjaxValidation($model);
 
-if(isset($_POST['Comprobantes']))
-{
-$model->attributes=$_POST['Comprobantes'];
-if($model->save())
-$this->redirect(array('view','id'=>$model->id_comprobantes));
+    if(isset($_POST['Comprobantes']))
+    {
+        $model->attributes=$_POST['Comprobantes'];
+
+        //modificamos la fecha antes de guardar, ya que en la vista estaba d-m-Y y en la bd es Y-m-d
+        $model->fecha_expedicion = $this->cambiarFecha($model->fecha_expedicion);
+        //se sacan los puntos de los inputs por el js del separador de miles que los agregó
+        $model->importe_iva_5 = $this->sacarPuntos($model->importe_iva_5);
+        $model->importe_iva_10 = $this->sacarPuntos($model->mporte_iva_10);
+        $model->importe_exenta = $this->sacarPuntos($model->importe_exenta);
+        $model->total_importe = $this->sacarPuntos($model->total_importe);
+
+        if($model->save())
+            $this->redirect(array('view','id'=>$model->id_comprobantes));
 }
 
 $this->render('update',array(
@@ -147,6 +165,18 @@ $this->render('admin',array(
 'model'=>$model,
 ));
 }
+
+    public function sacarPuntos($nro)
+	{	
+		$newNro = str_replace(".", "", $nro);
+		return $newNro;
+    }
+
+    public function cambiarFecha($originalDate)
+	{	
+		$newDate = date("Y-m-d", strtotime($originalDate));
+		return $newDate;
+	}
 
 /**
 * Returns the data model based on the primary key given in the GET variable.
