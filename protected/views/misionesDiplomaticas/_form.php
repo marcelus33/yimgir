@@ -1,3 +1,4 @@
+<br>
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'id'=>'misiones-diplomaticas-form',
 	'enableAjaxValidation'=>false,

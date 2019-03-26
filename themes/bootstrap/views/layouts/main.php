@@ -58,7 +58,7 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
 			array('label'=>'Clientes',
  				'items' => array(
 					array('label' => 'Nuevo', 'url'=>$this->createUrl('/clientes/create'),),
-					array('label' => 'Administrar', 'url'=>$this->createUrl('/clientes/administrarRecibos'),),
+					array('label' => 'Administrar', 'url'=>$this->createUrl('/clientes/admin'),),
 				 ),
 			),
 			array('label'=>'Parametros',

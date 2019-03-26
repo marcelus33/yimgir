@@ -58,8 +58,8 @@ class TiposComprobantes extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_tipos_comprobantes' => 'Tipos de Comprobantes',
-			'id_tipos_registros_tc' => 'Id Tipos Registros Tc',
+			'id_tipos_comprobantes' => 'ID Tipo de Comprobante',
+			'id_tipos_registros_tc' => 'Tipos de Registro',
 			'tipo_comprobante' => 'Tipo de Comprobante',
 		);
 	}
@@ -85,6 +85,9 @@ class TiposComprobantes extends CActiveRecord
 		$criteria->compare('id_tipos_comprobantes',$this->id_tipos_comprobantes);
 		$criteria->compare('id_tipos_registros_tc',$this->id_tipos_registros_tc);
 		$criteria->compare('tipo_comprobante',$this->tipo_comprobante,true);
+
+		$criteria->with=array('idTiposRegistrosTc');
+		$criteria->addSearchCondition('idTiposRegistrosTc.tipo_registro_tc',$this->id_tipos_registros_tc);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

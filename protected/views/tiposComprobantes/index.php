@@ -1,11 +1,12 @@
+<br>
 <?php
-$this->breadcrumbs=array(
-	'Tipos Comprobantes',
-);
+// $this->breadcrumbs=array(
+// 	'Tipos Comprobantes',
+// );
 
 $this->menu=array(
-array('label'=>'Crear Nuevo','url'=>array('create')),
-array('label'=>'Administrar','url'=>array('admin')),
+array('label'=>'Nuevo Tipo Comprobante','url'=>array('create')),
+array('label'=>'Buscar','url'=>array('admin')),
 );
 ?>
 

@@ -57,7 +57,7 @@ class Clientes extends CActiveRecord
 		return array(
 			'comprobantes' => array(self::HAS_MANY, 'Comprobantes', 'id_clientes'),
 			'idDocumentosIdentificacion' => array(self::BELONGS_TO, 'DocumentosIdentificacion', 'id_documentos_identificacion'),
-			'timbradoses' => array(self::HAS_MANY, 'Timbrados', 'id_clientes'),
+			'timbrados' => array(self::HAS_MANY, 'Timbrados', 'id_clientes'),
 		);
 	}
 
@@ -69,7 +69,7 @@ class Clientes extends CActiveRecord
 		return array(
 			'id_clientes' => 'ID Cliente',
 			'id_documentos_identificacion' => 'Documento de Identificacion Tipo',
-			'numero_identificacion' => 'Numero Identificacion',
+			'numero_identificacion' => 'Numero de Identificacion',
 			'dv' => 'DV',
 			'nombre_razon_social' => 'Nombre o Razon Social',
 			'direccion' => 'Direccion',
@@ -96,12 +96,15 @@ class Clientes extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_clientes',$this->id_clientes);
-		$criteria->compare('id_documentos_identificacion',$this->id_documentos_identificacion);
+		//$criteria->compare('id_documentos_identificacion',$this->id_documentos_identificacion);
 		$criteria->compare('numero_identificacion',$this->numero_identificacion,true);
 		$criteria->compare('dv',$this->dv);
 		$criteria->compare('nombre_razon_social',$this->nombre_razon_social,true);
 		$criteria->compare('direccion',$this->direccion,true);
 		$criteria->compare('telefono',$this->telefono,true);
+		
+		$criteria->with=array('idDocumentosIdentificacion');
+		$criteria->addSearchCondition('idDocumentosIdentificacion.documento_identificacion',$this->id_documentos_identificacion);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -1,11 +1,11 @@
 <?php
-$this->breadcrumbs=array(
-	'Clientes',
-);
+// $this->breadcrumbs=array(
+// 	'Clientes',
+// );
 
 $this->menu=array(
-array('label'=>'Crear Nuevo','url'=>array('create')),
-array('label'=>'Administrar','url'=>array('admin')),
+array('label'=>'Nuevo Cliente','url'=>array('create')),
+array('label'=>'Buscar','url'=>array('admin')),
 );
 ?>
 

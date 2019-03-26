@@ -54,8 +54,8 @@ class DocumentosIdentificacion extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_documentos_identificacion' => 'Id Documentos Identificacion',
-			'documento_identificacion' => 'Documento Identificacion',
+			'id_documentos_identificacion' => 'ID Documentos Identificacion',
+			'documento_identificacion' => 'Documento de Identificacion',
 		);
 	}
 

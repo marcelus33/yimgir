@@ -7,9 +7,11 @@
 
 <?php echo $form->errorSummary($model); ?>
 
-	<?php echo $form->textFieldRow($model,'id_tipos_registros_tc',array('class'=>'span5')); ?>
-
-	<?php echo $form->textFieldRow($model,'tipo_comprobante',array('class'=>'span5','maxlength'=>50)); ?>
+<?php echo $form->labelEx($model,'id_tipos_registros_tc'); ?> 
+    <?php echo $form->dropDownList($model,'id_tipos_registros_tc',
+    	CHtml::listData(TiposRegistrosTc::model()->findAll(), 'id_tipos_registros_tc', 'tipo_registro_tc') ); //'curso'),array('empty'=>'Seleccione curso') );?> 
+	
+<?php echo $form->textFieldRow($model,'tipo_comprobante',array('class'=>'input-large','maxlength'=>50)); ?>
 
 <div class="form-actions">
 	<?php $this->widget('bootstrap.widgets.TbButton', array(

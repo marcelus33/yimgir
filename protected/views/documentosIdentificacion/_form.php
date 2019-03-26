@@ -1,3 +1,4 @@
+<br>
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'id'=>'documentos-identificacion-form',
 	'enableAjaxValidation'=>false,
@@ -7,7 +8,7 @@
 
 <?php echo $form->errorSummary($model); ?>
 
-	<?php echo $form->textFieldRow($model,'documento_identificacion',array('class'=>'span5','maxlength'=>30)); ?>
+	<?php echo $form->textFieldRow($model,'documento_identificacion',array('class'=>'input-large','maxlength'=>30)); ?>
 
 <div class="form-actions">
 	<?php $this->widget('bootstrap.widgets.TbButton', array(
