@@ -68,6 +68,7 @@ class Comprobantes extends CActiveRecord
 			'idTimbrado' => array(self::BELONGS_TO, 'Timbrados', 'id_timbrado'),
 			'idTipoRegistro' => array(self::BELONGS_TO, 'TiposRegistros', 'id_tipo_registro'),
 			'idTiposComprobantes' => array(self::BELONGS_TO, 'TiposComprobantes', 'id_tipos_comprobantes'),
+			'idCrugeUser' => array(self::BELONGS_TO, 'CrugeUser', 'iduser'),
 		);
 	}
 

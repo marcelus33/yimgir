@@ -1,8 +1,6 @@
 <?php
-$this->breadcrumbs=array(
-	'Comprobantes'=>array('index'),
-	'Administrar',
-);
+
+echo "<br>";
 
 $this->menu=array(
 array('label'=>'Listar','url'=>array('index')),

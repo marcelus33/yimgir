@@ -1,7 +1,6 @@
 <?php
-$this->breadcrumbs=array(
-	'Comprobantes',
-);
+
+echo "<br>";
 
 $this->menu=array(
 array('label'=>'Crear Nuevo','url'=>array('create')),

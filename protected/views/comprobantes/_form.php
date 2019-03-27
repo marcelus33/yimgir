@@ -6,19 +6,37 @@
 <?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/jquery-mask.js') ?>
 <?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/mask.js') ?>
 <?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/tousan.js') ?>
+<?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/busquedaclientes.js') ?>
+<?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/switch_comprobantes.js') ?>
 
 <p class="help-block">Campos con <span class="required">*</span> son obligatorios.</p>
 
 <?php echo $form->errorSummary($model); ?>
 
 	<?php //echo $form->textFieldRow($model,'id_comprobantes',array('class'=>'span5')); ?>
-
-	<?php //echo $form->textFieldRow($model,'id_tipo_registro',array('class'=>'span5')); ?>
-	<!--<div class="span3">-->	
 	<?php echo $form->labelEx($model,'id_tipo_registro'); ?> 
-    <?php echo $form->dropDownList($model,'id_tipo_registro',
-    	CHtml::listData(TiposRegistros::model()->findAll(), 'id_tipo_registro', 'tipo_registro') ); //'curso'),array('empty'=>'Seleccione curso') );?> 
+	<?php echo $form->hiddenField($model,'id_tipo_registro'); ?>
+	<!--<div class="span3">-->	
+	<?php //echo $form->labelEx($model,'id_tipo_registro'); ?> 
+    <?php //echo $form->dropDownList($model,'id_tipo_registro',
+		//CHtml::listData(TiposRegistros::model()->findAll(), 'id_tipo_registro', 'tipo_registro') ); ?> 
 	<!--</div>-->
+
+	<?php
+
+	$this->widget('bootstrap.widgets.TbButtonGroup', array(
+		'type' => 'primary',
+		'toggle' => 'radio',
+		'htmlOptions'=> array('id' => 'Group'),
+		'buttons' => array(
+		array('label'=>'COMPRA'),
+		array('label'=>'VENTA'),
+		),
+	));
+
+	echo "<br><br>";
+	?>
+	
 
 	<?php //echo $form->textFieldRow($model,'id_tipos_comprobantes',array('class'=>'span5')); ?>
 	<!--<div class="span3">-->	
@@ -27,8 +45,37 @@
     	CHtml::listData(TiposComprobantes::model()->findAll(), 'id_tipos_comprobantes', 'tipo_comprobante') ); //'curso'),array('empty'=>'Seleccione curso') );?> 
 	<!--</div>-->
 
+	<?php echo $form->hiddenField($model,'cruge_user_id',array('class'=>'span5', 'value'=> Yii::app()->user->id)); ?>
+	<?php echo $form->hiddenField($model,'id_clientes',array('class'=>'span5')); ?>
 
-	<?php echo $form->textFieldRow($model,'id_clientes',array('class'=>'span5')); ?>
+	<!-- INICIO busqueda cliente -->
+	<div class="row-fluid">
+	
+		<div class="span2">
+			<label>No de Identificacion <span class="required">*</span></label>
+			<input type='text' id='Busqueda_Numero_Identificacion' style="width: 130px">
+		</div>
+
+		<div class="span1">
+			<label>DV</label>
+			<input type='text' id='DV' style="width: 30px"  disabled/>
+		</div>
+
+		<div class="span3">
+			<label>Nombre o Razon Social</label>
+			<input type='text' id="Nombre_razon_social" style="width: 300px"  disabled/>
+		</div>
+
+	</div>
+	<!-- FIN busqueda cliente -->
+
+	<?php //echo $form->textFieldRow($model,'id_timbrado',array('class'=>'span5')); ?>
+	<!--div class="span3">	-->
+		<?php echo $form->labelEx($model,'id_timbrado'); ?> 
+		<?php echo $form->dropDownList($model,'id_timbrado', //agregamos esa condition en el findAll para que devuelva vacio
+		CHtml::listData(Timbrados::model()->findAll(array("condition"=>"id_timbrado = 0")), 'id_timbrado', 'numero_timbrado'),
+					array('class'=>'input-medium','empty'=>'Seleccione timbrado') ); ?> 
+    <!--</div>-->
 
 	
 	
@@ -49,8 +96,6 @@
                             )); ?>
 
 	<?php echo $form->textFieldRow($model,'numero_comprobante',array('class'=>'span5','maxlength'=>20)); ?>	
-
-	<?php echo $form->textFieldRow($model,'id_timbrado',array('class'=>'span5')); ?>
 	
 	<div class="row-fluid">
 		<!--En class se pone "number" porque asi reconoce el js de separador de miles-->
