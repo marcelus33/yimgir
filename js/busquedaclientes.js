@@ -2,7 +2,7 @@ $(document).ready
 (   
     function ()
     {   //setTimeout(calculos_montos, 500);
-        setTimeout(buscar_cliente, 1000);
+        //setTimeout(buscar_cliente, 1000);
        
        $("#Busqueda_Numero_Identificacion").change( function () {
                                             // Code to do stuff immediately
@@ -27,17 +27,15 @@ function buscar_cliente()
                 success:  function(response, status) 
                 {   
                                     response = eval(response);
-                                    //alert(response);
-                                        
-                                    /*
-                                        var str = "Mr Blue has a blue house and a blue car";
-                                        var res = str.replace(/blue/g, "red");
-                                    */
+                                                                  
                                     if (response[0] != null)
                                         {
                                         //response[0] = String(response[0]);
                                         $("#Nombre_razon_social").val(response[0]); //parseInt(
-                                        $("#DV").val(response[1]);                               
+                                        $("#DV").val(response[1]);
+                                        $("#Timbrados_id_clientes").val(response[2]);
+                                        //este se utiliza para la vista de Comprobantes
+                                        $("#Comprobantes_id_clientes").val(response[2]);
                                         
                                         }
                                         else 

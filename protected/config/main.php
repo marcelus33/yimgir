@@ -20,7 +20,8 @@ return array(
 
 	// autoloading model and component classes
 	'import'=>array(
-        'application.models.*',
+		'application.models.*',
+		'application.models.crugeuser',
 		'application.components.*',
 		'application.modules.cruge.components.*',
 		'application.modules.cruge.extensions.crugemailer.*',

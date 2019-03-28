@@ -1,9 +1,6 @@
 <?php
-$this->breadcrumbs=array(
-	'Comprobantes'=>array('index'),
-	$model->id_comprobantes=>array('view','id'=>$model->id_comprobantes),
-	'Actualizar',
-);
+
+echo "<br>";
 
 	$this->menu=array(
 	array('label'=>'Listar','url'=>array('index')),

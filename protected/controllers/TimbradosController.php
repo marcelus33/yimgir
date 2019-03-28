@@ -183,19 +183,19 @@ public function actionBuscarClientes()
 		$numero_identificacion = $_POST['numero_identificacion'];
 				
 		$criteria = new CDbCriteria;
-		//timbrado no vencido y talonario HABILITADO
-        $criteria->condition = 'numero_identificacion=:nro_id'; 
+		$criteria->condition = 'numero_identificacion=:nro_id'; 
  		$criteria->params = array(':nro_id'=>$numero_identificacion);
 
  		$result = Clientes::model()->find($criteria);
          //Ya obtenemos los valores que necesitamos
-        $nombre_razon_social = $result['nombre_razon_social'];
- 		$numero_identificacion = $result['numero_identificacion'];
+		$id_cliente = $result['id_clientes'];
+		$nombre_razon_social = $result['nombre_razon_social'];
  		$dv = $result['dv'];
+		 
  		
  	    // if ($result) //preguntamos si obtuvo algo la consulta en si
  			
-	    $array = array($nombre_razon_social, $dv);//, $dia_vencimiento_cuota
+	    $array = array($nombre_razon_social, $dv, $id_cliente);
 
 		echo CJSON::encode($array);
 

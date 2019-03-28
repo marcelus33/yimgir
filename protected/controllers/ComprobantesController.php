@@ -13,9 +13,9 @@ public $layout='//layouts/column2';
 */
 public function filters()
 {
-return array(
-'accessControl', // perform access control for CRUD operations
-);
+    return array(
+    'accessControl', // perform access control for CRUD operations
+    );
 }
 
 /**
@@ -31,7 +31,7 @@ array('allow',  // allow all users to perform 'index' and 'view' actions
 'users'=>array('*'),
 ),
 array('allow', // allow authenticated user to perform 'create' and 'update' actions
-'actions'=>array('create','update'),
+'actions'=>array('create','update','buscarClientes','CambiarComboBox','ObtenerTimbrados'),
 'users'=>array('@'),
 ),
 array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -74,7 +74,7 @@ public function actionCreate()
         $model->fecha_expedicion = $this->cambiarFecha($model->fecha_expedicion);
         //se sacan los puntos de los inputs por el js del separador de miles que los agregó
         $model->importe_iva_5 = $this->sacarPuntos($model->importe_iva_5);
-        $model->importe_iva_10 = $this->sacarPuntos($model->mporte_iva_10);
+        $model->importe_iva_10 = $this->sacarPuntos($model->importe_iva_10);
         $model->importe_exenta = $this->sacarPuntos($model->importe_exenta);
         $model->total_importe = $this->sacarPuntos($model->total_importe);
     
@@ -107,7 +107,7 @@ public function actionUpdate($id)
         $model->fecha_expedicion = $this->cambiarFecha($model->fecha_expedicion);
         //se sacan los puntos de los inputs por el js del separador de miles que los agregó
         $model->importe_iva_5 = $this->sacarPuntos($model->importe_iva_5);
-        $model->importe_iva_10 = $this->sacarPuntos($model->mporte_iva_10);
+        $model->importe_iva_10 = $this->sacarPuntos($model->importe_iva_10);
         $model->importe_exenta = $this->sacarPuntos($model->importe_exenta);
         $model->total_importe = $this->sacarPuntos($model->total_importe);
 
@@ -145,10 +145,10 @@ throw new CHttpException(400,'Invalid request. Please do not repeat this request
 */
 public function actionIndex()
 {
-$dataProvider=new CActiveDataProvider('Comprobantes');
-$this->render('index',array(
-'dataProvider'=>$dataProvider,
-));
+    $dataProvider=new CActiveDataProvider('Comprobantes');
+    $this->render('index',array(
+    'dataProvider'=>$dataProvider,
+    ));
 }
 
 /**
@@ -156,14 +156,15 @@ $this->render('index',array(
 */
 public function actionAdmin()
 {
-$model=new Comprobantes('search');
-$model->unsetAttributes();  // clear any default values
-if(isset($_GET['Comprobantes']))
-$model->attributes=$_GET['Comprobantes'];
+    $model=new Comprobantes('search');
+    $model->unsetAttributes();  // clear any default values
+   
+    if(isset($_GET['Comprobantes']))
+     $model->attributes=$_GET['Comprobantes'];
 
-$this->render('admin',array(
-'model'=>$model,
-));
+    $this->render('admin',array(
+    'model'=>$model,
+    ));
 }
 
     public function sacarPuntos($nro)
@@ -176,7 +177,99 @@ $this->render('admin',array(
 	{	
 		$newDate = date("Y-m-d", strtotime($originalDate));
 		return $newDate;
-	}
+    }
+    
+    public function actionBuscarClientes()
+    {   //esta funcion se repite en TimbradorController, por lo que lo ideal seria crear
+        //otro controlador para funciones globales reutilizables, observacion a tener en cuenta (DRY)
+
+        if(isset($_POST['numero_identificacion']) && ($_POST['numero_identificacion']!==''))
+        {
+            $numero_identificacion = $_POST['numero_identificacion'];
+                    
+            $criteria = new CDbCriteria;
+            $criteria->condition = 'numero_identificacion=:nro_id'; 
+            $criteria->params = array(':nro_id'=>$numero_identificacion);
+
+            $result = Clientes::model()->find($criteria);
+            //Ya obtenemos los valores que necesitamos
+            $id_cliente = $result['id_clientes'];
+            $nombre_razon_social = $result['nombre_razon_social'];
+            $dv = $result['dv'];
+            
+            
+            // if ($result) //preguntamos si obtuvo algo la consulta en si
+                
+            $array = array($nombre_razon_social, $dv, $id_cliente);
+
+            echo CJSON::encode($array);
+
+        } 
+
+    }
+
+    public function actionCambiarComboBox()
+    {  
+
+        if( isset( $_POST['tipoDeRegistro'] ) && ( $_POST['tipoDeRegistro']!=='') )
+        {
+            $tipoDeRegistro = $_POST['tipoDeRegistro'];
+            //aqui obtenemos el id tipo de registro de la vista de comprobantes
+            //recordamos que 1= Compra, 2= Venta, 3= Compra/Venta (ambos)
+            
+            $criteria = new CDbCriteria;
+            $criteria->condition = 'id_tipos_registros_tc=:tipoRegistro OR id_tipos_registros_tc=3 ';
+            //preguntamos si es igual al tipo de registro enviado Y/O 3 porque 3 eran AMBOS 
+            $criteria->params = array(':tipoRegistro'=>$tipoDeRegistro);
+
+            $results = TiposComprobantes::model()->findAll($criteria);             
+            
+            echo CJSON::encode($results);
+
+        } 
+
+    }
+
+    public function actionObtenerTimbrados()
+    {  
+
+        if( isset( $_POST['tipoDeRegistro'] ) && ( $_POST['tipoDeRegistro']!=='') )
+        {
+            $tipoDeRegistro = $_POST['tipoDeRegistro']; //recordamos que 1= Compra, 2= Venta
+            $searchItem =  $_POST['searchItem']; //1: cedula ingresada, 2: user_id del form
+           
+            if ( $tipoDeRegistro == 1)
+             {
+                $numero_documento_search =  $searchItem;
+             }
+            else {           
+                    $user = Cruge_User::model()->findByPK($searchItem); //se obtiene registro del user
+                    if ($user)
+                    {
+                       $numero_documento_search = $user->numero_identificacion_irpc; //para poder tener el ruc asociado al user
+
+                    } else $id_cliente = 0;                    
+                }
+            //con el numero de documento buscamos al cliente para poder tener su ID
+            $criteriaCliente = new CDbCriteria;
+            $criteriaCliente->condition = 'numero_identificacion=:numeroIdentificacionIrpc';
+            $criteriaCliente->params = array(':numeroIdentificacionIrpc'=>$numero_documento_search);
+            $cliente = Clientes::model()->find($criteriaCliente);
+            if ($cliente) 
+                $id_cliente = $cliente->id_clientes;
+                else $id_cliente = 0;
+            //con el ID del cliente buscamos ahora sus timbrados
+            $criteriaTimbrado = new CDbCriteria;
+            $criteriaTimbrado->condition = 'id_clientes=:idClientes';
+            $criteriaTimbrado->params = array(':idClientes'=>$id_cliente); //$id_cliente
+
+            $results = Timbrados::model()->findAll($criteriaTimbrado);             
+            
+            echo CJSON::encode($results);
+
+        } 
+
+    }
 
 /**
 * Returns the data model based on the primary key given in the GET variable.
