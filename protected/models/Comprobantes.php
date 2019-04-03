@@ -14,7 +14,7 @@
  * @property string $numero_comprobante
  * @property integer $importe_iva_5
  * @property integer $importe_iva_10
- * @property integer $importe_exenta
+ * @property integer $importe_exenta 
  * @property integer $total_importe
  * @property string $ircp
  * @property string $iva_general
@@ -44,14 +44,14 @@ class Comprobantes extends CActiveRecord
 	{
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
-		return array(
-			array('id_comprobantes, id_clientes, id_tipos_comprobantes, id_tipo_registro, id_timbrado, fecha_expedicion, numero_comprobante, total_importe, iva_simplificado', 'required'),
-			array('id_comprobantes, id_clientes, id_tipos_comprobantes, id_tipo_registro, id_timbrado, id_misiones_diplomaticas, importe_iva_5, importe_iva_10, importe_exenta, total_importe', 'numerical', 'integerOnly'=>true),
-			array('numero_comprobante', 'length', 'max'=>20),
+		return array( //id_comprobantes, cruge_user_id
+			array('cruge_user_id, id_clientes, id_tipos_comprobantes, id_tipo_registro,  fecha_expedicion, numero_comprobante, total_importe, iva_simplificado', 'required'), //id_timbrado,
+			array('cruge_user_id, id_clientes, id_tipos_comprobantes, id_tipo_registro, id_timbrado, id_misiones_diplomaticas, importe_iva_5, importe_iva_10, importe_exenta, total_importe', 'numerical', 'integerOnly'=>true),
+			array('numero_comprobante, importe_iva_5, importe_iva_10, importe_exenta, total_importe', 'length', 'max'=>20),
 			array('ircp, iva_general, iva_simplificado', 'length', 'max'=>1),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_comprobantes, id_clientes, id_tipos_comprobantes, id_tipo_registro, id_timbrado, id_misiones_diplomaticas, fecha_expedicion, numero_comprobante, importe_iva_5, importe_iva_10, importe_exenta, total_importe, ircp, iva_general, iva_simplificado', 'safe', 'on'=>'search'),
+			array('id_clientes, id_tipos_comprobantes, id_tipo_registro, id_timbrado, id_misiones_diplomaticas, fecha_expedicion, numero_comprobante, importe_iva_5, importe_iva_10, importe_exenta, total_importe, ircp, iva_general, iva_simplificado', 'safe', 'on'=>'search'),
 		);
 	}
 

@@ -2,25 +2,15 @@ $(document).ready
 (   
     function ()
     {  
-        //En el _form de COMPROBANTES utilizamos un widget ButtonGroup, de YIIBOOSTER
-        //el widget utiliza unos "botones" que en verdad son elementos <a> de links
-        //el widget por defecto les asigna un id y0, y1, como vemos mas abajo...
-        var tipo_registro = 0;
-
-        $("#yw0").click( function () {
-                                            
-                         setTimeout(cambiarValor(1), 500); //COMPRA
-                         tipo_registro = 1;
-            } );
-
-        $("#yw1").click( function () {
-                
-                        setTimeout(cambiarValor(2), 500); // VENTA
-                        tipo_registro = 2;
-            } );
+        setTimeout(cambiarTipoComprobantesBox(), 500); 
 
         $("#Busqueda_Numero_Identificacion").change( function () {
-                        setTimeout(buscar_timbrados(tipo_registro), 1000);
+                        setTimeout(buscar_timbrados(), 1000);
+            } );
+        
+        $("#Comprobantes_id_tipos_comprobantes").change( function () {
+                        setTimeout(buscar_timbrados(), 1000);
+                        setTimeout(displayComboTimbrados(), 700);             
             } );    
        
     }    
@@ -29,16 +19,16 @@ $(document).ready
     
  );
 
-function cambiarValor(boton)
+function cambiarTipoComprobantesBox()
     {   
-        $("#Comprobantes_id_tipo_registro").val(boton);
+        var tipoDeRegistro = $("#Comprobantes_id_tipo_registro").val();
         //creamos variable donde se irá concatenando el html del combobox a generarse, abrimos <select>
         var comboBoxHtml = "<select name=\"Comprobantes[id_tipos_comprobantes]\" id=\"Comprobantes_id_tipos_comprobantes\">";
 
         $.ajax({
             url: "CambiarComboBox",
             type: 'POST',
-            data:"&tipoDeRegistro="+boton,
+            data:"&tipoDeRegistro="+tipoDeRegistro,
             success:  function(response, status) 
             {   
                                 response = eval(response);
@@ -63,44 +53,70 @@ function cambiarValor(boton)
     }});
     } 
 
-    function buscar_timbrados(tipo_registro)
+    function buscar_timbrados()
     {   
         var comboBoxHtml =
         "<select class=\"input-medium\" name=\"Comprobantes[id_timbrado]\" id=\"Comprobantes_id_timbrado\"> <option value=\"\">Seleccione timbrado</option>"
-        var tipoRegistro = tipo_registro;
-        parseInt(tipoRegistro);
-        //alert(tipoRegistro);
+        var tipoRegistro = parseInt($("#Comprobantes_id_tipo_registro").val());
+        var id_user = parseInt($("#Comprobantes_cruge_user_id").val());
+        var numero_ruc =  $("#Busqueda_Numero_Identificacion").val();
+      
         if (tipoRegistro != 0)
         {
             if (tipoRegistro == 1)
                 {var search_item =  $("#Busqueda_Numero_Identificacion").val();} //enviamos RUC o CI para COMPRA
-                else {search_item =  $("#Comprobantes_cruge_user_id").val();} // tenemos user id para ver su ruc
+                else {search_item =  id_user;} // tenemos user id para ver su ruc
 
             search_item = parseInt(search_item);
 
             $.ajax({
                 url: "ObtenerTimbrados",
                 type: 'POST',
-                data:"&tipoDeRegistro="+tipoRegistro+"&searchItem="+search_item,
+                data:"&tipoDeRegistro="+tipoRegistro+"&searchItem="+search_item+"&iduser="+id_user+"&numeroRuc="+numero_ruc,
                 success:  function(response, status) 
                 {   
                                     response = eval(response);
                                                                 
                                     if (response[0] != null)
                                         {
-                                            //alert("Entro aca");
                                             //En caso de obtener un resultado, seguiremos concatenando el combobox
                                             for(var k in response) {
                                                 comboBoxHtml = comboBoxHtml +"<option value=\""+response[k]['id_timbrado']+"\">"+response[k]['numero_timbrado'] +"</option>";
                                             }
+
                                             comboBoxHtml = comboBoxHtml + "</select>";	//cerramos el select
 
-                                            $("#Comprobantes_id_timbrado").html(comboBoxHtml); //cambiamos html del combo
+                                            //$("#Comprobantes_id_timbrado").html(comboBoxHtml); //cambiamos html del combo
                                         }
                                         else 
-                                        { 
-                                             alert("Error al generarse Tipos de Comprobantes");
+                                        {    
+                                            comboBoxHtml = comboBoxHtml + "</select>";	//cerramos el select
+                                            switch (response) {
+                                                case 0:
+                                                  mensaje = "Error al ejecutar la funcion asincrona";
+                                                  break;
+                                                case 1:
+                                                  mensaje = "No se ha encontrado Usuario";
+                                                  break;
+                                                case 2:
+                                                   mensaje = "Error del tipo de registro";
+                                                  break;
+                                                case 3:
+                                                  mensaje = "No se encuentra Cliente de Venta";
+                                                  break;
+                                                case 4:
+                                                  mensaje = "Numero de identificacion invalido";
+                                                  break;
+                                                case 5:
+                                                  mensaje = "El cliente es igual al Usuario del sistema";
+                                                  break;
+                                                default:
+                                                  mensaje = "Error al generarse Timbrados";
+                                              } 
+                                            alert(mensaje);
                                         }
+
+                                        $("#Comprobantes_id_timbrado").html(comboBoxHtml); //cambiamos html del combo
     
                 }});
 
@@ -110,3 +126,14 @@ function cambiarValor(boton)
 
 
     } 
+
+    function displayComboTimbrados()
+    {
+      var idtc =  parseInt($("#Comprobantes_id_tipos_comprobantes").val());
+      var tipoRegistro = parseInt($("#Comprobantes_id_tipo_registro").val());
+      
+      if ( (idtc == 10) && (tipoRegistro == 1) ) 
+        document.getElementById("timbradoDiv").style.display = 'none';
+        else document.getElementById("timbradoDiv").style.display = 'inline';
+
+    }

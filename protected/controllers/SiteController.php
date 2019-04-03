@@ -1,7 +1,22 @@
 <?php
 
 class SiteController extends Controller
-{
+{	
+
+public function filters()
+   	{
+      //return array(array('CrugeAccessControlFilter'));
+   	}
+
+public function accessRules()
+    {	//Yii::app()->user->loginUrl = array("/pwh/agent/login");
+        return array(
+            array('allow', // allow authenticated users to access all actions
+                'users'=>array('*'),
+            ),
+            array('deny'),
+        );
+    }
 	/**
 	 * Declares class-based actions.
 	 */
