@@ -2,7 +2,7 @@
 	'action'=>Yii::app()->createUrl($this->route),
 	'method'=>'get',
 )); ?>
-
+<?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/exportarDatos.js') ?>
 		<?php echo $form->textFieldRow($model,'id_misiones_diplomaticas',array('class'=>'span5')); ?>
 
 		<?php echo $form->textFieldRow($model,'mision_diplomatica',array('class'=>'span5','maxlength'=>100)); ?>

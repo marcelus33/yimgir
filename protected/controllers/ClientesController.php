@@ -31,7 +31,7 @@ array('allow',  // allow all users to perform 'index' and 'view' actions
 'users'=>array('*'),
 ),
 array('allow', // allow authenticated user to perform 'create' and 'update' actions
-'actions'=>array('create','update'),
+'actions'=>array('create','update', 'reportClientes'),
 'users'=>array('@'),
 ),
 array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -173,4 +173,49 @@ echo CActiveForm::validate($model);
 Yii::app()->end();
 }
 }
+
+public function actionreportClientes()
+	{
+	   
+		$model = new Clientes;
+	    $dataProvider = new CActiveDataProvider($model,array());
+	    
+	    
+	    if( (isset($_POST['numero_identificacion']) && $_POST['numero_identificacion']!=='') )
+	    {
+	    	$numero_identificacion =$_POST['numero_identificacion'];
+
+	    	// if( (isset($_POST['documento_identificacion']) && $_POST['documento_identificacion']!=='') )
+	    	// {
+	    	// 	$documento_identificacion = " = ".$_POST['documento_identificacion'];
+	    	// 	//$cursoModel = Cursos::model()->findByPk($curso);
+	    	// 	//$cursoName = $cursoModel->curso;
+	    	// }
+	    	// else{
+	    	// 	$curso = " > 0";
+	    	// 	//$cursoName="Todos";
+	    	// }
+
+		    $criteria = new CDbCriteria;
+	 		$criteria->condition = 'numero_identificacion=:numero_identificacion';
+	 		$criteria->params = array(':numero_identificacion'=>$numero_identificacion);
+
+	 		//Aqui creamos el dataprovider usando la criteria
+			$dataProvider= new CActiveDataProvider(Clientes::model(), array(
+	    			'criteria'=>$criteria,
+	    			'sort'=>array('defaultOrder'=>'id_clientes ASC'), // cambiar luego por nombre alumno
+	    			'pagination'=>false, // personalizamos la paginaciÃ³n
+				) );
+
+            $fileName = "datos_cliente.xls";
+            Yii::app()->request->sendFile($fileName,
+	            $this->renderPartial('_clienteExcel', 
+	                array('dataProvider'=>$dataProvider, 'numero_identificacion'=>$numero_identificacion ), true, false) );
+
+			// $this->render('_clienteExcel', 
+	        //         array('dataProvider'=>$dataProvider, 'numero_identificacion'=>$numero_identificacion ));
+
+        }
+        $this->render('reportClientes',array('model'=>$model,));
+	}
 }

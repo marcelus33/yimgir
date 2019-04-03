@@ -31,7 +31,7 @@ array('allow',  // allow all users to perform 'index' and 'view' actions
 'users'=>array('*'),
 ),
 array('allow', // allow authenticated user to perform 'create' and 'update' actions
-'actions'=>array('create','update'),
+'actions'=>array('create','update','reportes', 'reportesAjax'),
 'users'=>array('@'),
 ),
 array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -173,4 +173,39 @@ echo CActiveForm::validate($model);
 Yii::app()->end();
 }
 }
+
+public function actionreportes()
+{
+	   $this->render('reportes');
+}
+
+public function actionreportesAjax()
+	{
+	   
+		$model = new MisionesDiplomaticas;
+	    $dataProvider = new CActiveDataProvider($model,array());
+	    
+	    
+	    // if( (isset($_POST['numero_identificacion']) && $_POST['numero_identificacion']!=='') )
+	    // {
+	    // 	$numero_identificacion =$_POST['numero_identificacion'];
+
+	        $criteria = new CDbCriteria;
+	 		$criteria->condition = 'id_misiones_diplomaticas > 0';
+	 		// $criteria->params = array(':id_misiones_diplomaticas'=>$id_misiones_diplomaticas);
+
+	 		//Aqui creamos el dataprovider usando la criteria
+			$dataProvider= new CActiveDataProvider(MisionesDiplomaticas::model(), array(
+	    			'criteria'=>$criteria,
+	    			'sort'=>array('defaultOrder'=>'id_misiones_diplomaticas ASC'), // cambiar luego por nombre alumno
+	    			'pagination'=>false, // personalizamos la paginaciÃ³n
+				) );
+
+            $responseTable = $this->renderPartial('_reportesTable', 
+                    array('dataProvider'=>$dataProvider));
+            
+            echo $responseTable;
+        // $this->render('reportes',array('model'=>$model,));
+}
+
 }

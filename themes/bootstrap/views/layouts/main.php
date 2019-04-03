@@ -51,7 +51,8 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
  			array('label'=>'Inicio', 'url'=>array('/site')),
  			array('label'=>'Comprobantes',
  				'items' => array(
-							array('label' => 'Nuevo', 'url'=>$this->createUrl('/comprobantes/create'),),
+							array('label' => 'Compras', 'url'=>$this->createUrl('/comprobantes/compra'),),
+							array('label' => 'Ventas', 'url'=>$this->createUrl('/comprobantes/venta'),),
 							array('label' => 'Administrar', 'url'=>$this->createUrl('/comprobantes/admin'),),
 				),
  			),
