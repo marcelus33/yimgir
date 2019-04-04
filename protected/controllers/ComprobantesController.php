@@ -95,7 +95,7 @@ public function actionCreate()
 * @param integer $id the ID of the model to be updated
 */
 public function actionUpdate($id)
-{
+{   //--*********ESTE YA NO ESTAMOS USANDO, PASAMOS A ACTIONS DE COMPRA Y VENTA*********--//
     $model=$this->loadModel($id);
 
     // Uncomment the following line if AJAX validation is needed
@@ -314,6 +314,7 @@ public function actionAdmin()
         $model=new Comprobantes;
         $id_registro = 1;
         $flagTimbrado= 1;
+        $contribuyente = "Proveedor";
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
@@ -330,7 +331,22 @@ public function actionAdmin()
             $model->importe_exenta = $this->sacarPuntos($model->importe_exenta);
             $model->total_importe = $this->sacarPuntos($model->total_importe);
 
-            if  ($model->id_tipos_comprobantes != 10) { // ESTO SOLO PARA COMPRA
+            $suma_de_importes = (integer)$model->importe_iva_5 + 
+                                (integer)$model->importe_iva_10 + 
+                                (integer)$model->importe_exenta;
+
+            if( (integer) $model->total_importe != $suma_de_importes )
+            {
+                $user = Yii::app()->getComponent('user');
+                $user->setFlash(
+                    'warning',
+                    '<strong>Error!</strong> No coinciden sumas ingresadas con el total.'
+                );
+                $flagTimbrado= 0;
+
+            }
+
+            if  ($model->id_tipos_comprobantes != 10) { 
                 if(isset($model->id_timbrado) && ($model->id_timbrado!==''))
                 {}
                 else {
@@ -349,13 +365,16 @@ public function actionAdmin()
 
         $this->render('compra',array(
         'model'=>$model, 
-        'id_registro'=>$id_registro ));
+        'id_registro'=>$id_registro,
+        'contribuyente'=>$contribuyente ));
     }
 
     public function actionVenta()
     {
         $model=new Comprobantes;
         $id_registro = 2;
+        $flagTimbrado= 1;
+        $contribuyente = "Cliente";
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
@@ -371,15 +390,165 @@ public function actionAdmin()
             $model->importe_iva_10 = $this->sacarPuntos($model->importe_iva_10);
             $model->importe_exenta = $this->sacarPuntos($model->importe_exenta);
             $model->total_importe = $this->sacarPuntos($model->total_importe);
+
+            $suma_de_importes = (integer)$model->importe_iva_5 + 
+                                (integer)$model->importe_iva_10 + 
+                                (integer)$model->importe_exenta;
+
+            if( (integer) $model->total_importe != $suma_de_importes )
+            {
+                $user = Yii::app()->getComponent('user');
+                $user->setFlash(
+                'warning',
+                '<strong>Error!</strong> No coinciden sumas ingresadas con el total.'
+                );
+                $flagTimbrado= 0;
+
+            }
+
+            if  ($model->id_tipos_comprobantes != 10) { 
+                if(isset($model->id_timbrado) && ($model->id_timbrado!==''))
+                {}
+                else {
+                    $user = Yii::app()->getComponent('user');
+                    $user->setFlash(
+                        'error',
+                        '<strong>Error!</strong> Tiene que cargar un timbrado para este tipo de Comprobante.'
+                    );
+                    $flagTimbrado= 0;
+                }
+            }
         
-            if($model->save())
+            if($model->save() && ($flagTimbrado))
                 $this->redirect(array('view','id'=>$model->id_comprobantes));
         }
 
         $this->render('venta',array(
         'model'=>$model, 
-        'id_registro'=>$id_registro ));
+        'id_registro'=>$id_registro,
+        'contribuyente'=>$contribuyente ));
     }
+
+    public function actionCompraUpdate($id)
+    {
+        $model=$this->loadModel($id);
+        $id_registro = 1;
+        $flagTimbrado= 1;
+        $contribuyente = "Proveedor";
+
+        // Uncomment the following line if AJAX validation is needed
+        // $this->performAjaxValidation($model);
+
+        if(isset($_POST['Comprobantes']))
+        {   
+            $model->attributes=$_POST['Comprobantes'];
+
+            //modificamos la fecha antes de guardar, ya que en la vista estaba d-m-Y y en la bd es Y-m-d
+            $model->fecha_expedicion = $this->cambiarFecha($model->fecha_expedicion);
+            //se sacan los puntos de los inputs por el js del separador de miles que los agregó
+            $model->importe_iva_5 = $this->sacarPuntos($model->importe_iva_5);
+            $model->importe_iva_10 = $this->sacarPuntos($model->importe_iva_10);
+            $model->importe_exenta = $this->sacarPuntos($model->importe_exenta);
+            $model->total_importe = $this->sacarPuntos($model->total_importe);
+
+            $suma_de_importes = (integer)$model->importe_iva_5 + 
+                                (integer)$model->importe_iva_10 + 
+                                (integer)$model->importe_exenta;
+
+            if( (integer) $model->total_importe != $suma_de_importes )
+            {
+                $user = Yii::app()->getComponent('user');
+                $user->setFlash(
+                    'warning',
+                    '<strong>Error!</strong> No coinciden sumas ingresadas con el total.'
+                );
+                $flagTimbrado= 0;
+
+            }
+
+            if  ($model->id_tipos_comprobantes != 10) { 
+                if(isset($model->id_timbrado) && ($model->id_timbrado!==''))
+                {}
+                else {
+                    $user = Yii::app()->getComponent('user');
+                    $user->setFlash(
+                        'error',
+                        '<strong>Error!</strong> Tiene que cargar un timbrado para este tipo de Comprobante.'
+                    );
+                    $flagTimbrado= 0;
+                }
+            }
+        
+            if($model->save() && ($flagTimbrado))
+                $this->redirect(array('view','id'=>$model->id_comprobantes));
+        }
+
+        $this->render('compraUpdate',array(
+        'model'=>$model, 
+        'id_registro'=>$id_registro,
+        'contribuyente'=>$contribuyente ));
+    }
+
+    public function actionVentaUpdate($id)
+    {
+        $model=$this->loadModel($id);
+        $id_registro = 2;
+        $flagTimbrado= 1;
+        $contribuyente = "Cliente";
+
+        // Uncomment the following line if AJAX validation is needed
+        // $this->performAjaxValidation($model);
+
+        if(isset($_POST['Comprobantes']))
+        {   
+            $model->attributes=$_POST['Comprobantes'];
+
+            //modificamos la fecha antes de guardar, ya que en la vista estaba d-m-Y y en la bd es Y-m-d
+            $model->fecha_expedicion = $this->cambiarFecha($model->fecha_expedicion);
+            //se sacan los puntos de los inputs por el js del separador de miles que los agregó
+            $model->importe_iva_5 = $this->sacarPuntos($model->importe_iva_5);
+            $model->importe_iva_10 = $this->sacarPuntos($model->importe_iva_10);
+            $model->importe_exenta = $this->sacarPuntos($model->importe_exenta);
+            $model->total_importe = $this->sacarPuntos($model->total_importe);
+
+            $suma_de_importes = (integer)$model->importe_iva_5 + 
+                                (integer)$model->importe_iva_10 + 
+                                (integer)$model->importe_exenta;
+
+            if( (integer) $model->total_importe != $suma_de_importes )
+            {
+                $user = Yii::app()->getComponent('user');
+                $user->setFlash(
+                'warning',
+                '<strong>Error!</strong> No coinciden sumas ingresadas con el total.'
+                );
+                $flagTimbrado= 0;
+
+            }
+
+            if  ($model->id_tipos_comprobantes != 10) { 
+                if(isset($model->id_timbrado) && ($model->id_timbrado!==''))
+                {}
+                else {
+                    $user = Yii::app()->getComponent('user');
+                    $user->setFlash(
+                        'error',
+                        '<strong>Error!</strong> Tiene que cargar un timbrado para este tipo de Comprobante.'
+                    );
+                    $flagTimbrado= 0;
+                }
+            }
+        
+            if($model->save() && ($flagTimbrado))
+                $this->redirect(array('view','id'=>$model->id_comprobantes));
+        }
+
+        $this->render('ventaUpdate',array(
+        'model'=>$model, 
+        'id_registro'=>$id_registro,
+        'contribuyente'=>$contribuyente ));
+    }
+    
 
 /**
 * Returns the data model based on the primary key given in the GET variable.

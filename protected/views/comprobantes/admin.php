@@ -4,7 +4,8 @@ echo "<br>";
 
 $this->menu=array(
 array('label'=>'Listar','url'=>array('index')),
-array('label'=>'Crear Nuevo','url'=>array('create')),
+array('label'=>'Nueva Compra','url'=>array('compra')),
+array('label'=>'Nueva Venta','url'=>array('venta')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
