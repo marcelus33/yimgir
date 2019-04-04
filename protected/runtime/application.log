@@ -3383,3 +3383,551 @@ Stack trace:
 REQUEST_URI=/yimgir/assets/1a65df75/notify/notify.min.js
 HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas/reportes
 ---
+2019/04/03 19:37:24 [error] [exception.CException] CException: El alias "booster.widgets.TbPanel" es inválido. Asegúrese de que apunta a un directorio o archivo existente. in C:\xampp\htdocs\yii\framework\YiiBase.php:355
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWidgetFactory.php(146): YiiBase::import('booster.widgets...', true)
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(ComprobantesController), 'booster.widgets...', Array)
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(198): CBaseController->createWidget('booster.widgets...', Array)
+#3 C:\xampp\htdocs\yimgir\protected\views\comprobantes\_form.php(152): CBaseController->beginWidget('booster.widgets...', Array)
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\yimgir\protected\views\comprobantes\compra.php(14): CController->renderPartial('_form', Array)
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(785): CController->renderPartial('compra', Array, true)
+#12 C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php(352): CController->render('compra', Array)
+#13 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): ComprobantesController->actionCompra()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#16 C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php(91): CFilterChain->run()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter(Object(CFilterChain))
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('compra')
+#22 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('comprobantes/co...')
+#23 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#24 C:\xampp\htdocs\yimgir\index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/yimgir/comprobantes/compra
+---
+2019/04/03 19:37:24 [error] [exception.CException] CException: El alias "booster.widgets.TbPanel" es inválido. Asegúrese de que apunta a un directorio o archivo existente. in C:\xampp\htdocs\yii\framework\YiiBase.php:355
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWidgetFactory.php(146): YiiBase::import('booster.widgets...', true)
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(ComprobantesController), 'booster.widgets...', Array)
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(198): CBaseController->createWidget('booster.widgets...', Array)
+#3 C:\xampp\htdocs\yimgir\protected\views\comprobantes\_form.php(152): CBaseController->beginWidget('booster.widgets...', Array)
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\yimgir\protected\views\comprobantes\compra.php(14): CController->renderPartial('_form', Array)
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(785): CController->renderPartial('compra', Array, true)
+#12 C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php(352): CController->render('compra', Array)
+#13 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): ComprobantesController->actionCompra()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#16 C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php(91): CFilterChain->run()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter(Object(CFilterChain))
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('compra')
+#22 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('comprobantes/co...')
+#23 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#24 C:\xampp\htdocs\yimgir\index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/yimgir/comprobantes/compra
+---
+2019/04/03 19:37:43 [error] [exception.CException] CException: El alias "bootstrap.widgets.TbPanel" es inválido. Asegúrese de que apunta a un archivo PHP existente y que el archivo tiene permisos de lectura. in C:\xampp\htdocs\yii\framework\YiiBase.php:330
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWidgetFactory.php(146): YiiBase::import('bootstrap.widge...', true)
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(ComprobantesController), 'bootstrap.widge...', Array)
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(198): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 C:\xampp\htdocs\yimgir\protected\views\comprobantes\_form.php(152): CBaseController->beginWidget('bootstrap.widge...', Array)
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\yimgir\protected\views\comprobantes\compra.php(14): CController->renderPartial('_form', Array)
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(785): CController->renderPartial('compra', Array, true)
+#12 C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php(352): CController->render('compra', Array)
+#13 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): ComprobantesController->actionCompra()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#16 C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php(91): CFilterChain->run()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter(Object(CFilterChain))
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('compra')
+#22 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('comprobantes/co...')
+#23 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#24 C:\xampp\htdocs\yimgir\index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/yimgir/comprobantes/compra
+---
+2019/04/03 19:37:43 [error] [exception.CException] CException: El alias "bootstrap.widgets.TbPanel" es inválido. Asegúrese de que apunta a un archivo PHP existente y que el archivo tiene permisos de lectura. in C:\xampp\htdocs\yii\framework\YiiBase.php:330
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWidgetFactory.php(146): YiiBase::import('bootstrap.widge...', true)
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(ComprobantesController), 'bootstrap.widge...', Array)
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(198): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 C:\xampp\htdocs\yimgir\protected\views\comprobantes\_form.php(152): CBaseController->beginWidget('bootstrap.widge...', Array)
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\yimgir\protected\views\comprobantes\compra.php(14): CController->renderPartial('_form', Array)
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(785): CController->renderPartial('compra', Array, true)
+#12 C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php(352): CController->render('compra', Array)
+#13 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): ComprobantesController->actionCompra()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#16 C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php(91): CFilterChain->run()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter(Object(CFilterChain))
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('compra')
+#22 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('comprobantes/co...')
+#23 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#24 C:\xampp\htdocs\yimgir\index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/yimgir/comprobantes/compra
+---
+2019/04/03 19:39:07 [error] [exception.CException] CException: La propiedad "TbBox"."padContent" no se encuentra definida. in C:\xampp\htdocs\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWidgetFactory.php(161): CComponent->__set('padContent', false)
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(ComprobantesController), 'TbBox', Array)
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(198): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 C:\xampp\htdocs\yimgir\protected\views\comprobantes\_form.php(152): CBaseController->beginWidget('bootstrap.widge...', Array)
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\yimgir\protected\views\comprobantes\compra.php(14): CController->renderPartial('_form', Array)
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(785): CController->renderPartial('compra', Array, true)
+#12 C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php(352): CController->render('compra', Array)
+#13 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): ComprobantesController->actionCompra()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#16 C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php(91): CFilterChain->run()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter(Object(CFilterChain))
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('compra')
+#22 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('comprobantes/co...')
+#23 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#24 C:\xampp\htdocs\yimgir\index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/yimgir/comprobantes/compra
+---
+2019/04/03 19:39:07 [error] [exception.CException] CException: La propiedad "TbBox"."padContent" no se encuentra definida. in C:\xampp\htdocs\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWidgetFactory.php(161): CComponent->__set('padContent', false)
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(ComprobantesController), 'TbBox', Array)
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(198): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 C:\xampp\htdocs\yimgir\protected\views\comprobantes\_form.php(152): CBaseController->beginWidget('bootstrap.widge...', Array)
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\yimgir\protected\views\comprobantes\compra.php(14): CController->renderPartial('_form', Array)
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(785): CController->renderPartial('compra', Array, true)
+#12 C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php(352): CController->render('compra', Array)
+#13 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): ComprobantesController->actionCompra()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#16 C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php(91): CFilterChain->run()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter(Object(CFilterChain))
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('compra')
+#22 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('comprobantes/co...')
+#23 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#24 C:\xampp\htdocs\yimgir\index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/yimgir/comprobantes/compra
+---
+2019/04/03 19:39:09 [error] [exception.CException] CException: La propiedad "TbBox"."padContent" no se encuentra definida. in C:\xampp\htdocs\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWidgetFactory.php(161): CComponent->__set('padContent', false)
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(ComprobantesController), 'TbBox', Array)
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(198): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 C:\xampp\htdocs\yimgir\protected\views\comprobantes\_form.php(152): CBaseController->beginWidget('bootstrap.widge...', Array)
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\yimgir\protected\views\comprobantes\compra.php(14): CController->renderPartial('_form', Array)
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(785): CController->renderPartial('compra', Array, true)
+#12 C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php(352): CController->render('compra', Array)
+#13 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): ComprobantesController->actionCompra()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#16 C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php(91): CFilterChain->run()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter(Object(CFilterChain))
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('compra')
+#22 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('comprobantes/co...')
+#23 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#24 C:\xampp\htdocs\yimgir\index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/yimgir/comprobantes/compra
+---
+2019/04/03 19:39:09 [error] [exception.CException] CException: La propiedad "TbBox"."padContent" no se encuentra definida. in C:\xampp\htdocs\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWidgetFactory.php(161): CComponent->__set('padContent', false)
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(ComprobantesController), 'TbBox', Array)
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(198): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 C:\xampp\htdocs\yimgir\protected\views\comprobantes\_form.php(152): CBaseController->beginWidget('bootstrap.widge...', Array)
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\yimgir\protected\views\comprobantes\compra.php(14): CController->renderPartial('_form', Array)
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(785): CController->renderPartial('compra', Array, true)
+#12 C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php(352): CController->render('compra', Array)
+#13 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): ComprobantesController->actionCompra()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#16 C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php(91): CFilterChain->run()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter(Object(CFilterChain))
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('compra')
+#22 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('comprobantes/co...')
+#23 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#24 C:\xampp\htdocs\yimgir\index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/yimgir/comprobantes/compra
+---
+2019/04/03 22:36:31 [error] [php] Undefined variable: contribuyente (C:\xampp\htdocs\yimgir\protected\views\comprobantes\compra.php:14)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(872): ComprobantesController->renderFile()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(785): ComprobantesController->renderPartial()
+#2 C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php(354): ComprobantesController->render()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): ComprobantesController->actionCompra()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): ComprobantesController->runAction()
+#6 C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php(91): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CrugeAccessControlFilter->filter()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(265): ComprobantesController->runActionWithFilters()
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): ComprobantesController->run()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#13 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\yimgir\index.php(13): CWebApplication->run()
+REQUEST_URI=/yimgir/comprobantes/compra
+in C:\xampp\htdocs\yimgir\protected\views\comprobantes\compra.php (14)
+in C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php (354)
+in C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php (91)
+2019/04/03 22:36:31 [error] [php] Undefined variable: contribuyente (C:\xampp\htdocs\yimgir\protected\views\comprobantes\compra.php:14)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(872): ComprobantesController->renderFile()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(785): ComprobantesController->renderPartial()
+#2 C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php(354): ComprobantesController->render()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): ComprobantesController->actionCompra()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): ComprobantesController->runAction()
+#6 C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php(91): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CrugeAccessControlFilter->filter()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(265): ComprobantesController->runActionWithFilters()
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): ComprobantesController->run()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#13 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\yimgir\index.php(13): CWebApplication->run()
+REQUEST_URI=/yimgir/comprobantes/compra
+in C:\xampp\htdocs\yimgir\protected\views\comprobantes\compra.php (14)
+in C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php (354)
+in C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php (91)
+2019/04/03 22:37:01 [error] [php] Undefined variable: contribuyente (C:\xampp\htdocs\yimgir\protected\views\comprobantes\_form.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(872): ComprobantesController->renderFile()
+#1 C:\xampp\htdocs\yimgir\protected\views\comprobantes\compra.php(14): ComprobantesController->renderPartial()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): ComprobantesController->renderInternal()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(872): ComprobantesController->renderFile()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(785): ComprobantesController->renderPartial()
+#6 C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php(354): ComprobantesController->render()
+#7 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): ComprobantesController->actionCompra()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): ComprobantesController->runAction()
+#10 C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php(91): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter()
+#12 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CrugeAccessControlFilter->filter()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(265): ComprobantesController->runActionWithFilters()
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): ComprobantesController->run()
+#16 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#17 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\yimgir\index.php(13): CWebApplication->run()
+REQUEST_URI=/yimgir/comprobantes/compra
+in C:\xampp\htdocs\yimgir\protected\views\comprobantes\_form.php (85)
+in C:\xampp\htdocs\yimgir\protected\views\comprobantes\compra.php (14)
+in C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php (354)
+2019/04/03 22:37:01 [error] [php] Undefined variable: contribuyente (C:\xampp\htdocs\yimgir\protected\views\comprobantes\_form.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(872): ComprobantesController->renderFile()
+#1 C:\xampp\htdocs\yimgir\protected\views\comprobantes\compra.php(14): ComprobantesController->renderPartial()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): ComprobantesController->renderInternal()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(872): ComprobantesController->renderFile()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(785): ComprobantesController->renderPartial()
+#6 C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php(354): ComprobantesController->render()
+#7 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): ComprobantesController->actionCompra()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): ComprobantesController->runAction()
+#10 C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php(91): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter()
+#12 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CrugeAccessControlFilter->filter()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(265): ComprobantesController->runActionWithFilters()
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): ComprobantesController->run()
+#16 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#17 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\yimgir\index.php(13): CWebApplication->run()
+REQUEST_URI=/yimgir/comprobantes/compra
+in C:\xampp\htdocs\yimgir\protected\views\comprobantes\_form.php (85)
+in C:\xampp\htdocs\yimgir\protected\views\comprobantes\compra.php (14)
+in C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php (354)
+2019/04/03 22:37:48 [error] [php] Undefined variable: contribuyente (C:\xampp\htdocs\yimgir\protected\views\comprobantes\venta.php:15)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(872): ComprobantesController->renderFile()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(785): ComprobantesController->renderPartial()
+#2 C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php(385): ComprobantesController->render()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): ComprobantesController->actionVenta()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): ComprobantesController->runAction()
+#6 C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php(91): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CrugeAccessControlFilter->filter()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(265): ComprobantesController->runActionWithFilters()
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): ComprobantesController->run()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#13 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\yimgir\index.php(13): CWebApplication->run()
+REQUEST_URI=/yimgir/comprobantes/venta
+in C:\xampp\htdocs\yimgir\protected\views\comprobantes\venta.php (15)
+in C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php (385)
+in C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php (91)
+2019/04/03 22:37:49 [error] [php] Undefined variable: contribuyente (C:\xampp\htdocs\yimgir\protected\views\comprobantes\venta.php:15)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(872): ComprobantesController->renderFile()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(785): ComprobantesController->renderPartial()
+#2 C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php(385): ComprobantesController->render()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): ComprobantesController->actionVenta()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): ComprobantesController->runAction()
+#6 C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php(91): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CrugeAccessControlFilter->filter()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(265): ComprobantesController->runActionWithFilters()
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): ComprobantesController->run()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#13 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\yimgir\index.php(13): CWebApplication->run()
+REQUEST_URI=/yimgir/comprobantes/venta
+in C:\xampp\htdocs\yimgir\protected\views\comprobantes\venta.php (15)
+in C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php (385)
+in C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php (91)
+2019/04/04 10:01:45 [error] [exception.CHttpException.404] CHttpException: Su usuario no tiene permiso para esta accion. in C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php:97
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter(Object(CFilterChain))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('compra')
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('comprobantes/co...')
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\yimgir\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/yimgir/comprobantes/compra
+---
+2019/04/04 10:01:46 [error] [exception.CHttpException.404] CHttpException: Su usuario no tiene permiso para esta accion. in C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php:97
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter(Object(CFilterChain))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('compra')
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('comprobantes/co...')
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\yimgir\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/yimgir/comprobantes/compra
+---
+2019/04/04 15:44:29 [error] [exception.CHttpException.400] CHttpException: Su solicitud es inválida. in C:\xampp\htdocs\yii\framework\web\CController.php:337
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php(91): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('compraUpdate')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('comprobantes/co...')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\yimgir\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/yimgir/comprobantes/compraUpdate/CambiarComboBox
+HTTP_REFERER=http://localhost/yimgir/comprobantes/compraUpdate/5
+---
+2019/04/04 15:44:46 [error] [exception.CHttpException.404] CHttpException: The requested page does not exist. in C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php:562
+Stack trace:
+#0 C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php(55): ComprobantesController->loadModel('2')
+#1 [internal function]: ComprobantesController->actionView('2')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(ComprobantesController), Array)
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ComprobantesController), Object(ReflectionMethod), Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php(91): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter(Object(CFilterChain))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('comprobantes/vi...')
+#13 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\yimgir\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/yimgir/comprobantes/view/2
+---
+2019/04/04 15:44:46 [error] [exception.CHttpException.404] CHttpException: The requested page does not exist. in C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php:562
+Stack trace:
+#0 C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php(55): ComprobantesController->loadModel('2')
+#1 [internal function]: ComprobantesController->actionView('2')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(ComprobantesController), Array)
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ComprobantesController), Object(ReflectionMethod), Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php(91): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter(Object(CFilterChain))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('comprobantes/vi...')
+#13 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\yimgir\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/yimgir/comprobantes/view/2
+---
+2019/04/04 15:44:49 [error] [exception.CHttpException.404] CHttpException: The requested page does not exist. in C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php:562
+Stack trace:
+#0 C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php(55): ComprobantesController->loadModel('3')
+#1 [internal function]: ComprobantesController->actionView('3')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(ComprobantesController), Array)
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ComprobantesController), Object(ReflectionMethod), Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php(91): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter(Object(CFilterChain))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('comprobantes/vi...')
+#13 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\yimgir\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/yimgir/comprobantes/view/3
+---
+2019/04/04 15:44:49 [error] [exception.CHttpException.404] CHttpException: The requested page does not exist. in C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php:562
+Stack trace:
+#0 C:\xampp\htdocs\yimgir\protected\controllers\ComprobantesController.php(55): ComprobantesController->loadModel('3')
+#1 [internal function]: ComprobantesController->actionView('3')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(ComprobantesController), Array)
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ComprobantesController), Object(ReflectionMethod), Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php(91): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter(Object(CFilterChain))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('comprobantes/vi...')
+#13 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\yimgir\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/yimgir/comprobantes/view/3
+---
+2019/04/04 15:48:00 [error] [exception.CHttpException.400] CHttpException: Su solicitud es inválida. in C:\xampp\htdocs\yii\framework\web\CController.php:337
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php(91): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('compraUpdate')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('comprobantes/co...')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\yimgir\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/yimgir/comprobantes/compraUpdate/CambiarComboBox
+HTTP_REFERER=http://localhost/yimgir/comprobantes/compraUpdate/10
+---
+2019/04/04 15:55:09 [error] [exception.CHttpException.400] CHttpException: Su solicitud es inválida. in C:\xampp\htdocs\yii\framework\web\CController.php:337
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php(91): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('ventaUpdate')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('comprobantes/ve...')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\yimgir\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/yimgir/comprobantes/ventaUpdate/CambiarComboBox
+HTTP_REFERER=http://localhost/yimgir/comprobantes/ventaUpdate/14
+---
+2019/04/04 15:55:15 [error] [exception.CHttpException.400] CHttpException: Su solicitud es inválida. in C:\xampp\htdocs\yii\framework\web\CController.php:337
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\yimgir\protected\modules\cruge\components\CrugeAccessControlFilter.php(91): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('ventaUpdate')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('comprobantes/ve...')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\yimgir\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/yimgir/comprobantes/ventaUpdate/CambiarComboBox
+HTTP_REFERER=http://localhost/yimgir/comprobantes/ventaUpdate/14
+---

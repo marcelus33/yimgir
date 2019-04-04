@@ -1,6 +1,8 @@
 $(document).ready(function(){    
   
   $('#Comprobantes_numero_comprobante').mask("000-000-0000000", {placeholder: "000-000-0000000"});
+  $('#Comprobantes_fecha_expedicion').mask("00-00-0000", {placeholder: "mm-dd-aaaa"});
+  
 
   $("#Comprobantes_id_tipos_comprobantes").change( function () {
 
