@@ -2,6 +2,7 @@
 
 class MisionesDiplomaticasController extends Controller
 {
+
 /**
 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -31,7 +32,7 @@ array('allow',  // allow all users to perform 'index' and 'view' actions
 'users'=>array('*'),
 ),
 array('allow', // allow authenticated user to perform 'create' and 'update' actions
-'actions'=>array('create','update','reportes', 'reportesAjax'),
+'actions'=>array('create','update','reportes', 'reportesAjax', 'Excel'),
 'users'=>array('@'),
 ),
 array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -183,29 +184,79 @@ public function actionreportesAjax()
 	{
 	   
 		$model = new MisionesDiplomaticas;
-	    $dataProvider = new CActiveDataProvider($model,array());
-	    
-	    
 	    // if( (isset($_POST['numero_identificacion']) && $_POST['numero_identificacion']!=='') )
 	    // {
 	    // 	$numero_identificacion =$_POST['numero_identificacion'];
 
-	        $criteria = new CDbCriteria;
-	 		$criteria->condition = 'id_misiones_diplomaticas > 0';
-	 		// $criteria->params = array(':id_misiones_diplomaticas'=>$id_misiones_diplomaticas);
+	    $criteria = new CDbCriteria;
+	 	$criteria->condition = 'id_misiones_diplomaticas > 0';
+	 	$misiones = MisionesDiplomaticas::model()->findAll($criteria);
 
-	 		//Aqui creamos el dataprovider usando la criteria
-			$dataProvider= new CActiveDataProvider(MisionesDiplomaticas::model(), array(
-	    			'criteria'=>$criteria,
-	    			'sort'=>array('defaultOrder'=>'id_misiones_diplomaticas ASC'), // cambiar luego por nombre alumno
-	    			'pagination'=>false, // personalizamos la paginaciÃ³n
-				) );
-
-            $responseTable = $this->renderPartial('_reportesTable', 
-                    array('dataProvider'=>$dataProvider));
-            
-            echo $responseTable;
-        // $this->render('reportes',array('model'=>$model,));
+		$myfile = fopen("C:/reportes/newfile.txt", "w+") or die("Error al crear el archivo");
+		//  echo $responseTable;
+		foreach ($misiones as $mision) {
+			$mision_txt = $mision->mision_diplomatica. PHP_EOL;
+			// $mision = $mision_txt . PHP_EOL;
+			fwrite($myfile, $mision_txt);
+		}	
+		if(fclose($myfile)){
+			$respuesta = 1;
+		}
+		else{
+			$respuesta = 0;
+		}
+		echo $respuesta;
 }
+
+public function actionExcel(){
+        
+	
+	$model = new MisionesDiplomaticas;
+	$criteria = new CDbCriteria;
+	$criteria->condition = 'id_misiones_diplomaticas > 0';
+	$misiones = MisionesDiplomaticas::model()->findAll();
+	// CHtml::listData(MisionesDiplomaticas::model()->findAll(), 'id', 'name')
+	
+	$arrayMisiones = array();
+	foreach ($misiones as $mision) {
+		array_push($arrayMisiones, $mision->mision_diplomatica);
+	}
+	
+	// //Some data
+	// $students = array(
+	// 	array('name'=>'Some Name','obs'=>'Mat'),
+	// 	array('name'=>'Another Name','obs'=>'Tec'),
+	// 	array('name'=>'Yet Another Name','obs'=>'Mat')
+	// );
+	$misiones_test =
+		array(
+		array("id_misiones_diplomaticas"=>"1","mision_diplomatica"=>"curu1"),
+		array("id_misiones_diplomaticas"=>"2","mision_diplomatica"=>"curu2"),
+		array("id_misiones_diplomaticas"=>"3","mision_diplomatica"=>"curu3"),
+	);
+	
+	$r = new YiiReport(array('template'=> 'reportes.xls'));
+	
+	$r->load(array(
+			array(
+				'id' => 'ong',
+				'data' => array(
+					'name' => 'UNIVERSIDAD PADAGĂ“GICA NACIONAL'
+				)
+			),
+			array(
+				'id'=>'estu',
+				'repeat'=>true,
+				'data'=>$arrayMisiones,
+				'minRows'=>2
+			)
+		)
+	);
+	
+	// echo $r->render('excel5', 'Students');
+	echo $r->render('excel2007', 'Students');
+	//echo $r->render('pdf', 'Students');
+	
+}//actionExcel method end
 
 }
