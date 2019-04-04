@@ -3383,3 +3383,737 @@ Stack trace:
 REQUEST_URI=/yimgir/assets/1a65df75/notify/notify.min.js
 HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas/reportes
 ---
+2019/04/03 19:49:59 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/notify/notify.min.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/notify/notify.min.js
+HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas/
+---
+2019/04/03 19:49:59 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/js/jqui-tb-noconflict.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/js/jqui-tb-noconflict.js
+HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas/
+---
+2019/04/03 19:50:00 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/notify/notify.min.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/notify/notify.min.js
+HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas/
+---
+2019/04/03 19:50:11 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/js/jqui-tb-noconflict.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/js/jqui-tb-noconflict.js
+HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas/index
+---
+2019/04/03 19:50:11 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/notify/notify.min.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/notify/notify.min.js
+HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas/index
+---
+2019/04/03 19:50:12 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/js/jqui-tb-noconflict.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/js/jqui-tb-noconflict.js
+HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas/index
+---
+2019/04/03 19:50:12 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/notify/notify.min.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/notify/notify.min.js
+HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas/index
+---
+2019/04/03 19:50:58 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/js/jqui-tb-noconflict.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/js/jqui-tb-noconflict.js
+HTTP_REFERER=http://localhost/yimgir/
+---
+2019/04/03 19:50:58 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/notify/notify.min.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/notify/notify.min.js
+HTTP_REFERER=http://localhost/yimgir/
+---
+2019/04/03 19:50:59 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/js/jqui-tb-noconflict.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/js/jqui-tb-noconflict.js
+HTTP_REFERER=http://localhost/yimgir/
+---
+2019/04/03 19:50:59 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/notify/notify.min.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/notify/notify.min.js
+HTTP_REFERER=http://localhost/yimgir/
+---
+2019/04/03 19:51:11 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/js/jqui-tb-noconflict.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/js/jqui-tb-noconflict.js
+HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas/admin
+---
+2019/04/03 19:51:12 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/notify/notify.min.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/notify/notify.min.js
+HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas/admin
+---
+2019/04/03 19:51:13 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/js/jqui-tb-noconflict.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/js/jqui-tb-noconflict.js
+HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas/admin
+---
+2019/04/03 19:51:13 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/notify/notify.min.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/notify/notify.min.js
+HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas/admin
+---
+2019/04/03 19:53:20 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/js/jqui-tb-noconflict.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/js/jqui-tb-noconflict.js
+HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas
+---
+2019/04/03 19:53:21 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/notify/notify.min.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/notify/notify.min.js
+HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas
+---
+2019/04/03 19:53:22 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/js/jqui-tb-noconflict.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/js/jqui-tb-noconflict.js
+HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas
+---
+2019/04/03 19:53:22 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/notify/notify.min.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/notify/notify.min.js
+HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas
+---
+2019/04/03 19:53:30 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/js/jqui-tb-noconflict.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/js/jqui-tb-noconflict.js
+HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas/admin
+---
+2019/04/03 19:53:30 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/notify/notify.min.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/notify/notify.min.js
+HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas/admin
+---
+2019/04/03 19:53:31 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/js/jqui-tb-noconflict.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/js/jqui-tb-noconflict.js
+HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas/admin
+---
+2019/04/03 19:53:31 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/notify/notify.min.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/notify/notify.min.js
+HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas/admin
+---
+2019/04/03 19:53:36 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/js/jqui-tb-noconflict.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/js/jqui-tb-noconflict.js
+HTTP_REFERER=http://localhost/yimgir/site
+---
+2019/04/03 19:53:37 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/notify/notify.min.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/notify/notify.min.js
+HTTP_REFERER=http://localhost/yimgir/site
+---
+2019/04/03 19:53:37 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/js/jqui-tb-noconflict.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/js/jqui-tb-noconflict.js
+HTTP_REFERER=http://localhost/yimgir/site
+---
+2019/04/03 19:53:37 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/notify/notify.min.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/notify/notify.min.js
+HTTP_REFERER=http://localhost/yimgir/site
+---
+2019/04/03 19:55:44 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/js/jqui-tb-noconflict.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/js/jqui-tb-noconflict.js
+HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas/admin
+---
+2019/04/03 19:55:44 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/notify/notify.min.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/notify/notify.min.js
+HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas/admin
+---
+2019/04/03 19:55:46 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/js/jqui-tb-noconflict.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/js/jqui-tb-noconflict.js
+HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas/admin
+---
+2019/04/03 19:55:46 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/notify/notify.min.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/notify/notify.min.js
+HTTP_REFERER=http://localhost/yimgir/misionesDiplomaticas/admin
+---
+2019/04/03 19:55:52 [error] [exception.CHttpException.404] CHttpException: El sistema no ha podido encontrar la acción "excel2007" solicitada. in C:\xampp\htdocs\yii\framework\web\CController.php:486
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('excel2007')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('excel2007')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('misionesDiploma...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#5 {main}
+REQUEST_URI=/yimgir/misionesDiplomaticas/excel2007
+---
+2019/04/03 19:56:17 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('excel')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('misionesDiploma...')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#11 {main}
+REQUEST_URI=/yimgir/misionesDiplomaticas/excel
+---
+2019/04/03 19:56:37 [error] [php] "continue" targeting switch is equivalent to "break". Did you mean to use "continue 2"? (C:\xampp\htdocs\yimgir\protected\vendors\phpexcel\PHPExcel\Shared\OLE.php:288)
+Stack trace:
+#0 C:\xampp\htdocs\yimgir\protected\vendors\phpexcel\PHPExcel\Reader\Excel5.php(1367): spl_autoload_call()
+#1 C:\xampp\htdocs\yimgir\protected\vendors\phpexcel\PHPExcel\Reader\Excel5.php(633): PHPExcel_Reader_Excel5->readSummaryInformation()
+#2 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(201): PHPExcel_Reader_Excel5->load()
+#3 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(177): YiiReport->loadTemplate()
+#4 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(151): YiiReport->init()
+#5 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\YiiReport.php(52): YiiReport->__construct()
+#6 C:\xampp\htdocs\yimgir\protected\controllers\MisionesDiplomaticasController.php(232): YiiReport->__construct()
+#7 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): MisionesDiplomaticasController->actionExcel()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): MisionesDiplomaticasController->runAction()
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#12 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): MisionesDiplomaticasController->filterAccessControl()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(265): MisionesDiplomaticasController->runActionWithFilters()
+#16 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): MisionesDiplomaticasController->run()
+#17 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#19 C:\xampp\htdocs\yimgir\index.php(28): CWebApplication->run()
+REQUEST_URI=/yimgir/misionesDiplomaticas/excel
+in C:\xampp\htdocs\yimgir\protected\vendors\phpexcel\PHPExcel\Autoloader.php (79)
+in C:\xampp\htdocs\yimgir\protected\vendors\phpexcel\PHPExcel\Autoloader.php (79)
+in C:\xampp\htdocs\yimgir\protected\vendors\phpexcel\PHPExcel\Reader\Excel5.php (1367)
+2019/04/03 20:00:27 [error] [php] Undefined variable: r (C:\xampp\htdocs\yimgir\protected\controllers\MisionesDiplomaticasController.php:234)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): MisionesDiplomaticasController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): MisionesDiplomaticasController->filterAccessControl()
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): MisionesDiplomaticasController->runActionWithFilters()
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): MisionesDiplomaticasController->run()
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\yimgir\index.php(28): CWebApplication->run()
+REQUEST_URI=/yimgir/misionesDiplomaticas/excel
+in C:\xampp\htdocs\yimgir\protected\controllers\MisionesDiplomaticasController.php (234)
+in C:\xampp\htdocs\yimgir\index.php (28)
+2019/04/03 20:00:50 [error] [php] Undefined offset: 0 (C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php:346)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): MisionesDiplomaticasController->actionExcel()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): MisionesDiplomaticasController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): MisionesDiplomaticasController->filterAccessControl()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(265): MisionesDiplomaticasController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): MisionesDiplomaticasController->run()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\yimgir\index.php(28): CWebApplication->run()
+REQUEST_URI=/yimgir/misionesDiplomaticas/excel
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (346)
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (887)
+in C:\xampp\htdocs\yimgir\protected\controllers\MisionesDiplomaticasController.php (251)
+2019/04/03 20:06:44 [error] [exception.Exception] Exception: Every array of data needs an 'id'! in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php:260
+Stack trace:
+#0 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(244): PHPReport->addData(Array)
+#1 C:\xampp\htdocs\yimgir\protected\controllers\MisionesDiplomaticasController.php(237): PHPReport->load(Array)
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): MisionesDiplomaticasController->actionExcel()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('excel')
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('misionesDiploma...')
+#13 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#15 {main}
+REQUEST_URI=/yimgir/misionesDiplomaticas/excel
+---
+2019/04/03 20:07:48 [error] [exception.Exception] Exception: Could not load a non-array data! in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php:230
+Stack trace:
+#0 C:\xampp\htdocs\yimgir\protected\controllers\MisionesDiplomaticasController.php(234): PHPReport->load('hola')
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): MisionesDiplomaticasController->actionExcel()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('excel')
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('misionesDiploma...')
+#12 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#14 {main}
+REQUEST_URI=/yimgir/misionesDiplomaticas/excel
+---
+2019/04/03 20:08:07 [error] [exception.Exception] Exception: Could not load a non-array data! in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php:258
+Stack trace:
+#0 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(244): PHPReport->addData('hola')
+#1 C:\xampp\htdocs\yimgir\protected\controllers\MisionesDiplomaticasController.php(234): PHPReport->load(Array)
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): MisionesDiplomaticasController->actionExcel()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('excel')
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('misionesDiploma...')
+#13 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#15 {main}
+REQUEST_URI=/yimgir/misionesDiplomaticas/excel
+---
+2019/04/03 20:11:06 [error] [php] Undefined variable: template (C:\xampp\htdocs\yimgir\protected\controllers\MisionesDiplomaticasController.php:232)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): MisionesDiplomaticasController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): MisionesDiplomaticasController->filterAccessControl()
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): MisionesDiplomaticasController->runActionWithFilters()
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): MisionesDiplomaticasController->run()
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\yimgir\index.php(28): CWebApplication->run()
+REQUEST_URI=/yimgir/misionesDiplomaticas/excel
+in C:\xampp\htdocs\yimgir\protected\controllers\MisionesDiplomaticasController.php (232)
+in C:\xampp\htdocs\yimgir\index.php (28)
+2019/04/03 20:28:41 [error] [php] key_exists() expects parameter 2 to be array, null given (C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php:730)
+Stack trace:
+#0 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(453): YiiReport->generateRepeatingRows()
+#1 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(885): YiiReport->generateReport()
+#2 C:\xampp\htdocs\yimgir\protected\controllers\MisionesDiplomaticasController.php(239): YiiReport->render()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): MisionesDiplomaticasController->actionExcel()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): MisionesDiplomaticasController->runAction()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): MisionesDiplomaticasController->filterAccessControl()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): MisionesDiplomaticasController->runActionWithFilters()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): MisionesDiplomaticasController->run()
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\yimgir\index.php(28): CWebApplication->run()
+REQUEST_URI=/yimgir/misionesDiplomaticas/excel
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (730)
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (580)
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (453)
+2019/04/03 20:31:50 [error] [php] key_exists() expects parameter 2 to be array, null given (C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php:730)
+Stack trace:
+#0 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(453): YiiReport->generateRepeatingRows()
+#1 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(885): YiiReport->generateReport()
+#2 C:\xampp\htdocs\yimgir\protected\controllers\MisionesDiplomaticasController.php(239): YiiReport->render()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): MisionesDiplomaticasController->actionExcel()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): MisionesDiplomaticasController->runAction()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): MisionesDiplomaticasController->filterAccessControl()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): MisionesDiplomaticasController->runActionWithFilters()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): MisionesDiplomaticasController->run()
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\yimgir\index.php(28): CWebApplication->run()
+REQUEST_URI=/yimgir/misionesDiplomaticas/excel
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (730)
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (580)
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (453)
+2019/04/03 20:34:12 [error] [exception.Error] Error: Call to undefined function dd() in C:\xampp\htdocs\yimgir\protected\controllers\MisionesDiplomaticasController.php:218
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): MisionesDiplomaticasController->actionExcel()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('excel')
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('misionesDiploma...')
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#13 {main}
+REQUEST_URI=/yimgir/misionesDiplomaticas/excel
+---
+2019/04/03 20:35:20 [error] [php] key_exists() expects parameter 2 to be array, null given (C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php:730)
+Stack trace:
+#0 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(453): YiiReport->generateRepeatingRows()
+#1 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(885): YiiReport->generateReport()
+#2 C:\xampp\htdocs\yimgir\protected\controllers\MisionesDiplomaticasController.php(240): YiiReport->render()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): MisionesDiplomaticasController->actionExcel()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): MisionesDiplomaticasController->runAction()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): MisionesDiplomaticasController->filterAccessControl()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): MisionesDiplomaticasController->runActionWithFilters()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): MisionesDiplomaticasController->run()
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\yimgir\index.php(28): CWebApplication->run()
+REQUEST_URI=/yimgir/misionesDiplomaticas/excel
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (730)
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (580)
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (453)
+2019/04/03 20:38:54 [error] [php] key_exists() expects parameter 2 to be array, string given (C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php:730)
+Stack trace:
+#0 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(453): YiiReport->generateRepeatingRows()
+#1 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(885): YiiReport->generateReport()
+#2 C:\xampp\htdocs\yimgir\protected\controllers\MisionesDiplomaticasController.php(240): YiiReport->render()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): MisionesDiplomaticasController->actionExcel()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): MisionesDiplomaticasController->runAction()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): MisionesDiplomaticasController->filterAccessControl()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): MisionesDiplomaticasController->runActionWithFilters()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): MisionesDiplomaticasController->run()
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\yimgir\index.php(28): CWebApplication->run()
+REQUEST_URI=/yimgir/misionesDiplomaticas/excel
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (730)
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (580)
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (453)
+2019/04/03 20:39:34 [error] [php] key_exists() expects parameter 2 to be array, string given (C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php:730)
+Stack trace:
+#0 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(453): YiiReport->generateRepeatingRows()
+#1 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(885): YiiReport->generateReport()
+#2 C:\xampp\htdocs\yimgir\protected\controllers\MisionesDiplomaticasController.php(240): YiiReport->render()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): MisionesDiplomaticasController->actionExcel()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): MisionesDiplomaticasController->runAction()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): MisionesDiplomaticasController->filterAccessControl()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): MisionesDiplomaticasController->runActionWithFilters()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): MisionesDiplomaticasController->run()
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\yimgir\index.php(28): CWebApplication->run()
+REQUEST_URI=/yimgir/misionesDiplomaticas/excel
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (730)
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (580)
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (453)
+2019/04/03 20:40:39 [error] [exception.ArgumentCountError] ArgumentCountError: Too few arguments to function CHtml::listData(), 2 passed in C:\xampp\htdocs\yimgir\protected\controllers\MisionesDiplomaticasController.php on line 217 and at least 3 expected in C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:2289
+Stack trace:
+#0 C:\xampp\htdocs\yimgir\protected\controllers\MisionesDiplomaticasController.php(217): CHtml::listData(Array, 'mision_diplomat...')
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): MisionesDiplomaticasController->actionExcel()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('excel')
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('misionesDiploma...')
+#12 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#14 {main}
+REQUEST_URI=/yimgir/misionesDiplomaticas/excel
+---
+2019/04/03 20:42:53 [error] [php] key_exists() expects parameter 2 to be array, string given (C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php:730)
+Stack trace:
+#0 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(453): YiiReport->generateRepeatingRows()
+#1 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(885): YiiReport->generateReport()
+#2 C:\xampp\htdocs\yimgir\protected\controllers\MisionesDiplomaticasController.php(240): YiiReport->render()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): MisionesDiplomaticasController->actionExcel()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): MisionesDiplomaticasController->runAction()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): MisionesDiplomaticasController->filterAccessControl()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): MisionesDiplomaticasController->runActionWithFilters()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): MisionesDiplomaticasController->run()
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\yimgir\index.php(28): CWebApplication->run()
+REQUEST_URI=/yimgir/misionesDiplomaticas/excel
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (730)
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (580)
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (453)
+2019/04/03 20:45:33 [error] [php] key_exists() expects parameter 2 to be array, string given (C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php:730)
+Stack trace:
+#0 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(453): YiiReport->generateRepeatingRows()
+#1 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(885): YiiReport->generateReport()
+#2 C:\xampp\htdocs\yimgir\protected\controllers\MisionesDiplomaticasController.php(240): YiiReport->render()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): MisionesDiplomaticasController->actionExcel()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): MisionesDiplomaticasController->runAction()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): MisionesDiplomaticasController->filterAccessControl()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): MisionesDiplomaticasController->runActionWithFilters()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): MisionesDiplomaticasController->run()
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\yimgir\index.php(28): CWebApplication->run()
+REQUEST_URI=/yimgir/misionesDiplomaticas/excel
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (730)
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (580)
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (453)
+2019/04/03 20:45:36 [error] [php] key_exists() expects parameter 2 to be array, string given (C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php:730)
+Stack trace:
+#0 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(453): YiiReport->generateRepeatingRows()
+#1 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(885): YiiReport->generateReport()
+#2 C:\xampp\htdocs\yimgir\protected\controllers\MisionesDiplomaticasController.php(240): YiiReport->render()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): MisionesDiplomaticasController->actionExcel()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): MisionesDiplomaticasController->runAction()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): MisionesDiplomaticasController->filterAccessControl()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): MisionesDiplomaticasController->runActionWithFilters()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): MisionesDiplomaticasController->run()
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\yimgir\index.php(28): CWebApplication->run()
+REQUEST_URI=/yimgir/misionesDiplomaticas/excel
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (730)
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (580)
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (453)
+2019/04/03 20:45:39 [error] [php] key_exists() expects parameter 2 to be array, string given (C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php:730)
+Stack trace:
+#0 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(453): YiiReport->generateRepeatingRows()
+#1 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(885): YiiReport->generateReport()
+#2 C:\xampp\htdocs\yimgir\protected\controllers\MisionesDiplomaticasController.php(240): YiiReport->render()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): MisionesDiplomaticasController->actionExcel()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): MisionesDiplomaticasController->runAction()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): MisionesDiplomaticasController->filterAccessControl()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): MisionesDiplomaticasController->runActionWithFilters()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): MisionesDiplomaticasController->run()
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\yimgir\index.php(28): CWebApplication->run()
+REQUEST_URI=/yimgir/misionesDiplomaticas/excel
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (730)
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (580)
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (453)
+2019/04/03 20:56:17 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/js/jqui-tb-noconflict.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/js/jqui-tb-noconflict.js
+HTTP_REFERER=http://localhost/yimgir/cruge/ui/login
+---
+2019/04/03 20:56:17 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/notify/notify.min.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/notify/notify.min.js
+HTTP_REFERER=http://localhost/yimgir/cruge/ui/login
+---
+2019/04/03 20:56:18 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/js/jqui-tb-noconflict.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/js/jqui-tb-noconflict.js
+HTTP_REFERER=http://localhost/yimgir/cruge/ui/login
+---
+2019/04/03 20:56:18 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "assets/1a65df75/notify/notify.min.js" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/1a65df75...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yimgir\index.php(28): CApplication->run()
+#3 {main}
+REQUEST_URI=/yimgir/assets/1a65df75/notify/notify.min.js
+HTTP_REFERER=http://localhost/yimgir/cruge/ui/login
+---
+2019/04/03 21:05:07 [error] [php] key_exists() expects parameter 2 to be array, string given (C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php:730)
+Stack trace:
+#0 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(453): YiiReport->generateRepeatingRows()
+#1 C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php(885): YiiReport->generateReport()
+#2 C:\xampp\htdocs\yimgir\protected\controllers\MisionesDiplomaticasController.php(257): YiiReport->render()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): MisionesDiplomaticasController->actionExcel()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): MisionesDiplomaticasController->runAction()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): MisionesDiplomaticasController->filterAccessControl()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): MisionesDiplomaticasController->runActionWithFilters()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): MisionesDiplomaticasController->run()
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\yimgir\index.php(28): CWebApplication->run()
+REQUEST_URI=/yimgir/misionesDiplomaticas/excel
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (730)
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (580)
+in C:\xampp\htdocs\yimgir\protected\extensions\yiireport\PHPReport.php (453)

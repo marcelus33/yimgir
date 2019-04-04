@@ -25,6 +25,8 @@ return array(
 		'application.components.*',
 		'application.modules.cruge.components.*',
 		'application.modules.cruge.extensions.crugemailer.*',
+		'application.vendors.phpexcel.PHPExcel',
+		'ext.yiireport.*',
 
     ),
 

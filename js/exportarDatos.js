@@ -11,16 +11,15 @@ $(document).ready(function(){
                    {   
                        if (response)
                        { 
-                        var htmlTable = document.createElement("tempTable");
-                        htmlTable.innerHTML = response;
-                        var tablaAjax = htmlTable.getElementsByTagName("table");
+                        alert("Archivo generado correctamente");
                         
                        }
                        else 
                            { 
-                               alert("error al cargar tabla");
+                               alert("Error al generar el archivo");
                            }
-           }});
+                    }
+                });
    
      });
   
