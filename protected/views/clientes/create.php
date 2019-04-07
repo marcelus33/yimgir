@@ -11,4 +11,8 @@ array('label'=>'Buscar','url'=>array('admin')),
 );
 ?>
 
+<div class="page-header">
+  <h1>Nuevo Cliente</h1>
+</div>
+
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

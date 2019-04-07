@@ -5,7 +5,7 @@ $(document).ready
 
         $("#Comprobantes_importe_iva_5").change( function () {
                         var monto = $("#Comprobantes_importe_iva_5").val() ;
-                        monto = monto.replace(".", "");
+                        monto = monto.split('.').join("");//.replace(/./g, "");
                         monto =  parseInt( monto );
                         var iva = calculo_iva(monto,5);
                         $("#calc_iva5").val(iva);
@@ -16,7 +16,7 @@ $(document).ready
         
         $("#Comprobantes_importe_iva_10").change( function () {
                         var monto = $("#Comprobantes_importe_iva_10").val() ;
-                        monto = monto.replace(".", "");
+                        monto = monto.split('.').join("");//.replace(/./g, "");//.replace(".", "");
                         monto =  parseInt( monto );
                         var iva = calculo_iva(monto,10);
                         $("#calc_iva10").val(iva);
@@ -46,8 +46,13 @@ $(document).ready
         var coeff = parseInt(coef);
         coeff = parseInt(100/coef);
         var result = 0;
-        
-        result = parseInt(( ( (amount*coeff) / (coeff+1) ) / coeff ));
+        //vamos a truncar el numero, viendo que (flotante - entero = decimales)
+        resultInt = parseInt(( ( (amount*coeff) / (coeff+1) ) / coeff ));
+        resultFloat = parseFloat(( ( (amount*coeff) / (coeff+1) ) / coeff ));
+        var decimal = parseFloat( resultFloat - parseFloat(resultInt) );
+        if ( decimal >= 0.5 ) //si los decimales son >= a 5 entonces sumamos 1, sino no
+            result = resultInt + 1;
+            else result = resultInt;
 
         return formatNumber(result) ;
 
@@ -56,19 +61,19 @@ $(document).ready
 function sumar_importes()
 {
     var importe5 = $("#Comprobantes_importe_iva_5").val() ;
-    importe5 = importe5.replace(".", "");
+    importe5 = importe5.split('.').join("");//.replace(/./g, '');
     importe5 = parseInt(importe5);
     if (!importe5)
         importe5 = 0;
 
     var importe10 = $("#Comprobantes_importe_iva_10").val() ;
-    importe10 = importe10.replace(".", "");
+    importe10 = importe10.split('.').join("");//.replace(".", "");
     importe10 = parseInt(importe10);
     if (!importe10)
         importe10 = 0;
 
     var importeExen = $("#Comprobantes_importe_exenta").val() ;
-    importeExen = importeExen.replace(".", "");
+    importeExen = importeExen.split('.').join("");//.replace(".", "");
     importeExen = parseInt(importeExen);
     if (!importeExen)
         importeExen = 0;
@@ -84,13 +89,13 @@ function sumar_importes()
 function sumar_importes_iva()
 {
     var importe5 = $("#calc_iva5").val() ;
-    importe5 = importe5.replace(".", "");
+    importe5 = importe5.split('.').join("");//.replace(".", "");
     importe5 = parseInt(importe5);
     if (!importe5)
         importe5 = 0;
 
     var importe10 = $("#calc_iva10").val() ;
-    importe10 = importe10.replace(".", "");
+    importe10 = importe10.split('.').join("");//.replace(".", "");
     importe10 = parseInt(importe10);
     if (!importe10)
         importe10 = 0;

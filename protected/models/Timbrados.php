@@ -32,6 +32,7 @@ class Timbrados extends CActiveRecord
 		return array(
 			array('id_clientes, numero_timbrado', 'required'),
 			array('id_clientes, numero_timbrado', 'numerical', 'integerOnly'=>true),
+			array('numero_timbrado', 'length', 'max'=>8),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id_timbrado, id_clientes, numero_timbrado', 'safe', 'on'=>'search'),
@@ -82,8 +83,10 @@ class Timbrados extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_timbrado',$this->id_timbrado);
-		$criteria->compare('id_clientes',$this->id_clientes);
+		//$criteria->compare('id_clientes',$this->id_clientes);
 		$criteria->compare('numero_timbrado',$this->numero_timbrado);
+		$criteria->with=array('idClientes');
+		$criteria->addSearchCondition('idClientes.nombre_razon_social',$this->id_clientes);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -8,7 +8,7 @@ Yii::setPathOfAlias('bootstrap', dirname(__FILE__) . '/../extensions/bootstrap')
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'MGIR',
+	'name'=>'MGS',
 	'theme'=>'bootstrap',
 	'language'=>'es', //Para traducir al español
 	'sourceLanguage'=>'es', //Esto se debe de agregar
@@ -74,10 +74,11 @@ return array(
 			// 'afterLoginUrl'=>array('/site/welcome'), ( !!! no olvidar el slash inici
 			// 'afterLogoutUrl'=>array('/site/page','view'=>'about'),
 			//
-			'afterLoginUrl'=>null,
-			'afterLogoutUrl'=>null,
+			'afterLoginUrl'=>array('/site/index'), 
+			'afterLogoutUrl'=>array('/site/index'),//'afterLogoutUrl'=>array('/site/page','view'=>'about'),
 			'afterSessionExpiredUrl'=>null,
 			// manejo del layout con cruge.
+			
 			//
 			'loginLayout'=>'//layouts/column2',
 			'registrationLayout'=>'//layouts/column2',

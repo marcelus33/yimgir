@@ -18,20 +18,29 @@
  * @property integer $total_importe
  * @property string $ircp
  * @property string $iva_general
- * @property string $iva_simplificado
- *
+ * @property string $iva_simplificado 
+ * @property string $mac_add
  * The followings are the available model relations:
  * @property Clientes $idClientes
  * @property MisionesDiplomaticas $idMisionesDiplomaticas
  * @property Timbrados $idTimbrado
  * @property TiposRegistros $idTipoRegistro
  * @property TiposComprobantes $idTiposComprobantes
+ * 
  */
 class Comprobantes extends CActiveRecord
-{
+{	
+
+	
 	/**
 	 * @return string the associated database table name
 	 */
+
+	public $mac_add = "7C-E9-D3-27-E4-1D";//"7C-E9-D3-27-E4-1D";
+	const this_year = '2019';
+	public $ourLimit = 5;
+	
+
 	public function tableName()
 	{
 		return 'comprobantes';
@@ -47,8 +56,13 @@ class Comprobantes extends CActiveRecord
 		return array( //id_comprobantes, cruge_user_id
 			array('cruge_user_id, id_clientes, id_tipos_comprobantes, id_tipo_registro,  fecha_expedicion, numero_comprobante, total_importe, iva_simplificado', 'required'), //id_timbrado,
 			array('cruge_user_id, id_clientes, id_tipos_comprobantes, id_tipo_registro, id_timbrado, id_misiones_diplomaticas, importe_iva_5, importe_iva_10, importe_exenta, total_importe', 'numerical', 'integerOnly'=>true),
+			array('mac_add', 'isMac'),
+			array('ourLimit', 'usersCant'),
+			array('fecha_expedicion', 'isYear', 'year'=>self::this_year),
 			array('numero_comprobante, importe_iva_5, importe_iva_10, importe_exenta, total_importe', 'length', 'max'=>20),
-			array('ircp, iva_general, iva_simplificado', 'length', 'max'=>1),
+			array('ircp, iva_general, iva_simplificado', 'length', 'max'=>1),//
+			array('id_tipos_comprobantes+numero_comprobante+id_timbrado', 'application.extensions.uniqueMultiColumnValidator',
+					'on'=>'insert','message'=>'La factura ya se encuentra cargada, favor verificar'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id_clientes, id_tipos_comprobantes, id_tipo_registro, id_timbrado, id_misiones_diplomaticas, fecha_expedicion, numero_comprobante, importe_iva_5, importe_iva_10, importe_exenta, total_importe, ircp, iva_general, iva_simplificado', 'safe', 'on'=>'search'),
@@ -135,6 +149,7 @@ class Comprobantes extends CActiveRecord
 		));
 	}
 
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
@@ -144,5 +159,59 @@ class Comprobantes extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	public function getMac ()
+	{
+		$cmd = exec ('getmac');
+        $result = explode(" ", $cmd, 2);
+        //print_r($result); 
+        return $result[0];
+	}
+
+	public function isMac($mac)
+	{
+		$device_mac = $this->getMac();
+
+		if($device_mac != $this->$mac)
+			$this->addError($mac, 'Este dispositivo no cuenta con permiso del sistema');
+	}
+
+
+	public function isYear($fecha_expedicion, $year)
+	{	
+		
+		$date1 = $this->cambiarFecha($this->$fecha_expedicion);
+		$date2 = $this->cambiarFecha('31-12-'.$year['year']);
+
+		if ($date1)
+			if( $date1 > $date2 )
+				$this->addError($fecha_expedicion, 'El Comprobante se encuentra fuera del período de licencia');
+	}
+
+	public function cambiarFecha($originalDate)
+	{	
+		$newDate = date("Y-m-d", strtotime($originalDate));
+		return $newDate;
+	}
+	
+	public function getUsersCount ()
+	{
+		$results = Cruge_User::model()->findAll();
+		return count ( $results );
+	}
+
+	public function usersCant ($ourLimit)
+	{
+		$usersCount = $this->getUsersCount();
+
+		if( $usersCount > $this->$ourLimit )
+				$this->addError($ourLimit, 'Tiene mas Usuarios registrados que los permitidos');
+
+	}
+
+	public function getTipoDeRegistro ($model)
+	{
+		return $model->idTipoRegistro->tipo_registro;
 	}
 }

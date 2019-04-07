@@ -4,6 +4,7 @@
 )); ?>
 <?php //Yii::app()->clientScript->registerScriptFile('/yimgir/js/jquery-3.3.1.min.js'); ?>
 <?php Yii::app()->clientScript->registerCssFile('/yimgir/css/switchCheckBox.css');?>
+<?php Yii::app()->clientScript->registerCssFile('/yimgir/css/sweetalert.css');?>
 <?php Yii::app()->clientScript->registerCssFile('/yimgir/css/mycss.css');?>
 
 <?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/jquery-mask.js') ?>
@@ -15,6 +16,7 @@
 <?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/botones_switch.js');  ?>
 <?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/longitud_input.js');  ?>
 <?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/importes_operacion.js');  ?>
+<?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/sweetalert.min.js');  ?>
 
 <p class="help-block">Campos con <span class="required">*</span> son obligatorios.</p>
 
@@ -193,9 +195,9 @@
 			<div class="row-fluid">
 
 				<div class="span5">
-				<?php echo $form->textFieldRow($model,'importe_iva_5',array('class'=>'input-medium number')); ?>
-		
 				<?php echo $form->textFieldRow($model,'importe_iva_10',array('class'=>'input-medium number')); ?>
+
+				<?php echo $form->textFieldRow($model,'importe_iva_5',array('class'=>'input-medium number')); ?>				
 
 				<?php echo $form->textFieldRow($model,'importe_exenta',array('class'=>'input-medium number')); ?>
 
@@ -203,10 +205,10 @@
 				</div>
 
 				<div class="span5">
-					<label for="calc_iva5">IVA %5</label>
-					<input type="text" name="calc_iva5" id="calc_iva5" class="input-medium number" disabled><br>
 					<label for="calc_iva10">IVA %10</label>
 					<input type="text" name="calc_iva10" id="calc_iva10" class="input-medium number" disabled><br>
+					<label for="calc_iva5">IVA %5</label>
+					<input type="text" name="calc_iva5" id="calc_iva5" class="input-medium number" disabled><br>
 					<label for="calc_total">Total IVA</label>
 					<input type="text" name="calc_total" id="calc_total" class="input-medium number" disabled><br>
 					<label for="calc_siniva">Total Importe sin IVA</label>
@@ -241,6 +243,17 @@
 			'type'=>'primary',
 			'label'=>$model->isNewRecord ? 'Guardar' : 'Actualizar',
 		)); ?>
+
+	<?php $this->widget('bootstrap.widgets.TbButton', array(
+			'buttonType'=>'submit',
+			'type'=>'primary',
+			'label'=>'Guardar y Continuar',
+		)); ?>
+
+<?php //$currentAction = Yii::app()->urlManager->parseUrl(Yii::app()->request);?>
+	
+<?php //echo CHtml::button('Guardar y Continuar', array('submit' => array( $currentAction ))); ?>
+
 </div>
 
 <?php $this->endWidget(); ?>

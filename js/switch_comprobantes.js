@@ -11,7 +11,9 @@ $(document).ready
         $("#Comprobantes_id_tipos_comprobantes").change( function () {
                         setTimeout(buscar_timbrados(), 1000);
                         setTimeout(displayComboTimbrados(), 700);             
-            } );    
+            } );
+            
+           
        
     }    
     
@@ -108,12 +110,23 @@ function cambiarTipoComprobantesBox()
                                                   mensaje = "Numero de identificacion invalido";
                                                   break;
                                                 case 5:
-                                                  mensaje = "El cliente es igual al Usuario del sistema";
+                                                {mensaje = "El cliente es igual al Usuario del sistema";
+                                                    $("#Comprobantes_id_clientes").val(0);
+                                                break;}
+                                                  
+                                                case 6:
+                                                  mensaje = "El cliente no tiene timbrados asignados";
                                                   break;
-                                                default:
-                                                  mensaje = "Error al generarse Timbrados";
+                                                default: 
+                                                  mensaje = "El titular del comprobante no tiene Timbrados asignados";
                                               } 
-                                            alert(mensaje);
+                                            //alert(mensaje);
+                                            //swal(mensaje);
+                                            swal({
+                                              title: "Atención",
+                                               text:  mensaje,
+                                               type: "warning",
+                                            });   
                                         }
 
                                         $("#Comprobantes_id_timbrado").html(comboBoxHtml); //cambiamos html del combo

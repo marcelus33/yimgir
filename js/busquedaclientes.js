@@ -42,7 +42,12 @@ function buscar_cliente()
                                         { 
                                             $("#Nombre_razon_social").val("");
                                             $("#DV").val("");
-                                            alert("El Numero de Identificacion ingresado no se encuentra registrado");
+                                            //alert("El Numero de Identificacion ingresado no se encuentra registrado");
+                                            swal({
+                                                title: "Atención",
+                                                text: "El Numero de Identificacion ingresado no se encuentra registrado",
+                                                type: "info",
+                                              }); 
                                         }
         }});
     } 
