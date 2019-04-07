@@ -57,9 +57,9 @@ class Timbrados extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_timbrado' => 'Timbrado',
-			'id_clientes' => 'Numero de Identificacion',
-			'numero_timbrado' => 'Timbrado',
+			'id_timbrado' => 'ID Timbrado',
+			'id_clientes' => 'Numero Identificacion',
+			'numero_timbrado' => 'Numero Timbrado',
 		);
 	}
 
