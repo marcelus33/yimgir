@@ -6,12 +6,15 @@ $this->breadcrumbs=array(
 );
 
 	$this->menu=array(
-	array('label'=>'Listar','url'=>array('index')),
+	array('label'=>'Inicio','url'=>array('/')),
 	array('label'=>'Crear Nuevo','url'=>array('create')),
 	array('label'=>'Ver','url'=>array('view','id'=>$model->id_timbrado)),
-	array('label'=>'Administrar','url'=>array('admin')),
+	array('label'=>'Buscar','url'=>array('admin')),
 	);
 	?>
 
-	
+<div class="page-header">
+  <h1>Editar Timbrado</h1>
+</div>
+
 <?php echo $this->renderPartial('_form',array('model'=>$model)); ?>

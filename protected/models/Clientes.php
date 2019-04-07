@@ -40,6 +40,9 @@ class Clientes extends CActiveRecord
 			array('numero_identificacion', 'length', 'max'=>30),
 			array('nombre_razon_social', 'length', 'max'=>250),
 			array('direccion', 'length', 'max'=>100),
+			array('numero_identificacion', 'unique'),
+			//array('id_documentos_identificacion + numero_identificacion', 'application.extensions.uniqueMultiColumnValidator',
+			//'on'=>'insert','message'=>'El Contribuyente ya se encuentra registrado'),
 			array('telefono', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

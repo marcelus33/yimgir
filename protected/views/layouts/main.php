@@ -80,6 +80,7 @@
     </div><!-- footer -->
 
 </div><!-- page -->
-
+<?php echo Yii::app()->user->ui->displayErrorConsole(); ?>
 </body>
 </html>
+

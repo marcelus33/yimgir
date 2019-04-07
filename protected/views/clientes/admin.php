@@ -10,19 +10,9 @@ array('label'=>'Inicio','url'=>array('/')),
 array('label'=>'Nuevo Cliente','url'=>array('create')),
 );
 
-// Yii::app()->clientScript->registerScript('search', "
-// $('.search-button').click(function(){
-// $('.search-form').toggle();
-// return false;
-// });
-// $('.search-form form').submit(function(){
-// $.fn.yiiGridView.update('clientes-grid', {
-// data: $(this).serialize()
-// });
-// return false;
-// });
-// ");
 ?>
+
+<legend>Buscar Clientes</legend>
 
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 'id'=>'clientes-grid',

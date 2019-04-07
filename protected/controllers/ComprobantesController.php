@@ -14,8 +14,9 @@ public $layout='//layouts/column2';
 public function filters()
 {
     return array(
-    array('CrugeAccessControlFilter'),    
-    //'accessControl', // perform access control for CRUD operations
+        'accessControl',
+        array('CrugeAccessControlFilter'),    
+     // perform access control for CRUD operations
     );
 }
 
@@ -26,6 +27,9 @@ public function filters()
 */
 public function accessRules()
 {
+
+Yii::app()->user->loginUrl = array("/cruge/ui/login");
+
 return array(
 array('allow',  // allow all users to perform 'index' and 'view' actions
 'actions'=>array('index','view'),
@@ -300,6 +304,7 @@ public function actionAdmin()
                                 } 
                             }
 
+                        
                     if ( ($criteriaTimbrado) && ($flag == 99) )
                     {   $results = Timbrados::model()->findAll($criteriaTimbrado);
                         echo CJSON::encode($results);
@@ -342,6 +347,8 @@ public function actionAdmin()
                                 (integer)$model->importe_iva_10 + 
                                 (integer)$model->importe_exenta;
 
+            //$model->id_clientes = (integer)$model->id_clientes;
+            
             if( (integer) $model->total_importe != $suma_de_importes )
             {
                 $user = Yii::app()->getComponent('user');
@@ -365,9 +372,25 @@ public function actionAdmin()
                     $flagTimbrado= 0;
                 }
             }
-        
-            if($model->save() && ($flagTimbrado))
+            
+            if(isset($_POST['yt0']))
+            {
+                if($model->save() && ($flagTimbrado))
                 $this->redirect(array('view','id'=>$model->id_comprobantes));
+            }
+
+           // if($model->save() && ($flagTimbrado))
+             //   $this->redirect(array('view','id'=>$model->id_comprobantes));
+
+            if(isset($_POST['yt1']))
+            {
+                if($model->save() && ($flagTimbrado))
+                $this->redirect('compra',array(
+                    'model'=>$model, 
+                    'id_registro'=>$id_registro,
+                    'contribuyente'=>$contribuyente ));
+            }
+
         }
 
         $this->render('compra',array(
@@ -576,11 +599,18 @@ return $model;
 */
 protected function performAjaxValidation($model)
 {
-if(isset($_POST['ajax']) && $_POST['ajax']==='comprobantes-form')
-{
-echo CActiveForm::validate($model);
-Yii::app()->end();
+    if(isset($_POST['ajax']) && $_POST['ajax']==='comprobantes-form')
+    {
+        echo CActiveForm::validate($model);
+        Yii::app()->end();
+    }
 }
+
+public function setFoo ($model)
+{
+    $model->foo = $model->idTipoRegistro->tipo_registro;
+    $model->save();
+        return $model->foo;
 }
 
 public function actionreportesComp()

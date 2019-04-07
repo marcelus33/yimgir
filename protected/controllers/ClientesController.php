@@ -14,8 +14,8 @@ public $layout='//layouts/column2';
 public function filters()
 {
     return array(
-    array('CrugeAccessControlFilter'),    
-    //'accessControl', // perform access control for CRUD operations
+        'accessControl',
+        array('CrugeAccessControlFilter'), 
     );
 }
 

@@ -6,9 +6,12 @@
 // );
 
 $this->menu=array(
-array('label'=>'Listar','url'=>array('index')),
-array('label'=>'Administrar','url'=>array('admin')),
+array('label'=>'Inicio','url'=>array('/')),
+array('label'=>'Buscar','url'=>array('admin')),
 );
 ?>
+<div class="page-header">
+  <h1>Nuevo Timbrado</h1>
+</div>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
