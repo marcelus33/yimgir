@@ -201,12 +201,24 @@ public function actionreportesAjax()
 			fwrite($myfile, $mision_txt);
 		}	
 		if(fclose($myfile)){
-			$respuesta = 1;
+			$user = Yii::app()->getComponent('user');
+            $user->setFlash(
+                    'success',
+                    '<strong>Listo!</strong> Archivo generado en <strong>Reportes</strong>'
+            );
 		}
 		else{
-			$respuesta = 0;
+			$user = Yii::app()->getComponent('user');
+            $user->setFlash(
+            		'error',
+                    '<strong>Error!</strong> Intente nuevamente generar el archivo'
+            );
 		}
-		echo $respuesta;
+		// echo $respuesta;
+		// $this->render('admin',array(
+		// 	'model'=>$model,
+		// 	));
+		$this->redirect('admin', array('model'=>$model,));
 }
 
 public function actionExcel(){
@@ -216,35 +228,22 @@ public function actionExcel(){
 	$criteria = new CDbCriteria;
 	$criteria->condition = 'id_misiones_diplomaticas > 0';
 	$misiones = MisionesDiplomaticas::model()->findAll();
-	// CHtml::listData(MisionesDiplomaticas::model()->findAll(), 'id', 'name')
-	
+
 	$arrayMisiones = array();
-	foreach ($misiones as $mision) {
-		array_push($arrayMisiones, $mision->mision_diplomatica);
-	}
+    $arrayProv = array();
+
+    foreach ($misiones as $mision) {
+        foreach ($mision as $key => $value) {
+            $arrayProv = array_merge($arrayProv, array($key => $value));
+        }
+        array_push($arrayMisiones, $arrayProv);
+    }
+    // print_r($arrayMisionesNew);//este es el array que queremos chera'a
 	
-	// //Some data
-	// $students = array(
-	// 	array('name'=>'Some Name','obs'=>'Mat'),
-	// 	array('name'=>'Another Name','obs'=>'Tec'),
-	// 	array('name'=>'Yet Another Name','obs'=>'Mat')
-	// );
-	$misiones_test =
-		array(
-		array("id_misiones_diplomaticas"=>"1","mision_diplomatica"=>"curu1"),
-		array("id_misiones_diplomaticas"=>"2","mision_diplomatica"=>"curu2"),
-		array("id_misiones_diplomaticas"=>"3","mision_diplomatica"=>"curu3"),
-	);
 	
 	$r = new YiiReport(array('template'=> 'reportes.xls'));
 	
 	$r->load(array(
-			array(
-				'id' => 'ong',
-				'data' => array(
-					'name' => 'UNIVERSIDAD PADAGĂ“GICA NACIONAL'
-				)
-			),
 			array(
 				'id'=>'estu',
 				'repeat'=>true,
@@ -254,10 +253,9 @@ public function actionExcel(){
 		)
 	);
 	
-	// echo $r->render('excel5', 'Students');
-	echo $r->render('excel2007', 'Students');
-	//echo $r->render('pdf', 'Students');
+	echo $r->render('excel2007', 'Misiones');
+
 	
-}//actionExcel method end
+}
 
 }

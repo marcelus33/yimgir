@@ -36,7 +36,8 @@ array('allow',  // allow all users to perform 'index' and 'view' actions
 'users'=>array('*'),
 ),
 array('allow', // allow authenticated user to perform 'create' and 'update' actions
-'actions'=>array('create','update','buscarClientes','CambiarComboBox','ObtenerTimbrados', 'Compra', 'Venta'),
+'actions'=>array('create','update','buscarClientes','CambiarComboBox','ObtenerTimbrados', 
+'Compra', 'Venta', 'reportesComp', 'reportesAjax', 'excelReport'),
 'users'=>array('@'),
 ),
 array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -182,6 +183,12 @@ public function actionAdmin()
     public function cambiarFecha($originalDate)
 	{	
 		$newDate = date("Y-m-d", strtotime($originalDate));
+		return $newDate;
+    }
+
+    public function reverseFecha($originalDate)
+	{	
+		$newDate = date("d/m/Y", strtotime($originalDate));
 		return $newDate;
     }
     
@@ -604,6 +611,158 @@ public function setFoo ($model)
     $model->foo = $model->idTipoRegistro->tipo_registro;
     $model->save();
         return $model->foo;
+}
+
+public function actionreportesComp()
+{
+    $model=new Comprobantes;
+    
+    $dataProvider=new CActiveDataProvider('Comprobantes');
+    // $this->render('index',array(
+    // 'dataProvider'=>$dataProvider,
+    // ));
+
+    $this->render('reportesComp',array(
+    'model'=>$model, 'dataProvider'=>$dataProvider,
+    ));
+}
+
+public function actionreportesAjax()
+	{
+	   
+		$model = new Comprobantes;
+        if( (isset($_POST['fecha_desde']) && $_POST['fecha_desde']!=='') && 
+            (isset($_POST['fecha_hasta']) && $_POST['fecha_hasta']!==''))
+	    {
+	    	$fecha_desde = $this->cambiarFecha($_POST['fecha_desde']);
+            $fecha_hasta = $this->cambiarFecha($_POST['fecha_hasta']);
+        }
+        
+        $usuario = Yii::app()->user->id;
+        $criteria = new CDbCriteria;
+        // $criteria->condition = 'id_misiones_diplomaticas > 0';
+        $criteria->addCondition('fecha_expedicion >= :fr_d '); //1/10
+        $criteria->addCondition('fecha_expedicion <= :fr_h'); // 20/10
+        $criteria->addCondition('cruge_user_id = :ur'); 
+        $criteria->params = array(':fr_d'=>$fecha_desde, ':fr_h'=>$fecha_hasta, 
+                                ':ur'=>$usuario);
+        $comprobantes = Comprobantes::model()->findAll($criteria);
+        //4152379_IRPC_2019.txt
+        
+        $model_usuario = Cruge_User::model()->findByPk($usuario);
+       
+        $identificacion_usuario = $model_usuario->numero_identificacion_irpc;
+        $periodo = 2019;
+
+        
+        if($comprobantes) {
+            $myfile = fopen("C:/reportes/" . $identificacion_usuario . "_IRPC_" . $periodo .".txt", "w+") or die("Error al crear el archivo");
+            
+                foreach ($comprobantes as $comprobante) {
+                $linea = $comprobante->idTipoRegistro->tipo_registro .chr(9). //tipo_comprobante
+                $comprobante->idTiposComprobantes->tipo_comprobante .chr(9). //tipo_comprobante
+                $this->reverseFecha($comprobante->fecha_expedicion).chr(9);
+                // $comprobante->fecha_expedicion .chr(9);
+                if( $comprobante->idTimbrado != null){
+                    $timbrado = $comprobante->idTimbrado->numero_timbrado .chr(9);
+                }
+                else{
+                    $timbrado = chr(9);
+                }
+                $lineacont = $timbrado .
+                $comprobante->numero_comprobante . chr(9).
+                $comprobante->idClientes->idDocumentosIdentificacion->documento_identificacion . chr(9). //tipo_identificacion
+                $comprobante->idClientes->numero_identificacion . chr(9). //numero_identificacion
+                $comprobante->idClientes->nombre_razon_social . chr(9); //nombre_razon_social
+                if( $comprobante->idMisionesDiplomaticas != null){
+                    $mision = $comprobante->idMisionesDiplomaticas->mision_diplomatica .chr(9);
+                }
+                else{
+                    $mision = chr(9);
+                }
+                $lineacont = $lineacont . $mision .
+                $comprobante->importe_iva_10 . chr(9).
+                $comprobante->importe_iva_5 . chr(9).
+                $comprobante->importe_exenta . chr(9).
+                $comprobante->total_importe . chr(9).
+                $comprobante->ircp . chr(9).
+                $comprobante->iva_general . chr(9).
+                $comprobante->iva_simplificado . PHP_EOL;
+                $linea = $linea . $lineacont;
+                // $mision = $mision_txt . PHP_EOL;
+                fwrite($myfile, $linea);
+                $linea = '';
+                $lineacont = '';
+            }
+        
+        }
+		
+		if(fclose($myfile)){
+			$user = Yii::app()->getComponent('user');
+            $user->setFlash(
+                    'success',
+                    '<strong>Listo!</strong> Archivo generado en <strong>Reportes</strong>'
+            );
+		}
+		else{
+			$user = Yii::app()->getComponent('user');
+            $user->setFlash(
+            		'error',
+                    '<strong>Error!</strong> Intente nuevamente generar el archivo'
+            );
+		}
+		$this->redirect('reportesComp', array('model'=>$model,));
+}
+
+public function actionexcelReport(){
+        
+	
+	$model = new Comprobantes;
+        if( (isset($_POST['fecha_desde']) && $_POST['fecha_desde']!=='') && 
+            (isset($_POST['fecha_hasta']) && $_POST['fecha_hasta']!==''))
+	    {
+	    	$fecha_desde = $this->cambiarFecha($_POST['fecha_desde']);
+            $fecha_hasta = $this->cambiarFecha($_POST['fecha_hasta']);
+
+            
+        }
+    $usuario = Yii::app()->user->id;
+
+    $sql = 'select tr.tipo_registro, tc.tipo_comprobante, co.fecha_expedicion, ti.numero_timbrado, 
+            co.numero_comprobante, di.documento_identificacion, cl.numero_identificacion, 
+            cl.nombre_razon_social, md.mision_diplomatica, co.importe_iva_10,
+            co.importe_iva_5, co.importe_exenta, co.total_importe, co.ircp, co.iva_general, co.iva_simplificado
+            from public.comprobantes as co inner join public.clientes as cl
+            on co.id_clientes = cl.id_clientes
+            inner join public.documentos_identificacion as di
+            on di.id_documentos_identificacion = cl.id_documentos_identificacion
+            inner join public.tipos_comprobantes as tc
+            on tc.id_tipos_comprobantes = co.id_tipos_comprobantes
+            inner join public.tipos_registros as tr
+            on tr.id_tipo_registro = co.id_tipo_registro
+            left join public.timbrados as ti
+            on ti.id_timbrado = co.id_timbrado
+            left join public.misiones_diplomaticas as md
+            on md.id_misiones_diplomaticas = co.id_misiones_diplomaticas
+            where co.fecha_expedicion >=\''.$fecha_desde . '\' and co.fecha_expedicion <=\'' .$fecha_hasta . '\'
+            and co.cruge_user_id = '.$usuario;
+    
+    $rawData = Yii::app()->db->createCommand($sql)->queryAll(); //or use ->queryAll(); in CArrayDataProvider
+	$r = new YiiReport(array('template'=> 'comprobantes.xls'));
+	
+	$r->load(array(
+			array(
+				'id'=>'estu',
+				'repeat'=>true,
+				'data'=>$rawData,
+				'minRows'=>2
+			)
+		)
+	);
+	
+	echo $r->render('excel2007', 'bresein');
+
+	
 }
 
 

@@ -14,14 +14,17 @@
  * @property string $numero_comprobante
  * @property integer $importe_iva_5
  * @property integer $importe_iva_10
- * @property integer $importe_exenta 
+ * @property integer $importe_exenta
  * @property integer $total_importe
  * @property string $ircp
  * @property string $iva_general
- * @property string $iva_simplificado 
  * @property string $mac_add
+ * @property string $iva_simplificado
+ * @property integer $cruge_user_id
+ *
  * The followings are the available model relations:
  * @property Clientes $idClientes
+ * @property CrugeUser $crugeUser
  * @property MisionesDiplomaticas $idMisionesDiplomaticas
  * @property Timbrados $idTimbrado
  * @property TiposRegistros $idTipoRegistro
@@ -78,11 +81,12 @@ class Comprobantes extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idClientes' => array(self::BELONGS_TO, 'Clientes', 'id_clientes'),
+			// 'crugeUser' => array(self::BELONGS_TO, 'CrugeUser', 'cruge_user_id'),
+			'idCrugeUser' => array(self::BELONGS_TO, 'CrugeUser', 'iduser'),
 			'idMisionesDiplomaticas' => array(self::BELONGS_TO, 'MisionesDiplomaticas', 'id_misiones_diplomaticas'),
 			'idTimbrado' => array(self::BELONGS_TO, 'Timbrados', 'id_timbrado'),
 			'idTipoRegistro' => array(self::BELONGS_TO, 'TiposRegistros', 'id_tipo_registro'),
 			'idTiposComprobantes' => array(self::BELONGS_TO, 'TiposComprobantes', 'id_tipos_comprobantes'),
-			'idCrugeUser' => array(self::BELONGS_TO, 'CrugeUser', 'iduser'),
 		);
 	}
 
@@ -92,21 +96,23 @@ class Comprobantes extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_comprobantes' => 'Comprobante',
+			'id_comprobantes' => 'ID Comprobante',
 			'id_clientes' => 'Cliente',
-			'id_tipos_comprobantes' => 'Tipos de Comprobante',
+			'id_tipos_comprobantes' => 'Tipo de Comprobante',
 			'id_tipo_registro' => 'Tipo de Registro',
 			'id_timbrado' => 'Timbrado',
 			'id_misiones_diplomaticas' => 'Misiones Diplomaticas',
 			'fecha_expedicion' => 'Fecha de Expedicion',
 			'numero_comprobante' => 'Numero de Comprobante',
-			'importe_iva_5' => 'Importe Iva 5',
-			'importe_iva_10' => 'Importe Iva 10',
+			'importe_iva_5' => 'Importe IVA 5',
+			'importe_iva_10' => 'Importe IVA 10',
 			'importe_exenta' => 'Importe Exenta',
 			'total_importe' => 'Total Importe',
 			'ircp' => 'IRPC',
 			'iva_general' => 'IVA General',
 			'iva_simplificado' => 'IVA Simplificado',
+			// 'cruge_user_id' => 'Cruge User',
+			'iduser' => 'Usuario',
 		);
 	}
 
@@ -143,6 +149,7 @@ class Comprobantes extends CActiveRecord
 		$criteria->compare('ircp',$this->ircp,true);
 		$criteria->compare('iva_general',$this->iva_general,true);
 		$criteria->compare('iva_simplificado',$this->iva_simplificado,true);
+		$criteria->compare('iduser',$this->iduser);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
