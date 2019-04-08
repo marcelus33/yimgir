@@ -81,7 +81,7 @@ class Comprobantes extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idClientes' => array(self::BELONGS_TO, 'Clientes', 'id_clientes'),
-			//'crugeUser' => array(self::BELONGS_TO, 'CrugeUser', 'cruge_user_id'),
+			// 'crugeUser' => array(self::BELONGS_TO, 'CrugeUser', 'cruge_user_id'),
 			'idCrugeUser' => array(self::BELONGS_TO, 'Cruge_User', 'iduser'),
 			'idMisionesDiplomaticas' => array(self::BELONGS_TO, 'MisionesDiplomaticas', 'id_misiones_diplomaticas'),
 			'idTimbrado' => array(self::BELONGS_TO, 'Timbrados', 'id_timbrado'),
@@ -111,8 +111,8 @@ class Comprobantes extends CActiveRecord
 			'ircp' => 'IRPC',
 			'iva_general' => 'IVA General',
 			'iva_simplificado' => 'IVA Simplificado',
-			// 'cruge_user_id' => 'Cruge User',
-			'iduser' => 'Usuario',
+			'cruge_user_id' => 'Cruge User',
+			// 'iduser' => 'Usuario',
 		);
 	}
 
@@ -135,9 +135,9 @@ class Comprobantes extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_comprobantes',$this->id_comprobantes);
-		$criteria->compare('id_clientes',$this->id_clientes);
-		$criteria->compare('id_tipos_comprobantes',$this->id_tipos_comprobantes);
-		$criteria->compare('id_tipo_registro',$this->id_tipo_registro);
+		// $criteria->compare('id_clientes',$this->id_clientes);
+		// $criteria->compare('id_tipos_comprobantes',$this->id_tipos_comprobantes);
+		// $criteria->compare('id_tipo_registro',$this->id_tipo_registro);
 		$criteria->compare('id_timbrado',$this->id_timbrado);
 		$criteria->compare('id_misiones_diplomaticas',$this->id_misiones_diplomaticas);
 		$criteria->compare('fecha_expedicion',$this->fecha_expedicion,true);
@@ -149,10 +149,20 @@ class Comprobantes extends CActiveRecord
 		$criteria->compare('ircp',$this->ircp,true);
 		$criteria->compare('iva_general',$this->iva_general,true);
 		$criteria->compare('iva_simplificado',$this->iva_simplificado,true);
+<<<<<<< HEAD
 		$criteria->compare('iduser',$this->cruge_user_id);
+=======
+		$criteria->compare('cruge_user_id',$this->cruge_user_id, true);
+
+		$criteria->with=array('idClientes', 'idTipoRegistro', 'idTiposComprobantes');
+		$criteria->addSearchCondition('idClientes.numero_identificacion', (string)$this->id_clientes, true);
+		$criteria->addSearchCondition('idTipoRegistro.tipo_registro', (string)$this->id_tipo_registro, true);
+		$criteria->addSearchCondition('idTiposComprobantes.tipo_comprobante', (string)$this->id_tipos_comprobantes, true);
+>>>>>>> master
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			
 		));
 	}
 
