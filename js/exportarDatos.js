@@ -15,7 +15,12 @@ $(document).ready(function(){
                         {   
                             if (response)
                             { 
-                                alert(fecha_desde);
+                                swal({
+                                    title: "Éxito",
+                                    text: "Archivo TXT generado correctamente en C:/reportes",
+                                    type: "success",
+                                  }); 
+
                                 
                             }
                             else 

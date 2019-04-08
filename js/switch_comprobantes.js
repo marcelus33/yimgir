@@ -2,7 +2,7 @@ $(document).ready
 (   
     function ()
     {  
-        setTimeout(cambiarTipoComprobantesBox(), 500); 
+        setTimeout(cambiarTipoComprobantesBox(), 1000); 
 
         $("#Busqueda_Numero_Identificacion").change( function () {
                         setTimeout(buscar_timbrados(), 1000);
@@ -28,7 +28,7 @@ function cambiarTipoComprobantesBox()
         var comboBoxHtml = "<select name=\"Comprobantes[id_tipos_comprobantes]\" id=\"Comprobantes_id_tipos_comprobantes\">";
 
         $.ajax({
-            url: "CambiarComboBox",
+            url: "http://localhost/yimgir/comprobantes/CambiarComboBox", //http://localhost/yimgir/comprobantes/CambiarComboBox
             type: 'POST',
             data:"&tipoDeRegistro="+tipoDeRegistro,
             success:  function(response, status) 
@@ -50,7 +50,12 @@ function cambiarTipoComprobantesBox()
                                     }
                                     else 
                                      { 
-                                       alert("Error al generarse Tipos de Comprobantes");
+                                       //alert("Error al generarse Tipos de Comprobantes");
+                                       swal({
+                                        title: "Atención",
+                                         text:  "Error al generarse Tipos de Comprobantes",
+                                         type: "warning",
+                                      }); 
                                      }
     }});
     } 

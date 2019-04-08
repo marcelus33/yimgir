@@ -24,7 +24,7 @@
  *
  * The followings are the available model relations:
  * @property Clientes $idClientes
- * @property CrugeUser $crugeUser
+ * @property CrugeUser $idCrugeUser
  * @property MisionesDiplomaticas $idMisionesDiplomaticas
  * @property Timbrados $idTimbrado
  * @property TiposRegistros $idTipoRegistro
@@ -149,12 +149,16 @@ class Comprobantes extends CActiveRecord
 		$criteria->compare('ircp',$this->ircp,true);
 		$criteria->compare('iva_general',$this->iva_general,true);
 		$criteria->compare('iva_simplificado',$this->iva_simplificado,true);
+<<<<<<< HEAD
+		$criteria->compare('iduser',$this->cruge_user_id);
+=======
 		$criteria->compare('cruge_user_id',$this->cruge_user_id, true);
 
 		$criteria->with=array('idClientes', 'idTipoRegistro', 'idTiposComprobantes');
 		$criteria->addSearchCondition('idClientes.numero_identificacion', (string)$this->id_clientes, true);
 		$criteria->addSearchCondition('idTipoRegistro.tipo_registro', (string)$this->id_tipo_registro, true);
 		$criteria->addSearchCondition('idTiposComprobantes.tipo_comprobante', (string)$this->id_tipos_comprobantes, true);
+>>>>>>> master
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

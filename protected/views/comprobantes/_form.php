@@ -71,7 +71,7 @@
 </div>
 
 <?php echo $form->hiddenField($model,'cruge_user_id',array('class'=>'span5', 'value'=> Yii::app()->user->id)); ?>
-	<?php echo $form->hiddenField($model,'id_clientes',array('class'=>'span5', 'value'=>"" )); ?>
+	<?php echo $form->hiddenField($model,'id_clientes',array('class'=>'span5' )); //, 'value'=>""?>
 
 	<!-- INICIO busqueda cliente -->
 <?php $box = $this->beginWidget(
@@ -86,17 +86,22 @@
 	
 		<div class="span2">
 			<label>No de Identificacion <span class="required">*</span></label>
-			<input type='text' id='Busqueda_Numero_Identificacion' style="width: 130px">
+			<input type='text' name='busqueda_numero_identificacion' 
+			id='Busqueda_Numero_Identificacion' style="width: 130px" 
+			value="<?php if ( isset($_POST['busqueda_numero_identificacion']) ) 
+			echo $_POST['busqueda_numero_identificacion']; else if (isset($model->idClientes->numero_identificacion)) echo $model->idClientes->numero_identificacion ?>">
 		</div>
 
 		<div class="span1">
 			<label>DV</label>
-			<input type='text' id='DV' style="width: 30px"  disabled/>
+			<input type='text' name ='dv' id='DV' style="width: 30px" 
+			value="<?php if ( isset($_POST['dv']) ) echo $_POST['dv']; else if (isset($model->idClientes->dv)) echo $model->idClientes->dv?>" readonly/>
 		</div>
-
+	
 		<div class="span3">
 			<label>Nombre o Razon Social</label>
-			<input type='text' id="Nombre_razon_social" style="width: 300px"  disabled/>
+			<input type='text' name ='nombrerazonsocial' id="Nombre_razon_social" style="width: 300px" 
+			value="<?php if ( isset($_POST['nombrerazonsocial']) ) echo $_POST['nombrerazonsocial']; else if (isset($model->idClientes->nombre_razon_social)) echo $model->idClientes->nombre_razon_social?>" readonly/>
 		</div>
 
 	</div>

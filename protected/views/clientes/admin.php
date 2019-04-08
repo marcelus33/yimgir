@@ -21,14 +21,14 @@ array('label'=>'Nuevo Cliente','url'=>array('create')),
 'columns'=>array(
 		// 'id_clientes',
 		// 'id_documentos_identificacion',
-		array(
+		/*array(
 			'name' => 'id_documentos_identificacion',			
 			'header' => 'Documento Identificacion',			
 			'type' => 'text', 
 			'value' => 'CHtml::encode($data->idDocumentosIdentificacion->documento_identificacion)',
 			'headerHtmlOptions'=>array('style' => 'text-align: center;'),
 			'htmlOptions'=>array('style' => 'text-align: left; width: 100px;')
-			),
+		),*/
 		'numero_identificacion',
 		'dv',
 		'nombre_razon_social',

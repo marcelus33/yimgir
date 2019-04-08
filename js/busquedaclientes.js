@@ -1,9 +1,8 @@
 $(document).ready
 (   
     function ()
-    {   //setTimeout(calculos_montos, 500);
-        //setTimeout(buscar_cliente, 1000);
-       
+    {  
+        
        $("#Busqueda_Numero_Identificacion").change( function () {
                                             // Code to do stuff immediately
                          setTimeout(buscar_cliente, 500);
@@ -51,3 +50,5 @@ function buscar_cliente()
                                         }
         }});
     } 
+
+
