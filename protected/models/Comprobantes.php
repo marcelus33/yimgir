@@ -24,7 +24,7 @@
  *
  * The followings are the available model relations:
  * @property Clientes $idClientes
- * @property CrugeUser $crugeUser
+ * @property CrugeUser $idCrugeUser
  * @property MisionesDiplomaticas $idMisionesDiplomaticas
  * @property Timbrados $idTimbrado
  * @property TiposRegistros $idTipoRegistro
@@ -81,8 +81,8 @@ class Comprobantes extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idClientes' => array(self::BELONGS_TO, 'Clientes', 'id_clientes'),
-			// 'crugeUser' => array(self::BELONGS_TO, 'CrugeUser', 'cruge_user_id'),
-			'idCrugeUser' => array(self::BELONGS_TO, 'CrugeUser', 'iduser'),
+			//'crugeUser' => array(self::BELONGS_TO, 'CrugeUser', 'cruge_user_id'),
+			'idCrugeUser' => array(self::BELONGS_TO, 'Cruge_User', 'iduser'),
 			'idMisionesDiplomaticas' => array(self::BELONGS_TO, 'MisionesDiplomaticas', 'id_misiones_diplomaticas'),
 			'idTimbrado' => array(self::BELONGS_TO, 'Timbrados', 'id_timbrado'),
 			'idTipoRegistro' => array(self::BELONGS_TO, 'TiposRegistros', 'id_tipo_registro'),
@@ -149,7 +149,7 @@ class Comprobantes extends CActiveRecord
 		$criteria->compare('ircp',$this->ircp,true);
 		$criteria->compare('iva_general',$this->iva_general,true);
 		$criteria->compare('iva_simplificado',$this->iva_simplificado,true);
-		$criteria->compare('iduser',$this->iduser);
+		$criteria->compare('iduser',$this->cruge_user_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

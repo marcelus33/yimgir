@@ -3,36 +3,19 @@
 echo "<br>";
 
 $this->menu=array(
-array('label'=>'Listar','url'=>array('index')),
+array('label'=>'Inicio','url'=>array('/')),
 array('label'=>'Nueva Compra','url'=>array('compra')),
 array('label'=>'Nueva Venta','url'=>array('venta')),
 );
 
-Yii::app()->clientScript->registerScript('search', "
-$('.search-button').click(function(){
-$('.search-form').toggle();
-return false;
-});
-$('.search-form form').submit(function(){
-$.fn.yiiGridView.update('comprobantes-grid', {
-data: $(this).serialize()
-});
-return false;
-});
-");
 ?>
 
-<?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button btn')); ?>
-<div class="search-form" style="display:none">
-	<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
+
 
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 'id'=>'comprobantes-grid',
 'dataProvider'=>$model->search(),
-'filter'=>$model,
+//'filter'=>$model,
 'columns'=>array(
 		'id_comprobantes',
 		'id_clientes',
