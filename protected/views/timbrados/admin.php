@@ -23,12 +23,12 @@ array('label'=>'Crear Nuevo','url'=>array('create')),
 'columns'=>array(
 		//'id_timbrado',
 		//'id_clientes',
-		/*array (
+		array (
 			'header' =>'Cliente',
 			'name'=>'id_clientes', 
 			'value'=>'$data->idClientes->nombre_razon_social',
 			'type'=>'text',
-		),*/
+		),
 		'numero_timbrado',
 array(
 'class'=>'bootstrap.widgets.TbButtonColumn',

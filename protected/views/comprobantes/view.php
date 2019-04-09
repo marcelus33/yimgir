@@ -66,7 +66,7 @@ array('label'=>'Administrar','url'=>array('admin')),
 				<label ><b>Fecha Expedicion: </b><?php echo date("d/m/Y", strtotime(CHtml::encode($model->fecha_expedicion)))?></label>
 			</div>
 			<div class="span3">
-				<label><b>Timbrado: </b><?php echo $model->idTimbrado->numero_timbrado;?></label>
+				<label><b>Timbrado: </b><?php if (isset($model->idTimbrado->numero_timbrado)) echo $model->idTimbrado->numero_timbrado;?></label>
 			</div>
 		</div>
 		<legend></legend>

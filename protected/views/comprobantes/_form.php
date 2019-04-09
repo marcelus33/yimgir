@@ -70,8 +70,14 @@
 	
 </div>
 
+<?php
+	if ( isset($_POST['Comprobantes']['id_clientes']) ) 
+			$value4idCliente = $_POST['Comprobantes']['id_clientes'];
+			else $value4idCliente = "";
+?>
+
 <?php echo $form->hiddenField($model,'cruge_user_id',array('class'=>'span5', 'value'=> Yii::app()->user->id)); ?>
-	<?php echo $form->hiddenField($model,'id_clientes',array('class'=>'span5' )); //, 'value'=>""?>
+	<?php echo $form->hiddenField($model,'id_clientes',array('class'=>'span5', 'value'=>$value4idCliente )); //, 'value'=>""?>
 
 	<!-- INICIO busqueda cliente -->
 <?php $box = $this->beginWidget(
@@ -89,19 +95,19 @@
 			<input type='text' name='busqueda_numero_identificacion' 
 			id='Busqueda_Numero_Identificacion' style="width: 130px" 
 			value="<?php if ( isset($_POST['busqueda_numero_identificacion']) ) 
-			echo $_POST['busqueda_numero_identificacion']; else if (isset($model->idClientes->numero_identificacion)) echo $model->idClientes->numero_identificacion ?>">
+			echo $_POST['busqueda_numero_identificacion']; else if (isset($model->idClientes->numero_identificacion)) echo $model->idClientes->numero_identificacion; ?>">
 		</div>
 
 		<div class="span1">
 			<label>DV</label>
 			<input type='text' name ='dv' id='DV' style="width: 30px" 
-			value="<?php if ( isset($_POST['dv']) ) echo $_POST['dv']; else if (isset($model->idClientes->dv)) echo $model->idClientes->dv?>" readonly/>
+			value="<?php if ( isset($_POST['dv']) ) echo $_POST['dv']; else if (isset($model->idClientes->dv)) echo $model->idClientes->dv;?>" readonly/>
 		</div>
 	
 		<div class="span3">
 			<label>Nombre o Razon Social</label>
 			<input type='text' name ='nombrerazonsocial' id="Nombre_razon_social" style="width: 300px" 
-			value="<?php if ( isset($_POST['nombrerazonsocial']) ) echo $_POST['nombrerazonsocial']; else if (isset($model->idClientes->nombre_razon_social)) echo $model->idClientes->nombre_razon_social?>" readonly/>
+			value="<?php if ( isset($_POST['nombrerazonsocial']) ) echo $_POST['nombrerazonsocial']; else if (isset($model->idClientes->nombre_razon_social)) echo $model->idClientes->nombre_razon_social;?>" readonly/>
 		</div>
 
 	</div>
@@ -122,7 +128,8 @@
     <!--principal-->
 		<div class="row-fluid">
 				  <div class="span5">
-
+				<input type="hidden" id="hiddenTimbrado" value="<?php if( isset($model->id_timbrado) ) echo $model->id_timbrado; else echo 0; ?>" >
+				
 			<?php //echo $form->textFieldRow($model,'id_tipos_comprobantes',array('class'=>'span5')); ?>
 					<!--<div class="span3">-->	
 					<?php echo $form->labelEx($model,'id_tipos_comprobantes'); ?> 

@@ -1,8 +1,5 @@
 <?php
-$this->breadcrumbs=array(
-	'Timbradoses'=>array('index'),
-	$model->id_timbrado,
-);
+
 
 $this->menu=array(
 array('label'=>'Inicio','url'=>array('/')),

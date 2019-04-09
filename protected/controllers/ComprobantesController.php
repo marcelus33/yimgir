@@ -342,6 +342,10 @@ public function actionAdmin()
             $model->importe_iva_10 = $this->sacarPuntos($model->importe_iva_10);
             $model->importe_exenta = $this->sacarPuntos($model->importe_exenta);
             $model->total_importe = $this->sacarPuntos($model->total_importe);
+            //$model->id_misiones_diplomaticas = null;
+
+            if ( (isset($model->id_misiones_diplomaticas)) && ($model->id_misiones_diplomaticas!=="") )
+            {} else $model->id_misiones_diplomaticas = null; //ponemos asi xq mysql no detecta los vacios como NULLs
 
             $suma_de_importes = (integer)$model->importe_iva_5 + 
                                 (integer)$model->importe_iva_10 + 
@@ -421,6 +425,10 @@ public function actionAdmin()
             $model->importe_exenta = $this->sacarPuntos($model->importe_exenta);
             $model->total_importe = $this->sacarPuntos($model->total_importe);
 
+            if ( (isset($model->id_misiones_diplomaticas)) && ($model->id_misiones_diplomaticas!=="") )
+            {} else $model->id_misiones_diplomaticas = null; //ponemos asi xq mysql no detecta los vacios como NULLs
+
+
             $suma_de_importes = (integer)$model->importe_iva_5 + 
                                 (integer)$model->importe_iva_10 + 
                                 (integer)$model->importe_exenta;
@@ -481,6 +489,10 @@ public function actionAdmin()
             $model->importe_exenta = $this->sacarPuntos($model->importe_exenta);
             $model->total_importe = $this->sacarPuntos($model->total_importe);
 
+            if ( (isset($model->id_misiones_diplomaticas)) && ($model->id_misiones_diplomaticas!=="") )
+            {} else $model->id_misiones_diplomaticas = null; //ponemos asi xq mysql no detecta los vacios como NULLs
+
+
             $suma_de_importes = (integer)$model->importe_iva_5 + 
                                 (integer)$model->importe_iva_10 + 
                                 (integer)$model->importe_exenta;
@@ -540,6 +552,10 @@ public function actionAdmin()
             $model->importe_iva_10 = $this->sacarPuntos($model->importe_iva_10);
             $model->importe_exenta = $this->sacarPuntos($model->importe_exenta);
             $model->total_importe = $this->sacarPuntos($model->total_importe);
+
+            if ( (isset($model->id_misiones_diplomaticas)) && ($model->id_misiones_diplomaticas!=="") )
+            {} else $model->id_misiones_diplomaticas = null; //ponemos asi xq mysql no detecta los vacios como NULLs
+
 
             $suma_de_importes = (integer)$model->importe_iva_5 + 
                                 (integer)$model->importe_iva_10 + 

@@ -55,13 +55,13 @@ return array(
 			 // url base para los links de activacion de cuenta de usuario
 			'baseUrl'=>'http://coco.com/',
 			 // NO OLVIDES PONER EN FALSE TRAS INSTALAR
-			 'debug'=>true,
-			 'rbacSetupEnabled'=>true,
-			 'allowUserAlways'=>true,
+			 'debug'=>false,
+			 'rbacSetupEnabled'=>false,
+			 'allowUserAlways'=>false,
 			// MIENTRAS INSTALAS..PONLO EN: false
 			// lee mas abajo respecto a 'Encriptando las claves'
 			//
-			'useEncryptedPassword' => false,
+			'useEncryptedPassword' => true,
 			// Algoritmo de la función hash que deseas usar
 			// Los valores admitidos están en: http://www.php.net/manual/en/function.hash-algos.php
 			'hash' => 'md5',

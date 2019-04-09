@@ -33,6 +33,7 @@ class Timbrados extends CActiveRecord
 			array('id_clientes, numero_timbrado', 'required'),
 			array('id_clientes, numero_timbrado', 'numerical', 'integerOnly'=>true),
 			array('numero_timbrado', 'length', 'max'=>8),
+			array('numero_timbrado', 'unique'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id_timbrado, id_clientes, numero_timbrado', 'safe', 'on'=>'search'),
