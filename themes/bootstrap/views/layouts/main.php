@@ -54,6 +54,7 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
 							array('label' => 'Compras', 'url'=>$this->createUrl('/comprobantes/compra'),),
 							array('label' => 'Ventas', 'url'=>$this->createUrl('/comprobantes/venta'),),
 							array('label' => 'Administrar', 'url'=>$this->createUrl('/comprobantes/admin'),),
+							array('label' => 'Exportar', 'url'=>$this->createUrl('/comprobantes/reportesComp'),),
 				),
  			),
 			array('label'=>'Clientes',
@@ -62,50 +63,33 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
 					array('label' => 'Administrar', 'url'=>$this->createUrl('/clientes/admin'),),
 				 ),
 			),
+			array('label'=>'Timbrados',
+					'items' => array(
+							array('label' => 'Nuevo', 'url'=>$this->createUrl('/timbrados/create'),),
+							array('label' => 'Administrar', 'url'=>$this->createUrl('/timbrados/admin'),),
+					),
+			),
 			array('label'=>'Parametros',
 				'items'=>array(
-					array('label'=>'Timbrados',
-						'items' => array(
-								array('label' => 'Nuevo', 'url'=>$this->createUrl('/timbrados/create'),),
-								array('label' => 'Administrar', 'url'=>$this->createUrl('/timbrados/admin'),),
-						),
+				array('label'=>'Documentos de Identificacion',
+					'items' => array(
+						array('label' => 'Nuevo', 'url'=>$this->createUrl('/documentosIdentificacion/create'),),
+						array('label' => 'Administrar', 'url'=>$this->createUrl('/documentosIdentificacion/admin'),),
 					),
-					array('label'=>'Documentos de Identificacion',
-						'items' => array(
-								array('label' => 'Nuevo', 'url'=>$this->createUrl('/documentosIdentificacion/create'),),
-								array('label' => 'Administrar', 'url'=>$this->createUrl('/documentosIdentificacion/admin'),),
-						),
+				 ),
+				array('label'=>'Tipos de Comprobantes',
+					'items' => array(
+						array('label' => 'Nuevo', 'url'=>$this->createUrl('/tiposComprobantes/create'),),
+						array('label' => 'Administrar', 'url'=>$this->createUrl('/tiposComprobantes/admin'),),
 					),
-					array('label'=>'Tipos de Comprobantes',
-						'items' => array(
-								array('label' => 'Nuevo', 'url'=>$this->createUrl('/tiposComprobantes/create'),),
-								array('label' => 'Administrar', 'url'=>$this->createUrl('/tiposComprobantes/admin'),),
-						),
-					),
-					array('label'=>'Misiones Diplomaticas',
-						'items' => array(
-								array('label' => 'Nuevo', 'url'=>$this->createUrl('/misionesDiplomaticas/create'),),
-								array('label' => 'Administrar', 'url'=>$this->createUrl('/misionesDiplomaticas/admin'),),
-						),
-					),
-				),
- 			),
-			array('label'=>'Herramientas', 'url'=>'#',
- 				'visible'=>!Yii::app()->user->isGuest,
- 				'items'=>array(
- 					array('label'=>'Copia de Seguridad',
- 						'url'=>array('/backup/default/index')
- 						//	'visible'=>!Yii::app()->user->isGuest,
- 						//'visible'=>Yii::app()->user->isSuperAdmin,
- 					),
- 					array('label'=>'Auditoria', 
- 						'url'=>array('/activerecordlog/admin')
- 						// , 'visible'=>Yii::app()->user->isSuperAdmin
- 					),
- 				)
+				 ),
 			),
-  		),
-))));
+		)
+	)
+)
+)
+)
+);
 ?>
 </header>
 <div class="container" id="main">

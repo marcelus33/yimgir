@@ -151,16 +151,17 @@ class Comprobantes extends CActiveRecord
 		$criteria->compare('iva_general',$this->iva_general,true);
 		$criteria->compare('iva_simplificado',$this->iva_simplificado,true);
 		//$criteria->compare('iduser',$this->cruge_user_id);
-		$criteria->with=array('idClientes','idTimbrado','idTiposComprobantes','idTipoRegistro','idCrugeUser');
+		
+    $criteria->with=array('idClientes','idTimbrado','idTiposComprobantes','idTipoRegistro','idCrugeUser');
 		$criteria->addSearchCondition('idClientes.numero_identificacion',$this->id_clientes);
 		$criteria->addSearchCondition('idTimbrado.numero_timbrado',$this->id_timbrado);
 		$criteria->addSearchCondition('idTiposComprobantes.tipo_comprobante', $this->id_tipos_comprobantes);
 		$criteria->addSearchCondition('idTipoRegistro.tipo_registro', $this->id_tipo_registro);
 		$criteria->addSearchCondition('idCrugeUser.numero_identificacion_irpc', $this->cruge_user_id);
 
-
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			
 		));
 	}
 

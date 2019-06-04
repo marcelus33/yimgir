@@ -7,77 +7,73 @@ array('label'=>'Inicio','url'=>array('/')),
 array('label'=>'Nueva Compra','url'=>array('compra')),
 array('label'=>'Nueva Venta','url'=>array('venta')),
 );
-
 ?>
-
 <legend>Buscar Comprobantes</legend>
-
-
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 'id'=>'comprobantes-grid',
+'summaryText' => false,
+'enableSorting' =>false,
 'dataProvider'=>$model->search(),
 'filter'=>$model,
-'summaryText' => '',
 'columns'=>array(
-		//'id_comprobantes',		
-		//'id_tipo_registro',
-		array (
-			'header' =>'Tipo Registro',
-			'name'=>'id_tipo_registro', /*asi incluimos el nombre de lo que anteriormente solo mostraba id */
-			'value'=>'$data->idTipoRegistro->tipo_registro', //Yii::app()->dateFormatter->format("dd/MM/yy", ),
-			'type'=>'text',
-			),	
-		//'id_tipos_comprobantes',
-		array (
-			'header' =>'Tipo Comprobante',
-			'name'=>'id_tipos_comprobantes', 
-			'value'=>'$data->idTiposComprobantes->tipo_comprobante', 
-			'type'=>'text',
+		array(
+			'name' => 'id_tipo_registro',			
+			'header' => 'Tipo Registro',			
+			'type' => 'text', 
+			'value' => 'CHtml::encode($data->idTipoRegistro->tipo_registro)',
+			'headerHtmlOptions'=>array('style' => 'text-align: center;'),
+			'htmlOptions'=>array('style' => 'text-align: center; width: 100px;')
 			),
-		//'id_clientes',
-		array (
-			'header' =>'Numero de Identificacion',
-			'name'=>'id_clientes', 
-			'value'=>'$data->idClientes->numero_identificacion', 
-			'type'=>'text',
+		array(
+			'name' => 'id_clientes',			
+			'header' => 'Numero Identificacion',			
+			'type' => 'text', 
+			'value' => 'CHtml::encode($data->idClientes->numero_identificacion)',
+			'headerHtmlOptions'=>array('style' => 'text-align: center;'),
+			'htmlOptions'=>array('style' => 'text-align: right; width: 100px;')
 			),
-		array (
-			'header' =>'Usuario',
-			'name'=>'cruge_user_id', 
-			'value'=>'$data->idCrugeUser->numero_identificacion_irpc',
-			'type'=>'text',
-			),		
-		'numero_comprobante',
-		//'fecha_expedicion',
-		array (
-			'header' =>'Fecha',
-			'name'=>'fecha_expedicion', /*asi incluimos el nombre de lo que anteriormente solo mostraba id */
-			'value'=>'Yii::app()->dateFormatter->format("dd/MM/yy", $data->fecha_expedicion)', //Yii::app()->dateFormatter->format("dd/MM/yy", ),
-			'type'=>'text',
+		array(
+			'name' => 'id_tipos_comprobantes',			
+			'header' => 'Tipo Comprobante',			
+			'type' => 'text', 
+			'value' => 'CHtml::encode($data->idTiposComprobantes->tipo_comprobante)',
+			'headerHtmlOptions'=>array('style' => 'text-align: center;'),
+			'htmlOptions'=>array('style' => 'text-align: right; width: 230px;')
 			),
-		//'id_timbrado',
-		//'total_importe',
-		array (
-			'header' =>'Importe total',
-			'name'=>'total_importe', 
-			'value'=>'number_format($data->total_importe, 0,",", ".")',
-			'type'=>'text',
-			),		
-		/*		
-		'id_misiones_diplomaticas',
-		'importe_iva_5',
-		'importe_iva_10',
-		'importe_exenta',		
-		'ircp',
-		'iva_general',
-		'iva_simplificado',
-		*/
+		array(
+			'name' => 'numero_comprobante',			
+			'header' => 'Numero Comprobante',			
+			'type' => 'text', 
+			'value' => 'CHtml::encode($data->numero_comprobante)',
+			'headerHtmlOptions'=>array('style' => 'text-align: center;'),
+			'htmlOptions'=>array('style' => 'text-align: center; width: 150px;')
+			),  
+		array(
+			'name' => 'id_timbrado',			
+			'header' => 'Timbrado',			
+			'type' => 'text', 
+			'value'=>'$data->idTimbrado==null ? "" : $data->idTimbrado->numero_timbrado',
+			'headerHtmlOptions'=>array('style' => 'text-align: center;'),
+			'htmlOptions'=>array('style' => 'text-align: center; width: 100px;')
+		),
+		array(
+			'name' => 'total_importe',			
+			'header' => 'Total Importe',			
+			'type' => 'text', 
+			'value'=>'Yii::app()->numberFormatter->formatDecimal($data->total_importe, 0)',
+			'headerHtmlOptions'=>array('style' => 'text-align: center;'),
+			'htmlOptions'=>array('style' => 'text-align: right; width: 100px;')
+		),
+		// 'total_importe',
+		// 'ircp',
+		// 'iva_general',
+		// 'iva_simplificado',
 		array(
 			'class'=>'CButtonColumn',
 			'template'=>'{view}{update}{delete}',
 			'buttons'=>array
 			(
-				'view' => array
+				'view' => array 
 				(
 					'url'=>'Yii::app()->createUrl("comprobantes/view/".$data->id_comprobantes)',
 				),
@@ -92,6 +88,5 @@ array('label'=>'Nueva Venta','url'=>array('venta')),
 			),
 		),
 	//array('class'=>'bootstrap.widgets.TbButtonColumn',),
-	
 ),
 )); ?>
