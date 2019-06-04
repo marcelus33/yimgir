@@ -13,7 +13,7 @@ array('label'=>'Crear Nuevo','url'=>array('create')),
 ?>
 
 <div class="page-header">
-  <h1>Buscar Timbrados</h1>
+  <h2>Timbrados</h2>
 </div>
 
 <?php $this->widget('bootstrap.widgets.TbGridView',array(

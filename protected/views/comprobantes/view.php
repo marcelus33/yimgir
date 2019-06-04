@@ -24,7 +24,7 @@ array('label'=>'Administrar','url'=>array('admin')),
 		<div class ="span3">
 			<label><b>Tipo Identificacion: </b><?php echo $model->idClientes->idDocumentosIdentificacion->documento_identificacion;?></label>	
 		</div>
-		<div class="span3">
+		<div class="span4">
 			<label><b>Numero Identificacion: </b><?php echo $model->idClientes->numero_identificacion;?></label>
 		</div>
 		<div class="span1">

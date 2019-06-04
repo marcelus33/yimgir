@@ -42,7 +42,7 @@ array('allow', // allow authenticated user to perform 'create' and 'update' acti
 ),
 array('allow', // allow admin user to perform 'admin' and 'delete' actions
 'actions'=>array('admin','delete'),
-'users'=>array('admin'),
+'users'=>array('@'),
 ),
 array('deny',  // deny all users
 'users'=>array('*'),
@@ -633,7 +633,10 @@ public function actionreportesComp()
 {
     $model=new Comprobantes;
     
-    $dataProvider=new CActiveDataProvider('Comprobantes');
+    $dataProvider=new CActiveDataProvider('Comprobantes', array(
+        'criteria'=>array(
+            'condition'=>'cruge_user_id='.$id_user,
+    )));
     // $this->render('index',array(
     // 'dataProvider'=>$dataProvider,
     // ));
@@ -748,17 +751,17 @@ public function actionexcelReport(){
             co.numero_comprobante, di.documento_identificacion, cl.numero_identificacion, 
             cl.nombre_razon_social, md.mision_diplomatica, co.importe_iva_10,
             co.importe_iva_5, co.importe_exenta, co.total_importe, co.ircp, co.iva_general, co.iva_simplificado
-            from public.comprobantes as co inner join public.clientes as cl
+            from comprobantes as co inner join clientes as cl
             on co.id_clientes = cl.id_clientes
-            inner join public.documentos_identificacion as di
+            inner join documentos_identificacion as di
             on di.id_documentos_identificacion = cl.id_documentos_identificacion
-            inner join public.tipos_comprobantes as tc
+            inner join tipos_comprobantes as tc
             on tc.id_tipos_comprobantes = co.id_tipos_comprobantes
-            inner join public.tipos_registros as tr
+            inner join tipos_registros as tr
             on tr.id_tipo_registro = co.id_tipo_registro
-            left join public.timbrados as ti
+            left join imbrados as ti
             on ti.id_timbrado = co.id_timbrado
-            left join public.misiones_diplomaticas as md
+            left join misiones_diplomaticas as md
             on md.id_misiones_diplomaticas = co.id_misiones_diplomaticas
             where co.fecha_expedicion >=\''.$fecha_desde . '\' and co.fecha_expedicion <=\'' .$fecha_hasta . '\'
             and co.cruge_user_id = '.$usuario;
@@ -776,7 +779,7 @@ public function actionexcelReport(){
 		)
 	);
 	
-	echo $r->render('excel2007', 'bresein');
+	echo $r->render('excel2007', 'comprobantes');
 
 	
 }

@@ -3,7 +3,7 @@
 echo "<br>";
 
 $this->menu=array(
-array('label'=>'Listar','url'=>array('index')),
+array('label'=>'Inicio','url'=>array('/')),
 array('label'=>'Administrar','url'=>array('admin')),
 );
 ?>

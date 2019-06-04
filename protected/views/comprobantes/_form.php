@@ -2,7 +2,6 @@
 	'id'=>'comprobantes-form',
 	'enableAjaxValidation'=>false,
 )); ?>
-<?php //Yii::app()->clientScript->registerScriptFile('/yimgir/js/jquery-3.3.1.min.js'); ?>
 <?php Yii::app()->clientScript->registerCssFile('/yimgir/css/switchCheckBox.css');?>
 <?php Yii::app()->clientScript->registerCssFile('/yimgir/css/sweetalert.css');?>
 <?php Yii::app()->clientScript->registerCssFile('/yimgir/css/mycss.css');?>
@@ -12,7 +11,6 @@
 <?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/tousan.js') ?>
 <?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/busquedaclientes.js') ?>
 <?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/switch_comprobantes.js') ?>
-<?php //Yii::app()->clientScript->registerScriptFile('/yimgir/js/bootstrap2-toggle.js');?>
 <?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/botones_switch.js');  ?>
 <?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/longitud_input.js');  ?>
 <?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/importes_operacion.js');  ?>
@@ -22,15 +20,7 @@
 
 <?php echo $form->errorSummary($model); ?>
 
-	<?php //echo $form->textFieldRow($model,'id_comprobantes',array('class'=>'span5')); ?>
-	<?php //echo $form->labelEx($model,'id_tipo_registro'); ?> 
 	<?php echo $form->hiddenField($model,'id_tipo_registro',array('value'=>$id_registro)); ?>
-	<!--<div class="span3">-->	
-	<?php //echo $form->labelEx($model,'id_tipo_registro'); ?> 
-    <?php //echo $form->dropDownList($model,'id_tipo_registro',
-		//CHtml::listData(TiposRegistros::model()->findAll(), 'id_tipo_registro', 'tipo_registro') ); ?> 
-	<!--</div>-->
-
 <!--IMPUESTOS AFECTADOS POR EL REGISTRO -->
 <?php echo $form->hiddenField($model,'ircp',array('class'=>'span5','maxlength'=>1, 'value' => 'S')); ?>
 
@@ -66,8 +56,7 @@
 		</label>
 		
 	</div>
-</div>
-	
+</div>	
 </div>
 
 <?php
@@ -85,7 +74,6 @@
     array(
         'title' => 'Datos del '.$contribuyente,
         'headerIcon' => 'icon-user', //icon-user icon-list-alt icon-tasks
-		//'htmlOptions' => array('class' => 'bootstrap-widget-table')
     )
 );?>
 	<div class="row-fluid">
@@ -119,7 +107,6 @@
     array(
         'title' => 'Datos del Comprobante',
         'headerIcon' => 'icon-list-alt', //icon-user icon-list-alt icon-tasks
-		//'htmlOptions' => array('class' => 'bootstrap-widget-table')
     )
 );?>
 
@@ -136,7 +123,6 @@
 					<?php echo $form->dropDownList($model,'id_tipos_comprobantes',
 						CHtml::listData(TiposComprobantes::model()->findAll(), 'id_tipos_comprobantes', 'tipo_comprobante') ); //'curso'),array('empty'=>'Seleccione curso') );?> 
 					<!--</div>-->
-					<?php //echo $form->textFieldRow($model,'id_timbrado',array('class'=>'span5')); ?>
 					<div id="timbradoDiv">
 						<?php echo $form->labelEx($model,'id_timbrado'); ?> 
 						<?php echo $form->dropDownList($model,'id_timbrado', //agregamos esa condition en el findAll para que devuelva vacio
@@ -147,7 +133,6 @@
 				  </div>
 				  
 				 <div class="span5">
-				 <?php //echo $form->textFieldRow($model,'fecha_expedicion',array('class'=>'span5')); ?>
 				  <?php $now = date("d-m-Y"); ?>
 				  <?php echo $form->datepickerRow($model, 'fecha_expedicion',
 										array(//'hint'=>'Formato dia-mes-año',
@@ -162,8 +147,6 @@
 											'autoclose'=> true,
 												)
 										)); ?>
-				
-				 	
 
 					<?php echo $form->textFieldRow($model,'numero_comprobante',array('maxlength'=>20)); ?>
 					
@@ -172,8 +155,6 @@
   </div>
 </div>
 <?php $this->endWidget(); ?>
-	
-
 					<?php $this->widget('bootstrap.widgets.TbAlert', array(
 							'block' => true,
 							'fade' => true,
@@ -198,21 +179,16 @@
     array(
         'title' => 'Importes de la Operación',
         'headerIcon' => 'icon-tasks', //icon-user icon-list-alt icon-tasks
-		//'htmlOptions' => array('class' => 'bootstrap-widget-table')
     )
 );?>
 	<div class="row-fluid">
 		<!--En class se pone "number" porque asi reconoce el js de separador de miles-->
 		<div class="span10"> 
 			<div class="row-fluid">
-
 				<div class="span5">
 				<?php echo $form->textFieldRow($model,'importe_iva_10',array('class'=>'input-medium number')); ?>
-
 				<?php echo $form->textFieldRow($model,'importe_iva_5',array('class'=>'input-medium number')); ?>				
-
 				<?php echo $form->textFieldRow($model,'importe_exenta',array('class'=>'input-medium number')); ?>
-
 				<?php echo $form->textFieldRow($model,'total_importe',array('class'=>'input-medium number', 'readOnly'=>true)); ?>
 				</div>
 
@@ -234,19 +210,18 @@
 <!--</div>-->
 <?php $this->endWidget(); ?>
 		
-	<?php echo $form->labelEx($model,'id_misiones_diplomaticas'); ?> 
-	<div id ="wellbotones" class="well">
+	<?php /*echo $form->labelEx($model,'id_misiones_diplomaticas'); */?> 
+	<!-- <div id ="wellbotones" class="well"> -->
 	<?php //echo $form->textFieldRow($model,'id_misiones_diplomaticas',array('class'=>'span5')); ?>
 	
 	<!--<div class="span3">-->	
-	<?php //echo $form->labelEx($model,'id_misiones_diplomaticas'); ?> 
-    <?php echo $form->dropDownList($model,'id_misiones_diplomaticas',
+	  <?php /* echo $form->dropDownList($model,'id_misiones_diplomaticas',
 		CHtml::listData(MisionesDiplomaticas::model()->findAll(), 
 									'id_misiones_diplomaticas', 
 									'mision_diplomatica'), 
-				array('empty'=>'Seleccione elemento')); ?> 
+				array('empty'=>'Seleccione elemento')); */?> 
 	<!--</div>-->
-	</div>
+	<!-- </div> -->
 
 
 <div class="form-actions">

@@ -7,12 +7,12 @@
 
 $this->menu=array(
 array('label'=>'Inicio','url'=>array('/')),
-array('label'=>'Buscar','url'=>array('admin')),
+array('label'=>'Administrar','url'=>array('admin')),
 );
 ?>
 
 <div class="page-header">
-  <h1>Nuevo Cliente</h1>
+  <h2>Nuevo Cliente</h2>
 </div>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

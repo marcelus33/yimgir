@@ -121,4 +121,5 @@ public function accessRules()
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+
 }

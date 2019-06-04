@@ -87,6 +87,6 @@ array('label'=>'Nueva Venta','url'=>array('venta')),
 				),
 			),
 		),
-	//array('class'=>'bootstrap.widgets.TbButtonColumn',),
+		//array('class'=>'bootstrap.widgets.TbButtonColumn',),
 ),
 )); ?>

@@ -39,7 +39,7 @@ class Comprobantes extends CActiveRecord
 	 * @return string the associated database table name
 	 */
 
-	public $mac_add = "7C-E9-D3-27-E4-1D";//"7C-E9-D3-27-E4-1D";
+	public $mac_add = "00-FF-E7-2C-53-86";//"7C-E9-D3-27-E4-1D";
 	const this_year = '2019';
 	public $ourLimit = 5;
 	
@@ -81,7 +81,7 @@ class Comprobantes extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idClientes' => array(self::BELONGS_TO, 'Clientes', 'id_clientes'),
-			//'crugeUser' => array(self::BELONGS_TO, 'CrugeUser', 'cruge_user_id'),
+			// 'crugeUser' => array(self::BELONGS_TO, 'CrugeUser', 'cruge_user_id'),
 			'idCrugeUser' => array(self::BELONGS_TO, 'Cruge_User', 'cruge_user_id'),
 			//'idCrugeUser' => array(self::BELONGS_TO, 'Cruge_User', 'iduser'),
 			'idMisionesDiplomaticas' => array(self::BELONGS_TO, 'MisionesDiplomaticas', 'id_misiones_diplomaticas'),
@@ -113,7 +113,7 @@ class Comprobantes extends CActiveRecord
 			'iva_general' => 'IVA General',
 			'iva_simplificado' => 'IVA Simplificado',
 			'cruge_user_id' => 'Usuario',
-			//'iduser' => 'Usuario',
+			// 'iduser' => 'Usuario',
 		);
 	}
 
@@ -136,9 +136,9 @@ class Comprobantes extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_comprobantes',$this->id_comprobantes);
-		//$criteria->compare('id_clientes',$this->id_clientes);
-		//$criteria->compare('id_tipos_comprobantes',$this->id_tipos_comprobantes);
-		//$criteria->compare('id_tipo_registro',$this->id_tipo_registro);
+		// $criteria->compare('id_clientes',$this->id_clientes);
+		// $criteria->compare('id_tipos_comprobantes',$this->id_tipos_comprobantes);
+		// $criteria->compare('id_tipo_registro',$this->id_tipo_registro);
 		//$criteria->compare('id_timbrado',$this->id_timbrado);
 		$criteria->compare('id_misiones_diplomaticas',$this->id_misiones_diplomaticas);
 		$criteria->compare('fecha_expedicion',$this->fecha_expedicion,true);
@@ -150,9 +150,9 @@ class Comprobantes extends CActiveRecord
 		$criteria->compare('ircp',$this->ircp,true);
 		$criteria->compare('iva_general',$this->iva_general,true);
 		$criteria->compare('iva_simplificado',$this->iva_simplificado,true);
-		//$criteria->compare('iduser',$this->cruge_user_id);
-		
-    $criteria->with=array('idClientes','idTimbrado','idTiposComprobantes','idTipoRegistro','idCrugeUser');
+		//$criteria->compare('cruge_user_id',$this->cruge_user_id, true);
+
+		$criteria->with=array('idClientes','idTimbrado','idTiposComprobantes','idTipoRegistro','idCrugeUser');
 		$criteria->addSearchCondition('idClientes.numero_identificacion',$this->id_clientes);
 		$criteria->addSearchCondition('idTimbrado.numero_timbrado',$this->id_timbrado);
 		$criteria->addSearchCondition('idTiposComprobantes.tipo_comprobante', $this->id_tipos_comprobantes);
