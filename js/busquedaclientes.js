@@ -20,7 +20,7 @@ function buscar_cliente()
         var numero_identificacion = $("#Busqueda_Numero_Identificacion").val();
                
         $.ajax({
-                url: "BuscarClientes",
+                url: "http://localhost/yimgir/comprobantes/BuscarClientes",
                 type: 'POST',
                 data:"&numero_identificacion="+numero_identificacion,
                 success:  function(response, status) 

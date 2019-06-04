@@ -15,37 +15,30 @@ class uniqueMultiColumnValidator extends CValidator
 	{
 		$attributes = null;
 		$criteria=array('condition'=>'');
-		
 		if(false !== strpos($attribute, "+"))
 		{
 			$attributes = explode("+", $attribute);
 		}
-			else
-			{
-				$attributes = array($attribute);
-			}
+		else
+		{
+			$attributes = array($attribute);
+		}
 	
 		foreach($attributes as $attribute)
 		{
 			$value = $object->$attribute;
-			
 			if($this->allowEmpty && ($value===null || $value===''))
 				return;
 			$column=$object->getTableSchema()->getColumn($attribute);
-			
 			if($column===null)
 				throw new CException(Yii::t('yii','{class} does not have attribute "{attribute}".',
-			
 			array('{class}'=>get_class($object), '{attribute}'=>$attribute)));
-			
 			$columnName=$column->rawName;
-			
 			if(''!=$criteria['condition'])
 			{
 				$criteria['condition'].= " AND ";
 			}
-										//agregamos este "::text" para hacer casting, ya que postgres tomaba todo como string las columnas...
-			$criteria['condition'].= "$columnName::text=:$attribute";//$this->caseSensitive ? "$columnName=:$attribute" : "LOWER($columnName)=LOWER(:$attribute)";
+			$criteria['condition'].=$this->caseSensitive ? "$columnName=:$attribute" : "LOWER($columnName)=LOWER(:$attribute)";
 			$criteria['params'][':'.$attribute]=$value;
 		}
 	

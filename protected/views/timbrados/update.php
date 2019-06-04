@@ -1,9 +1,4 @@
 <?php
-$this->breadcrumbs=array(
-	'Timbradoses'=>array('index'),
-	$model->id_timbrado=>array('view','id'=>$model->id_timbrado),
-	'Actualizar',
-);
 
 	$this->menu=array(
 	array('label'=>'Inicio','url'=>array('/')),

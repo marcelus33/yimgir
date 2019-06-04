@@ -2,15 +2,29 @@ $(document).ready
 (   
     function ()
     {  
-        setTimeout(cambiarTipoComprobantesBox(), 1000); 
+        var hiddenTimbrado =  $("#hiddenTimbrado").val();
+
+        setTimeout(cambiarTipoComprobantesBox(), 1000);
+        if ( hiddenTimbrado != 0)
+        {
+          setTimeout(buscar_timbrados, 1000);
+          //alert(hiddenTimbrado);
+          setTimeout(function(){
+            changeTimbradosCombo(hiddenTimbrado);
+          }, 1600);
+          //alert($("#Comprobantes_id_timbrado").val()); 
+          
+          //$("#Comprobantes_id_timbrado").val(3);
+          //$("#Comprobantes_id_timbrado option[value=8]").attr('selected', 'selected'); 
+        }
 
         $("#Busqueda_Numero_Identificacion").change( function () {
-                        setTimeout(buscar_timbrados(), 1000);
+                        setTimeout(buscar_timbrados, 1000);
             } );
         
         $("#Comprobantes_id_tipos_comprobantes").change( function () {
-                        setTimeout(buscar_timbrados(), 1000);
-                        setTimeout(displayComboTimbrados(), 700);             
+                        setTimeout(buscar_timbrados, 1000);
+                        setTimeout(displayComboTimbrados, 700);             
             } );
             
            
@@ -77,7 +91,7 @@ function cambiarTipoComprobantesBox()
             search_item = parseInt(search_item);
 
             $.ajax({
-                url: "ObtenerTimbrados",
+                url: "http://localhost/yimgir/comprobantes/ObtenerTimbrados",
                 type: 'POST',
                 data:"&tipoDeRegistro="+tipoRegistro+"&searchItem="+search_item+"&iduser="+id_user+"&numeroRuc="+numero_ruc,
                 success:  function(response, status) 
@@ -154,4 +168,9 @@ function cambiarTipoComprobantesBox()
         document.getElementById("timbradoDiv").style.display = 'none';
         else document.getElementById("timbradoDiv").style.display = 'inline';
 
+    }
+
+    function changeTimbradosCombo (hiddenTimbrado)
+    {
+      document.getElementById("Comprobantes_id_timbrado").value = hiddenTimbrado; 
     }

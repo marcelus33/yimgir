@@ -8,13 +8,13 @@ array('label'=>'Nueva Compra','url'=>array('compra')),
 array('label'=>'Nueva Venta','url'=>array('venta')),
 );
 ?>
-<legend>Administracion de Comprobantes</legend>
+<legend>Buscar Comprobantes</legend>
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 'id'=>'comprobantes-grid',
 'summaryText' => false,
 'enableSorting' =>false,
 'dataProvider'=>$model->search(),
-// 'filter'=>$model,
+'filter'=>$model,
 'columns'=>array(
 		array(
 			'name' => 'id_tipo_registro',			
@@ -69,7 +69,24 @@ array('label'=>'Nueva Venta','url'=>array('venta')),
 		// 'iva_general',
 		// 'iva_simplificado',
 		array(
-		'class'=>'bootstrap.widgets.TbButtonColumn',
+			'class'=>'CButtonColumn',
+			'template'=>'{view}{update}{delete}',
+			'buttons'=>array
+			(
+				'view' => array 
+				(
+					'url'=>'Yii::app()->createUrl("comprobantes/view/".$data->id_comprobantes)',
+				),
+				'update' => array
+				(	
+					'url'=>'($data->id_tipo_registro == 1 ? Yii::app()->createUrl("comprobantes/compraUpdate/".$data->id_comprobantes):Yii::app()->createUrl("comprobantes/ventaUpdate/".$data->id_comprobantes))',
+				),
+				'delete'=> array
+				(
+					'url'=>'Yii::app()->createUrl("comprobantes/delete/".$data->id_comprobantes)',
+				),
+			),
 		),
+	//array('class'=>'bootstrap.widgets.TbButtonColumn',),
 ),
 )); ?>
