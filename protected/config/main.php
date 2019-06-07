@@ -43,7 +43,6 @@ return array(
 		
 		),
 
-		'backup'=> array('path' => 'C:/backup/'),
 		
 		'cruge'=>array(
 			'tableprefix'=>'cruge_',

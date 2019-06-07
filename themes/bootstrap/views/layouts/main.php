@@ -91,7 +91,7 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
 )
 );
 ?>
-</header>
+</header> <br>
 <div class="container" id="main">
  <?php if(isset($this->breadcrumbs)):?>
  <?php $this->widget('bootstrap.widgets.TbBreadcrumbs', array(
