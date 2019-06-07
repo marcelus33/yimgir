@@ -2,7 +2,7 @@
 <?php
 $this->menu=array(
 array('label'=>'Inicio','url'=>array('/')),
-array('label'=>'Volver','url'=>array('index')),
+array('label'=>'Volver','url'=>array('create')),
 );
 ?>
 
@@ -11,7 +11,9 @@ array('label'=>'Volver','url'=>array('index')),
 </div>
 
 <form action="restore" method="POST" enctype="multipart/form-data" > 
-         <input type="file" name="file_import" />
+
+<h4>Presione Importar para comenzar el proceso. Favor asegurese de:</h4>
+ <p>El archivo se encuentre en su escritorio en la carpeta <b>mgir_backup/importar</b></p>
       
  
 <div class="form-actions">

@@ -3,6 +3,12 @@
 class BackupController extends Controller
 {
     public $layout='//layouts/column2';
+    //PARAMETROS PARA EL BACKUP
+    public $backup_path = 'C:/Users/edward/Desktop/mgir_backup/';
+    public $server_name   = "localhost";
+    public $username      = "root";
+    //$password      = "root";
+    public $database_name = "mgir";
 
     /**
     * @return array action filters
@@ -28,7 +34,7 @@ class BackupController extends Controller
         'users'=>array('*'),
         ),
         array('allow', // allow authenticated user to perform 'create' and 'update' actions
-        'actions'=>array('create','dump', 'restore'),
+        'actions'=>array('create','dump', 'restore','dumpCmd', 'restoreCmd'),
         'users'=>array('@'),
         ),
         array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -41,21 +47,29 @@ class BackupController extends Controller
         );
     }
 
-    public function actionIndex()
+    public function actionCreate()
     {  
         
-        $this->render('index');
+        $this->render('create');
     }
     
     public function actionDump()
     {  
 
         if(isset($_FILES['file_export']))
-        {
+        {   
+            //$file = print_r($_FILES['file_export']);
             $fileName = $_FILES['file_export']['name'];
+            //$fileName = $_POST['file_export'];
             $fileType = $_FILES['file_export']['type'];
 
-            $this->render('success', array('fileName'=>$fileName));
+            $cmd = "mysqldump -hlocalhost -uroot mgir2 > C:\Users\edward\Desktop\mgir_backup\exportar\mybk2.sql";
+            //-p{$password}
+            exec($cmd);
+
+            $this->render('success', array('fileName'=>$fileName)); //,'file'=> $file , 'result'=>$result 
+
+            
         }
 
         $this->render('dump');
@@ -70,37 +84,44 @@ class BackupController extends Controller
             $fileType = $_FILES['file_import']['type'];
 
             $this->render('success', array('fileName'=>$fileName));
+
+            importCmd();
         }
 
         $this->render('restore');
     }
 
-    public function restoreCmd(){
 
-        $restore_file  = "/home/abdul/20140306_world_copy.sql";
-        $server_name   = "localhost";
-        $username      = "root";
-        $password      = "root";
-        $database_name = "test_world_copy";
 
-        $cmd = "mysql -h {$server_name} -u {$username} -p{$password} {$database_name} < $restore_file";
+    public function importCmd(){
+
+            /*    restore
+        mysql -hlocalhost -uroot mgir2 < mybk.sql 
+    */
+
+        $restore_file  = $this->backup_path."importar/backup.sql";
+
+        $cmd = "mysql -h{$this->server_name} -u{$this->username}  {$this->database_name} < $restore_file";
+        //-p{$this->password}
         exec($cmd);
 
     }
 
-    public function dumpCmd(){
+    public function exportCmd(){
 
-        define("BACKUP_PATH", "/home/abdul/");
+            /*  bk
+        mysqldump -hlocalhost -uroot mgir2 > mybk.sql
+        */
 
-        $server_name   = "localhost";
-        $username      = "root";
-        $password      = "root";
-        $database_name = "world_copy";
-        $date_string   = date("Ymd");
+        //define("BACKUP_PATH", "/home/abdul/");
 
-        $cmd = "mysqldump --routines -h {$server_name} -u {$username} -p{$password} {$database_name} > " . BACKUP_PATH . "{$date_string}_{$database_name}.sql";
+        $dump_path     =  $this->backup_path."exportar/";
+        //$date_string   = date("Ymd");
 
-        exec($cmd);
+        //$cmd = "mysqldump -h{$this->server_name} -u{$this->username}  {$this->database_name} > " . $dump_path;
+        $cmd = "mysqldump -hlocalhost -uroot mgir2 > C:\Users\edward\Desktop\mgir_backup\exportar\mybk2.sql";
+        //-p{$password}
+        return exec($cmd);
 
     }
 

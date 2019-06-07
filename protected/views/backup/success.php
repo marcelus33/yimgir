@@ -2,7 +2,7 @@
 <?php
 $this->menu=array(
 array('label'=>'Inicio','url'=>array('/')),
-array('label'=>'Volver','url'=>array('index')),
+array('label'=>'Volver','url'=>array('create')),
 );
 ?>
 
@@ -10,4 +10,4 @@ array('label'=>'Volver','url'=>array('index')),
   <h2>Success</h2>
 </div>
 
-<?php echo $fileName;?>
+<?php echo $fileName; //print_r($result);//echo $file;?>

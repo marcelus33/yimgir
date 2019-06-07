@@ -15,7 +15,7 @@ array('label'=>'Inicio','url'=>array('/')),
   <p id="info">Tiene las siguientes opciones:</p><br>
 
   <form action="dump" method="POST" style="display:inline-block;margin-right:3em;">
-    <img src="../img/export.png" alt="Export icon" width="50px">
+    <!--<img src="img/export.png" alt="Export icon" width="50px">-->
     <?php $this->widget('bootstrap.widgets.TbButton', array(
                 'buttonType'=>'submit',
                 'type'=>'primary',
@@ -25,7 +25,7 @@ array('label'=>'Inicio','url'=>array('/')),
   </form>  
   
   <form action="restore" method="POST" style="display:inline-block;">
-  <img src="../img/import.png" alt="Import icon" width="50px">
+  <!--<img src="img/import.png" alt="Import icon" width="50px">-->
     <?php $this->widget('bootstrap.widgets.TbButton', array(
                 'buttonType'=>'submit',
                 'type'=>'primary',
