@@ -243,9 +243,9 @@
 				</div>
 
 				<div class="span5">
-					<label for="calc_iva10">IVA %10</label>
+					<label for="calc_iva10">IVA 10%</label>
 					<input type="text" name="calc_iva10" id="calc_iva10" class="input-medium number" disabled><br>
-					<label for="calc_iva5">IVA %5</label>
+					<label for="calc_iva5">IVA 5%</label>
 					<input type="text" name="calc_iva5" id="calc_iva5" class="input-medium number" disabled><br>
 					<label for="calc_total">Total IVA</label>
 					<input type="text" name="calc_total" id="calc_total" class="input-medium number" disabled><br>
@@ -260,8 +260,8 @@
 <!--</div>-->
 <?php $this->endWidget(); ?>
 		
-	<?php echo $form->labelEx($model,'id_misiones_diplomaticas'); ?> 
-	<div id ="wellbotones" class="well">
+	<?php //echo $form->labelEx($model,'id_misiones_diplomaticas'); ?> 
+	<!--<div id ="wellbotones" class="well">-->
 	<?php //echo $form->textFieldRow($model,'id_misiones_diplomaticas',array('class'=>'span5')); ?>
 	
 	<!--<div class="span3">-->	
@@ -272,7 +272,7 @@
 									'mision_diplomatica'), 
 				array('empty'=>'Seleccione elemento')); */?> 
 	<!--</div>-->
-	</div>
+	<!--</div>-->
 
 
 <div class="form-actions">
