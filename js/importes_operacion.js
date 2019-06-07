@@ -46,14 +46,17 @@ $(document).ready
         var amount = parseInt(monto);
         var coeff = parseInt(coef);
         coeff = parseInt(100/coef);
-        var result = 0;
-        //vamos a truncar el numero, viendo que (flotante - entero = decimales)
-        resultInt = parseInt(( ( (amount*coeff) / (coeff+1) ) / coeff ));
-        resultFloat = parseFloat(( ( (amount*coeff) / (coeff+1) ) / coeff ));
-        var decimal = parseFloat( resultFloat - parseFloat(resultInt) );
-        if ( decimal >= 0.5 ) //si los decimales son >= a 5 entonces sumamos 1, sino no
-            result = resultInt + 1;
-            else result = resultInt;
+        var result = 0; var result = 0;
+        
+        if (!isNaN(amount)){
+            //vamos a truncar el numero, viendo que (flotante - entero = decimales)
+            resultInt = parseInt(( ( (amount*coeff) / (coeff+1) ) / coeff ));
+            resultFloat = parseFloat(( ( (amount*coeff) / (coeff+1) ) / coeff ));
+            var decimal = parseFloat( resultFloat - parseFloat(resultInt) );
+            if ( decimal >= 0.5 ) //si los decimales son >= a 5 entonces sumamos 1, sino no
+                result = resultInt + 1;
+                else result = resultInt;
+        }
 
         return formatNumber(result) ;
 
@@ -126,17 +129,17 @@ function init_if_update(){
         input_iva5 = $("#Comprobantes_importe_iva_5"),
         input_exenta = $("#Comprobantes_importe_exenta");
 
-    if (input_iva10.val() > 0){
+    if (input_iva10.val() >= 0){
         calcular_importe(input_iva10.val(), 10, $("#calc_iva10"));
         input_iva10.val( formatNumber( input_iva10.val() ) );
     }
         
-    if (input_iva5.val() > 0){
+    if (input_iva5.val() >= 0){
         calcular_importe(input_iva5.val(), 5, $("#calc_iva5"));
         input_iva5.val( formatNumber( input_iva5.val() ) );
     }
 
-    if (input_exenta.val() > 0){
+    if (input_exenta.val() >= 0){
         calcular_importe(null, 0, null);
         input_exenta.val( formatNumber( input_exenta.val() ) );
     }
