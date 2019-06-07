@@ -39,8 +39,8 @@ class Comprobantes extends CActiveRecord
 	 * @return string the associated database table name
 	 */
 
-	public $mac_add = "00-FF-D2-F2-BE-70"; //"00-FF-24-01-FD-A4";//"7C-E9-D3-27-E4-1D";
-	const this_year = '2019';
+  public $mac_add = array("7C-E9-D3-27-E4-1D", "00-FF-24-01-FD-A4", "mac3" );//"7C-E9-D3-27-E4-1D";
+  const this_year = '2019';
 	public $ourLimit = 5;
 	
 
@@ -188,8 +188,20 @@ class Comprobantes extends CActiveRecord
 	public function isMac($mac)
 	{
 		$device_mac = $this->getMac();
+		$flag = false;
 
-		if($device_mac != $this->$mac)
+		//if($device_mac != $this->$mac)
+		//	$this->addError($mac, 'Este dispositivo no cuenta con permiso del sistema');
+		
+		foreach($this->$mac as $mac_elem ) {
+			if ( $device_mac == $mac_elem ){
+				$flag = true; 
+				break;
+			}
+		}
+
+
+		if (!$flag)
 			$this->addError($mac, 'Este dispositivo no cuenta con permiso del sistema');
 	}
 
