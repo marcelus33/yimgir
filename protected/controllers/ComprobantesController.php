@@ -165,6 +165,7 @@ public function actionAdmin()
 {
     $model=new Comprobantes('search');
     $model->unsetAttributes();  // clear any default values
+    
    
     if(isset($_GET['Comprobantes']))
      $model->attributes=$_GET['Comprobantes'];
@@ -306,7 +307,7 @@ public function actionAdmin()
 
                         
                     if ( ($criteriaTimbrado) && ($flag == 99) )
-                    {   $results = Timbrados::model()->findAll($criteriaTimbrado);
+                    {   $results = Timbrados::model()->porID()->findAll($criteriaTimbrado);
                         echo CJSON::encode($results);
                     } else { echo $flag; } 
 
@@ -343,6 +344,12 @@ public function actionAdmin()
             $model->importe_exenta = $this->sacarPuntos($model->importe_exenta);
             $model->total_importe = $this->sacarPuntos($model->total_importe);
             //$model->id_misiones_diplomaticas = null;
+            if ( ($model->importe_iva_5 == null) || ($model->importe_iva_5 == "") )
+                    $model->importe_iva_5 = 0; 
+            if ( ($model->importe_iva_10 == null) || ($model->importe_iva_10 == "") )
+                    $model->importe_iva_10 = 0; 
+            if ( ($model->importe_exenta == null) || ($model->importe_exenta == "") )
+                    $model->importe_exenta = 0;
 
             if ( (isset($model->id_misiones_diplomaticas)) && ($model->id_misiones_diplomaticas!=="") )
             {} else $model->id_misiones_diplomaticas = null; //ponemos asi xq mysql no detecta los vacios como NULLs
@@ -425,6 +432,13 @@ public function actionAdmin()
             $model->importe_exenta = $this->sacarPuntos($model->importe_exenta);
             $model->total_importe = $this->sacarPuntos($model->total_importe);
 
+            if ( ($model->importe_iva_5 == null) || ($model->importe_iva_5 == "") )
+                    $model->importe_iva_5 = 0; 
+            if ( ($model->importe_iva_10 == null) || ($model->importe_iva_10 == "") )
+                    $model->importe_iva_10 = 0; 
+            if ( ($model->importe_exenta == null) || ($model->importe_exenta == "") )
+                    $model->importe_exenta = 0;
+
             if ( (isset($model->id_misiones_diplomaticas)) && ($model->id_misiones_diplomaticas!=="") )
             {} else $model->id_misiones_diplomaticas = null; //ponemos asi xq mysql no detecta los vacios como NULLs
 
@@ -457,8 +471,21 @@ public function actionAdmin()
                 }
             }
         
-            if($model->save() && ($flagTimbrado))
+            if(isset($_POST['yt0']))
+            {
+                if($model->save() && ($flagTimbrado))
                 $this->redirect(array('view','id'=>$model->id_comprobantes));
+            }
+
+
+            if(isset($_POST['yt1']))
+            {
+                if($model->save() && ($flagTimbrado))
+                $this->redirect('venta',array(
+                    'model'=>$model, 
+                    'id_registro'=>$id_registro,
+                    'contribuyente'=>$contribuyente ));
+            }
         }
 
         $this->render('venta',array(
@@ -488,6 +515,13 @@ public function actionAdmin()
             $model->importe_iva_10 = $this->sacarPuntos($model->importe_iva_10);
             $model->importe_exenta = $this->sacarPuntos($model->importe_exenta);
             $model->total_importe = $this->sacarPuntos($model->total_importe);
+
+            if ( ($model->importe_iva_5 == null) || ($model->importe_iva_5 == "") )
+                    $model->importe_iva_5 = 0; 
+            if ( ($model->importe_iva_10 == null) || ($model->importe_iva_10 == "") )
+                    $model->importe_iva_10 = 0; 
+            if ( ($model->importe_exenta == null) || ($model->importe_exenta == "") )
+                    $model->importe_exenta = 0;
 
             if ( (isset($model->id_misiones_diplomaticas)) && ($model->id_misiones_diplomaticas!=="") )
             {} else $model->id_misiones_diplomaticas = null; //ponemos asi xq mysql no detecta los vacios como NULLs
@@ -521,8 +555,21 @@ public function actionAdmin()
                 }
             }
         
-            if($model->save() && ($flagTimbrado))
+            if(isset($_POST['yt0']))
+            {
+                if($model->save() && ($flagTimbrado))
                 $this->redirect(array('view','id'=>$model->id_comprobantes));
+            }
+
+
+            if(isset($_POST['yt1']))
+            {
+                if($model->save() && ($flagTimbrado))
+                $this->redirect('../compra',array(
+                    'model'=>$model, 
+                    'id_registro'=>$id_registro,
+                    'contribuyente'=>$contribuyente ));
+            }
         }
 
         $this->render('compraUpdate',array(
@@ -552,6 +599,13 @@ public function actionAdmin()
             $model->importe_iva_10 = $this->sacarPuntos($model->importe_iva_10);
             $model->importe_exenta = $this->sacarPuntos($model->importe_exenta);
             $model->total_importe = $this->sacarPuntos($model->total_importe);
+
+            if ( ($model->importe_iva_5 == null) || ($model->importe_iva_5 == "") )
+                    $model->importe_iva_5 = 0; 
+            if ( ($model->importe_iva_10 == null) || ($model->importe_iva_10 == "") )
+                    $model->importe_iva_10 = 0; 
+            if ( ($model->importe_exenta == null) || ($model->importe_exenta == "") )
+                    $model->importe_exenta = 0;
 
             if ( (isset($model->id_misiones_diplomaticas)) && ($model->id_misiones_diplomaticas!=="") )
             {} else $model->id_misiones_diplomaticas = null; //ponemos asi xq mysql no detecta los vacios como NULLs
@@ -585,8 +639,21 @@ public function actionAdmin()
                 }
             }
         
-            if($model->save() && ($flagTimbrado))
+            if(isset($_POST['yt0']))
+            {
+                if($model->save() && ($flagTimbrado))
                 $this->redirect(array('view','id'=>$model->id_comprobantes));
+            }
+
+
+            if(isset($_POST['yt1']))
+            {
+                if($model->save() && ($flagTimbrado))
+                $this->redirect('../venta',array(
+                    'model'=>$model, 
+                    'id_registro'=>$id_registro,
+                    'contribuyente'=>$contribuyente ));
+            }
         }
 
         $this->render('ventaUpdate',array(
@@ -632,7 +699,8 @@ public function setFoo ($model)
 public function actionreportesComp()
 {
     $model=new Comprobantes;
-    
+    $id_user = Yii::app()->user->id;
+
     $dataProvider=new CActiveDataProvider('Comprobantes', array(
         'criteria'=>array(
             'condition'=>'cruge_user_id='.$id_user,
@@ -699,10 +767,31 @@ public function actionreportesAjax()
                 else{
                     $mision = chr(9);
                 }
-                $lineacont = $lineacont . $mision .
-                $comprobante->importe_iva_10 . chr(9).
-                $comprobante->importe_iva_5 . chr(9).
-                $comprobante->importe_exenta . chr(9).
+                $lineacont = $lineacont . $mision ;
+                if( $comprobante->importe_iva_10 != null){
+                    $iva_10 = $comprobante->importe_iva_10 .chr(9);
+                }
+                else{
+                    $iva_10 = 0 . chr(9);
+                }
+                $lineacont = $lineacont . $iva_10;
+                //$comprobante->importe_iva_10 . chr(9).
+                if( $comprobante->importe_iva_5 != null){
+                    $iva_5 = $comprobante->importe_iva_5 .chr(9);
+                }
+                else{
+                    $iva_5 = 0 . chr(9);
+                }
+                $lineacont = $lineacont . $iva_5;
+                //$comprobante->importe_iva_5 . chr(9).
+                if( $comprobante->importe_exenta != null){
+                    $exenta = $comprobante->importe_exenta .chr(9);
+                }
+                else{
+                    $exenta = 0 . chr(9);
+                }
+                $lineacont = $lineacont . $exenta . 
+                //$comprobante->importe_exenta . chr(9).
                 $comprobante->total_importe . chr(9).
                 $comprobante->ircp . chr(9).
                 $comprobante->iva_general . chr(9).
@@ -759,7 +848,7 @@ public function actionexcelReport(){
             on tc.id_tipos_comprobantes = co.id_tipos_comprobantes
             inner join tipos_registros as tr
             on tr.id_tipo_registro = co.id_tipo_registro
-            left join imbrados as ti
+            left join timbrados as ti
             on ti.id_timbrado = co.id_timbrado
             left join misiones_diplomaticas as md
             on md.id_misiones_diplomaticas = co.id_misiones_diplomaticas

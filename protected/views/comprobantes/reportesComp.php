@@ -128,7 +128,7 @@ array('label'=>'Nueva Venta','url'=>array('venta')),
             'type' => 'text', 
             'value' => 'CHtml::encode($data->idTipoRegistro->tipo_registro)',
             'headerHtmlOptions'=>array('style' => 'text-align: center;'),
-            'htmlOptions'=>array('style' => 'text-align: right; width: 100px;')
+            'htmlOptions'=>array('style' => 'text-align: center; width: 100px;')
             ),
         array(
 			'name' => 'id_clientes',			
@@ -136,7 +136,7 @@ array('label'=>'Nueva Venta','url'=>array('venta')),
 			'type' => 'text', 
 			'value' => 'CHtml::encode($data->idClientes->numero_identificacion)',
 			'headerHtmlOptions'=>array('style' => 'text-align: center;'),
-			'htmlOptions'=>array('style' => 'text-align: right; width: 100px;')
+			'htmlOptions'=>array('style' => 'text-align: center; width: 100px;')
             ),
         array(
 			'name' => 'id_tipos_comprobantes',			
@@ -144,7 +144,7 @@ array('label'=>'Nueva Venta','url'=>array('venta')),
 			'type' => 'text', 
 			'value' => 'CHtml::encode($data->idTiposComprobantes->tipo_comprobante)',
 			'headerHtmlOptions'=>array('style' => 'text-align: center;'),
-			'htmlOptions'=>array('style' => 'text-align: right; width: 100px;')
+			'htmlOptions'=>array('style' => 'text-align: center; width: 100px;')
             ), 
         'numero_comprobante', 
         'fecha_expedicion',
@@ -156,8 +156,16 @@ array('label'=>'Nueva Venta','url'=>array('venta')),
             'headerHtmlOptions'=>array('style' => 'text-align: center;'),
             'htmlOptions'=>array('style' => 'text-align: right; width: 100px;')
         ),
+        array(
+			'name' => 'total_importe',			
+			'header' => 'Total Importe',			
+			'type' => 'text', 
+			'value'=>'Yii::app()->numberFormatter->formatDecimal($data->total_importe, 0)',
+			'headerHtmlOptions'=>array('style' => 'text-align: center;'),
+			'htmlOptions'=>array('style' => 'text-align: right; width: 100px;')
+		),
         // 'id_timbrado',  
-		'total_importe',
+		//'total_importe',
 		'ircp',
 		'iva_general',
 ),

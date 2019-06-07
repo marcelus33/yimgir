@@ -3,8 +3,9 @@
 echo "<br>";
 
 	$this->menu=array(
-	array('label'=>'Listar','url'=>array('index')),
-	array('label'=>'Crear Nuevo','url'=>array('compra')),
+	//array('label'=>'Listar','url'=>array('index')),
+	array('label'=>'Inicio','url'=>array('/')),
+	array('label'=>'Nueva Compra','url'=>array('compra')),
 	array('label'=>'Ver','url'=>array('view','id'=>$model->id_comprobantes)),
 	array('label'=>'Administrar','url'=>array('admin')),
 	);

@@ -4,14 +4,14 @@ $(document).ready
     {  
         var hiddenTimbrado =  $("#hiddenTimbrado").val();
 
-        setTimeout(cambiarTipoComprobantesBox(), 1000);
+        setTimeout(cambiarTipoComprobantesBox(), 500);
         if ( hiddenTimbrado != 0)
         {
-          setTimeout(buscar_timbrados, 1000);
+          setTimeout(buscar_timbrados, 10);
           //alert(hiddenTimbrado);
           setTimeout(function(){
             changeTimbradosCombo(hiddenTimbrado);
-          }, 1600);
+          }, 500);
           //alert($("#Comprobantes_id_timbrado").val()); 
           
           //$("#Comprobantes_id_timbrado").val(3);
@@ -19,12 +19,12 @@ $(document).ready
         }
 
         $("#Busqueda_Numero_Identificacion").change( function () {
-                        setTimeout(buscar_timbrados, 1000);
+                        setTimeout(buscar_timbrados, 10);
             } );
         
         $("#Comprobantes_id_tipos_comprobantes").change( function () {
-                        setTimeout(buscar_timbrados, 1000);
-                        setTimeout(displayComboTimbrados, 700);             
+                        setTimeout(buscar_timbrados, 10);
+                        setTimeout(displayComboTimbrados, 500);             
             } );
             
            
@@ -40,7 +40,7 @@ function cambiarTipoComprobantesBox()
         var tipoDeRegistro = $("#Comprobantes_id_tipo_registro").val();
         //creamos variable donde se irá concatenando el html del combobox a generarse, abrimos <select>
         var comboBoxHtml = "<select name=\"Comprobantes[id_tipos_comprobantes]\" id=\"Comprobantes_id_tipos_comprobantes\">";
-
+        var htc = $('#htc').val();
         $.ajax({
             url: "http://localhost/yimgir/comprobantes/CambiarComboBox", //http://localhost/yimgir/comprobantes/CambiarComboBox
             type: 'POST',
@@ -53,8 +53,11 @@ function cambiarTipoComprobantesBox()
                                     {
                                         //En caso de obtener un resultado, seguiremos concatenando el combobox
                                         for(var k in response) {
+                                          if (response[k]['id_tipos_comprobantes'] != htc)
                                             comboBoxHtml = comboBoxHtml + 
                                                 "<option value=\""+response[k]['id_tipos_comprobantes']+"\">" + response[k]['tipo_comprobante'] + "</option>";
+                                                else comboBoxHtml = comboBoxHtml + 
+                                                "<option value=\""+response[k]['id_tipos_comprobantes']+"\" selected=\"selected\">" + response[k]['tipo_comprobante'] + "</option>";
                                         }
 
                                         comboBoxHtml = comboBoxHtml + "</select>";	//cerramos el select

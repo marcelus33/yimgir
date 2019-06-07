@@ -5,7 +5,7 @@ echo "<br>";
 	$this->menu=array(
 	array('label'=>'Inicio','url'=>array('/')),
 	array('label'=>'Nueva Venta','url'=>array('venta')),
-	// array('label'=>'Ver','url'=>array('view','id'=>$model->id_comprobantes)),
+	array('label'=>'Ver','url'=>array('view','id'=>$model->id_comprobantes)),
 	array('label'=>'Administrar','url'=>array('admin')),
 	);
 	?>

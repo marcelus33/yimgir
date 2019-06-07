@@ -1,34 +1,21 @@
 $(document).ready
 (   
     function ()
-    {  
+    {   
+        setTimeout(init_if_update, 200);
 
-        $("#Comprobantes_importe_iva_5").change( function () {
-                        var monto = $("#Comprobantes_importe_iva_5").val() ;
-                        monto = monto.split('.').join("");//.replace(/./g, "");
-                        monto =  parseInt( monto );
-                        var iva = calculo_iva(monto,5);
-                        $("#calc_iva5").val(iva);
-                        $("#Comprobantes_total_importe").val( sumar_importes() ) ;
-                        $("#calc_total").val( sumar_importes_iva() ) ;
-                        $("#calc_siniva").val( total_sin_iva() ) ;
-            } );
-        
-        $("#Comprobantes_importe_iva_10").change( function () {
-                        var monto = $("#Comprobantes_importe_iva_10").val() ;
-                        monto = monto.split('.').join("");//.replace(/./g, "");//.replace(".", "");
-                        monto =  parseInt( monto );
-                        var iva = calculo_iva(monto,10);
-                        $("#calc_iva10").val(iva);
-                        $("#Comprobantes_total_importe").val( sumar_importes() ) ;
-                        $("#calc_total").val( sumar_importes_iva() ) ;
-                        $("#calc_siniva").val( total_sin_iva() ) ;
+        var campoIva5 = $("#calc_iva5");
+        $("#Comprobantes_importe_iva_5").change( function(e){
+            calcular_importe(e.target.value, 5, campoIva5);
+        } );
+
+        var campoIva10 = $("#calc_iva10");
+        $("#Comprobantes_importe_iva_10").change( function (e) {
+            calcular_importe(e.target.value, 10, campoIva10);
             } );
 
-        $("#Comprobantes_importe_exenta").change( function () {
-                         $("#Comprobantes_total_importe").val( sumar_importes() ) ;
-                         $("#calc_total").val( sumar_importes_iva() ) ;
-                         $("#calc_siniva").val( total_sin_iva() ) ;
+        $("#Comprobantes_importe_exenta").change( function (e) {
+            calcular_importe(e.target.value, 0, null);
         } );     
        
     }    
@@ -39,6 +26,20 @@ $(document).ready
 
  var total_importe = 0;
  var total_iva = 0;
+
+ function calcular_importe(input, coef, campoIva)
+    {
+        if (coef != 0){
+            let monto = input;
+            monto = parseInt( monto.split('.').join("") );
+            let iva = calculo_iva(monto, coef);        
+            campoIva.val(iva);
+        }
+
+        $("#Comprobantes_total_importe").val( sumar_importes() ) ;
+        $("#calc_total").val( sumar_importes_iva() ) ;
+        $("#calc_siniva").val( total_sin_iva() ) ;
+    }
 
  function calculo_iva(monto, coef)
     { 
@@ -118,3 +119,26 @@ function total_sin_iva()
 function formatNumber(num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
   }
+
+function init_if_update(){
+
+    let input_iva10 = $("#Comprobantes_importe_iva_10"),
+        input_iva5 = $("#Comprobantes_importe_iva_5"),
+        input_exenta = $("#Comprobantes_importe_exenta");
+
+    if (input_iva10.val() > 0){
+        calcular_importe(input_iva10.val(), 10, $("#calc_iva10"));
+        input_iva10.val( formatNumber( input_iva10.val() ) );
+    }
+        
+    if (input_iva5.val() > 0){
+        calcular_importe(input_iva5.val(), 5, $("#calc_iva5"));
+        input_iva5.val( formatNumber( input_iva5.val() ) );
+    }
+
+    if (input_exenta.val() > 0){
+        calcular_importe(null, 0, null);
+        input_exenta.val( formatNumber( input_exenta.val() ) );
+    }
+    
+}	

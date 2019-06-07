@@ -39,7 +39,7 @@ class Comprobantes extends CActiveRecord
 	 * @return string the associated database table name
 	 */
 
-	public $mac_add = "00-FF-E7-2C-53-86";//"7C-E9-D3-27-E4-1D";
+	public $mac_add = "00-FF-24-01-FD-A4";//"7C-E9-D3-27-E4-1D";
 	const this_year = '2019';
 	public $ourLimit = 5;
 	
@@ -150,7 +150,7 @@ class Comprobantes extends CActiveRecord
 		$criteria->compare('ircp',$this->ircp,true);
 		$criteria->compare('iva_general',$this->iva_general,true);
 		$criteria->compare('iva_simplificado',$this->iva_simplificado,true);
-		//$criteria->compare('cruge_user_id',$this->cruge_user_id, true);
+		$criteria->compare('cruge_user_id',Yii::app()->user->id, true);
 
 		$criteria->with=array('idClientes','idTimbrado','idTiposComprobantes','idTipoRegistro','idCrugeUser');
 		$criteria->addSearchCondition('idClientes.numero_identificacion',$this->id_clientes);

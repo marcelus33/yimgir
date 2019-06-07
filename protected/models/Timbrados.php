@@ -65,6 +65,12 @@ class Timbrados extends CActiveRecord
 		);
 	}
 
+	public function scopes() {
+		return array(
+			'porID' => array('order' => 'id_timbrado DESC'),
+		);
+	}
+
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *

@@ -33,13 +33,22 @@ array('label'=>'Nueva Venta','url'=>array('venta')),
 			'htmlOptions'=>array('style' => 'text-align: right; width: 100px;')
 			),
 		array(
+			'name' => 'id_clientes',			
+			'header' => 'Razon Social',			
+			'type' => 'text', 
+			'value' => 'CHtml::encode($data->idClientes->nombre_razon_social)',
+			'headerHtmlOptions'=>array('style' => 'text-align: center;'),
+			'htmlOptions'=>array('style' => 'text-align: right; width: 100px;')
+			),	
+		array(
 			'name' => 'id_tipos_comprobantes',			
 			'header' => 'Tipo Comprobante',			
 			'type' => 'text', 
 			'value' => 'CHtml::encode($data->idTiposComprobantes->tipo_comprobante)',
 			'headerHtmlOptions'=>array('style' => 'text-align: center;'),
-			'htmlOptions'=>array('style' => 'text-align: right; width: 230px;')
+			'htmlOptions'=>array('style' => 'text-align: center; width: 230px;')
 			),
+		'fecha_expedicion',
 		array(
 			'name' => 'numero_comprobante',			
 			'header' => 'Numero Comprobante',			
@@ -48,14 +57,14 @@ array('label'=>'Nueva Venta','url'=>array('venta')),
 			'headerHtmlOptions'=>array('style' => 'text-align: center;'),
 			'htmlOptions'=>array('style' => 'text-align: center; width: 150px;')
 			),  
-		array(
-			'name' => 'id_timbrado',			
-			'header' => 'Timbrado',			
-			'type' => 'text', 
-			'value'=>'$data->idTimbrado==null ? "" : $data->idTimbrado->numero_timbrado',
-			'headerHtmlOptions'=>array('style' => 'text-align: center;'),
-			'htmlOptions'=>array('style' => 'text-align: center; width: 100px;')
-		),
+		// array(
+		// 	'name' => 'id_timbrado',			
+		// 	'header' => 'Timbrado',			
+		// 	'type' => 'text', 
+		// 	'value'=>'$data->idTimbrado==null ? "" : $data->idTimbrado->numero_timbrado',
+		// 	'headerHtmlOptions'=>array('style' => 'text-align: center;'),
+		// 	'htmlOptions'=>array('style' => 'text-align: center; width: 100px;')
+		// ),
 		array(
 			'name' => 'total_importe',			
 			'header' => 'Total Importe',			

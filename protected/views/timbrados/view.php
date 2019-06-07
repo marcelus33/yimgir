@@ -17,8 +17,11 @@ array('label'=>'Buscar','url'=>array('admin')),
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 'data'=>$model,
 'attributes'=>array(
-		'id_timbrado',
-		'id_clientes',
+		array(             //aca introducimos campos que no estan directos  
+			'label'=>'Numero Identificacion',
+			'type'=>'raw',
+			'value'=>$model->idClientes->numero_identificacion."-".$model->idClientes->dv, //este lo obtuvimos por las relaciones
+			),
 		array(             //aca introducimos campos que no estan directos  
 			'label'=>'Nombre o Razon Social',
 			 'type'=>'raw',
