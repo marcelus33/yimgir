@@ -5,10 +5,39 @@ $(document).ready
 (   
     function ()
     {   //setTimeout(calculos_montos, 500);
-        $("#Clientes_numero_identificacion").blur( function () {
-                                            // Code to do stuff immediately
-                         setTimeout(calculoDV(Clientes_numero_identificacion), 500);
-            } );
+        
+        $("#Clientes_id_documentos_identificacion").change( function () {
+            var id_identi = $("#Clientes_id_documentos_identificacion").val();
+            //alert(id_identi);
+            switch (id_identi) {
+                case "1":
+                    $("#Clientes_numero_identificacion").focus();
+                    if($("#Clientes_numero_identificacion").val() != ""){
+                        $("#Clientes_numero_identificacion").blur( function () {
+                            // Code to do stuff immediately
+                                setTimeout(calculoDV(Clientes_numero_identificacion), 50);
+                    } );
+                    }
+                    break;
+                case "2":
+                    $("#Clientes_dv").val("");
+                    $("Clientes_dv").prop('disabled', true);
+                    $("#Clientes_numero_identificacion").focus();
+                    
+                  break;
+                case "5":
+                    alert("SIN NOMBRE");
+                    $("#Clientes_dv").val("");
+                    $("#Clientes_nombre_razon_social").val("SIN NOMBRE");
+                    $("#Clientes_numero_identificacion").val(0);
+                    $("#yw0").focus();
+
+                    
+            }
+            
+        } );
+        
+        
        
     }    
     

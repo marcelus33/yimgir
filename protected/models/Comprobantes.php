@@ -39,8 +39,8 @@ class Comprobantes extends CActiveRecord
 	 * @return string the associated database table name
 	 */
 
-	public $mac_add = array("7C-E9-D3-27-E4-1D", "00-FF-24-01-FD-A4", "mac3" );//"7C-E9-D3-27-E4-1D";
-	const this_year = '2019';
+  public $mac_add = array("7C-E9-D3-27-E4-1D", "00-FF-24-01-FD-A4", "mac3" );//"7C-E9-D3-27-E4-1D";
+  const this_year = '2019';
 	public $ourLimit = 5;
 	
 
