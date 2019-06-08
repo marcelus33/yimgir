@@ -840,7 +840,7 @@ public function actionexcelReport(){
             co.numero_comprobante, di.documento_identificacion, cl.numero_identificacion, 
             cl.nombre_razon_social, md.mision_diplomatica, co.importe_iva_10,
             co.importe_iva_5, co.importe_exenta, ROUND((co.importe_iva_10/1.1), 0) gravado_10,
-            ROUND((co.importe_iva_10/1.05), 0) gravado_5, ROUND(((co.importe_iva_10 * 0.1) + (co.importe_iva_5 * 0.05)), 0) total_impuestos,
+            ROUND((co.importe_iva_5/1.05), 0) gravado_5, ROUND(((co.importe_iva_10 * 0.1) + (co.importe_iva_5 * 0.05)), 0) total_impuestos,
             co.total_importe, co.ircp, co.iva_general, co.iva_simplificado
             from comprobantes as co inner join clientes as cl
             on co.id_clientes = cl.id_clientes

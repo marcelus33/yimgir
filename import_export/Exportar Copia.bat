@@ -1,0 +1,1 @@
+C:\xampp\mysql\bin\mysqldump -hlocalhost -uroot --default-character-set=utf8 mgir > C:\Backup\mgir_exportado.sql
