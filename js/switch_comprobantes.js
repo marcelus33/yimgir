@@ -11,7 +11,7 @@ $(document).ready
           //alert(hiddenTimbrado);
           setTimeout(function(){
             changeTimbradosCombo(hiddenTimbrado);
-          }, 500);
+          }, 1000);
           //alert($("#Comprobantes_id_timbrado").val()); 
           
           //$("#Comprobantes_id_timbrado").val(3);
@@ -175,5 +175,6 @@ function cambiarTipoComprobantesBox()
 
     function changeTimbradosCombo (hiddenTimbrado)
     {
-      document.getElementById("Comprobantes_id_timbrado").value = hiddenTimbrado; 
+      //document.getElementById("Comprobantes_id_timbrado").value = hiddenTimbrado;
+      $("#Comprobantes_id_timbrado").val(hiddenTimbrado);
     }

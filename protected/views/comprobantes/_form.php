@@ -11,7 +11,7 @@
 <?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/mask.js') ?>
 <?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/tousan.js') ?>
 <?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/busquedaclientes.js') ?>
-<?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/switch_comprobantes.js') ?>
+<?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/switch_comprobantes.js', CClientScript::POS_END) ?>
 <?php //Yii::app()->clientScript->registerScriptFile('/yimgir/js/bootstrap2-toggle.js');?>
 <?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/botones_switch.js');  ?>
 <?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/longitud_input.js');  ?>
