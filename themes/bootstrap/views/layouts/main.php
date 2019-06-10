@@ -27,7 +27,7 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
  'items'=>array(
 	 			array('label'=>'Usuarios'
 					, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
-					, 'visible'=>!Yii::app()->user->isGuest),
+					, 'visible'=>Yii::app()->user->isSuperAdmin),
 					array('label'=>'Login'
 					, 'url'=>Yii::app()->user->ui->loginUrl
 					, 'visible'=>Yii::app()->user->isGuest),
