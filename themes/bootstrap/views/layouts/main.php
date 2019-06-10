@@ -13,19 +13,37 @@
 <body>
  
 <header>
-<?php
+
+<?php 
+	  $user = Cruge_User::model()->findByPk(Yii::app()->user->id);
+	  $num_ident = $user->numero_identificacion_irpc;
+
+	  if ($num_ident){
+		$clienteObj = Clientes::model()->findByAttributes(array('numero_identificacion'=>$num_ident));
+		$cliente = $clienteObj->nombre_razon_social;
+	  }
+		else  $cliente = 'Cliente sin RUC en Tabla Usuarios';
+	  //print_r($user) ?>
+
+<?php 
 $this->widget('bootstrap.widgets.TbNavbar', array(
  //'type'=>'inverse', // null or 'inverse'
- 'brand'=>CHtml::encode(Yii::app()->name),
+ 'brand'=> CHtml::encode( ucwords( strtolower((string)($cliente)) ) ), //CHtml::encode(Yii::app()->name),
  'brandUrl'=>array('/site/index'),
  'fixed' => 'bottom',
  //'collapse'=>true, // requires bootstrap-responsive.css
  'items'=>array(
  array(
  'class'=>'bootstrap.widgets.TbMenu',
- 'htmlOptions'=>array('class'=>'pull-right'),
- 'items'=>array(
-	 			array('label'=>'Usuarios'
+ 'htmlOptions'=>array('class'=>'pull-right ulcenter'),
+ 'items'=>array(	
+	 				/*array('label'=>(string)($cliente)
+					, 'url'=>'#'
+					, 'visible'=>!Yii::app()->user->isGuest
+					, 'itemOptions'=>array('class'=>'center-li'),
+					 ),*/
+					
+	 				array('label'=>'Usuarios'
 					, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
 					, 'visible'=>Yii::app()->user->isSuperAdmin),
 					array('label'=>'Login'
