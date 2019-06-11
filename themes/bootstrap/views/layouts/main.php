@@ -117,7 +117,8 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
  )); ?>
  <?php endif?>
  <?php echo $content; ?>
- <hr>
+ <!--<hr>-->
+ <br><br>
 </div>
 </body>
 </html>
