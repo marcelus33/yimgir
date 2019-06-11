@@ -1,4 +1,4 @@
-<?php $this->beginContent('//layouts/main'); ?>
+<?php $this->beginContent('yimgir/themes/bootstrap/views/main'); ?>
  <div class="row">
  <div class="span2">
  <?php
