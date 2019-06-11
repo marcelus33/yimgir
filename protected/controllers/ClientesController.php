@@ -62,21 +62,35 @@ $this->render('view',array(
 */
 public function actionCreate()
 {
-$model=new Clientes;
+	$model=new Clientes;
 
-// Uncomment the following line if AJAX validation is needed
-// $this->performAjaxValidation($model);
+	// Uncomment the following line if AJAX validation is needed
+	// $this->performAjaxValidation($model);
 
-if(isset($_POST['Clientes']))
-{
-$model->attributes=$_POST['Clientes'];
-if($model->save())
-$this->redirect(array('view','id'=>$model->id_clientes));
-}
+	if(isset($_POST['Clientes']))
+	{
+		$model->attributes=$_POST['Clientes'];
+		
+		//comprobamos si numero de identificacion es un numero
+		if ( is_numeric ($model->numero_identificacion) ) {
 
-$this->render('create',array(
-'model'=>$model,
-));
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->id_clientes));
+
+		} else {
+			$user = Yii::app()->getComponent('user');
+			$user->setFlash(
+					'error',
+					'<strong>Error</strong> El número de identificación debe ser un número'
+			);
+		}
+
+
+	}
+
+	$this->render('create',array(
+	'model'=>$model,
+	));
 }
 
 /**
@@ -86,21 +100,21 @@ $this->render('create',array(
 */
 public function actionUpdate($id)
 {
-$model=$this->loadModel($id);
+	$model=$this->loadModel($id);
 
-// Uncomment the following line if AJAX validation is needed
-// $this->performAjaxValidation($model);
+	// Uncomment the following line if AJAX validation is needed
+	// $this->performAjaxValidation($model);
 
-if(isset($_POST['Clientes']))
-{
-$model->attributes=$_POST['Clientes'];
-if($model->save())
-$this->redirect(array('view','id'=>$model->id_clientes));
-}
+	if(isset($_POST['Clientes']))
+	{
+	$model->attributes=$_POST['Clientes'];
+	if($model->save())
+	$this->redirect(array('view','id'=>$model->id_clientes));
+	}
 
-$this->render('update',array(
-'model'=>$model,
-));
+	$this->render('update',array(
+	'model'=>$model,
+	));
 }
 
 /**
