@@ -17,8 +17,32 @@
 <?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/longitud_input.js');  ?>
 <?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/importes_operacion.js');  ?>
 <?php Yii::app()->clientScript->registerScriptFile('/yimgir/js/sweetalert.min.js');  ?>
+<?php
+		Yii::app()->clientScript->registerScript(
+		'myHideEffect',
+		'$(".successAlert").fadeOut(5000);',
+		CClientScript::POS_READY
+		);
+?>
+
 
 <p class="help-block">Campos con <span class="required">*</span> son obligatorios.</p>
+
+<?php $this->widget('bootstrap.widgets.TbAlert', array(
+							'block' => true,
+							'fade' => true,
+							'closeText' => false,//'&times;', // false equals no close link
+							'events' => array(),
+							'htmlOptions' => array('class' => 'successAlert'),
+							'userComponentId' => 'user',
+							'alerts' => array( // configurations per alert type
+								// success, info, warning, error or danger
+								'success' => array(), //'closeText' => '&times;'
+								//'info', // you don't need to specify full config
+								//'warning' => array('block' => false, 'closeText' => 'Cerrar'),
+								//'error' => array('block' => false, 'closeText' => 'Cerrar')
+							),
+						));?>
 
 <?php echo $form->errorSummary($model); ?>
 

@@ -392,16 +392,24 @@ public function actionAdmin()
                 $this->redirect(array('view','id'=>$model->id_comprobantes));
             }
 
-           // if($model->save() && ($flagTimbrado))
-             //   $this->redirect(array('view','id'=>$model->id_comprobantes));
 
             if(isset($_POST['yt1']))
-            {
-                if($model->save() && ($flagTimbrado))
-                $this->redirect('compra',array(
-                    'model'=>$model, 
-                    'id_registro'=>$id_registro,
-                    'contribuyente'=>$contribuyente ));
+            {   
+
+                if($model->save() && ($flagTimbrado)) 
+                {
+                
+                    $user = Yii::app()->getComponent('user');
+                    $user->setFlash(
+                            'success',
+                            '<strong>Éxito!</strong> Se registró el Comprobante de manera éxitosa!.'
+                    );
+
+                    $this->redirect('compra',array(
+                        'model'=>$model, 
+                        'id_registro'=>$id_registro,
+                        'contribuyente'=>$contribuyente ));
+                }
             }
 
         }
@@ -481,12 +489,22 @@ public function actionAdmin()
 
 
             if(isset($_POST['yt1']))
-            {
-                if($model->save() && ($flagTimbrado))
-                $this->redirect('venta',array(
-                    'model'=>$model, 
-                    'id_registro'=>$id_registro,
-                    'contribuyente'=>$contribuyente ));
+            {   
+
+                if($model->save() && ($flagTimbrado)) 
+                {
+                
+                    $user = Yii::app()->getComponent('user');
+                    $user->setFlash(
+                            'success',
+                            '<strong>Éxito!</strong> Se registró el Comprobante de manera éxitosa!.'
+                    );
+
+                    $this->redirect('compra',array(
+                        'model'=>$model, 
+                        'id_registro'=>$id_registro,
+                        'contribuyente'=>$contribuyente ));
+                }
             }
         }
 
@@ -565,12 +583,22 @@ public function actionAdmin()
 
 
             if(isset($_POST['yt1']))
-            {
-                if($model->save() && ($flagTimbrado))
-                $this->redirect('../compra',array(
-                    'model'=>$model, 
-                    'id_registro'=>$id_registro,
-                    'contribuyente'=>$contribuyente ));
+            {   
+
+                if($model->save() && ($flagTimbrado)) 
+                {
+                
+                    $user = Yii::app()->getComponent('user');
+                    $user->setFlash(
+                            'success',
+                            '<strong>Éxito!</strong> Se registró el Comprobante de manera éxitosa!.'
+                    );
+
+                    $this->redirect('compra',array(
+                        'model'=>$model, 
+                        'id_registro'=>$id_registro,
+                        'contribuyente'=>$contribuyente ));
+                }
             }
         }
 
@@ -649,12 +677,22 @@ public function actionAdmin()
 
 
             if(isset($_POST['yt1']))
-            {
-                if($model->save() && ($flagTimbrado))
-                $this->redirect('../venta',array(
-                    'model'=>$model, 
-                    'id_registro'=>$id_registro,
-                    'contribuyente'=>$contribuyente ));
+            {   
+
+                if($model->save() && ($flagTimbrado)) 
+                {
+                
+                    $user = Yii::app()->getComponent('user');
+                    $user->setFlash(
+                            'success',
+                            '<strong>Éxito!</strong> Se registró el Comprobante de manera éxitosa!.'
+                    );
+
+                    $this->redirect('compra',array(
+                        'model'=>$model, 
+                        'id_registro'=>$id_registro,
+                        'contribuyente'=>$contribuyente ));
+                }
             }
         }
 
