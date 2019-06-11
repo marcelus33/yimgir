@@ -1,6 +1,6 @@
 <?php $this->layout='//layouts/column1'; //column_login ?>
 <div id="login-content" style='width: 40%; float: left;' >
-
+<br>
 <h1 style="text-align:center;" >Iniciar sesión</h1>
 
 <?php if(Yii::app()->user->hasFlash('loginflash')): ?>
@@ -79,10 +79,12 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 
 
 ?>
+<div style="width: 45%; float: right;" >
 
-<div style="width: 45%; height: 300px; overflow-y: scroll; float: right;"> <!--width: 45%;-->
 <h1 style="text-align:center;">Clientes Usuarios</h1>
 <p style="text-align:center;"><b><i>Favor seleccione un usuario para ingresar</i></b></p>
+
+<div style="width: 95%; height: 300px; overflow-y: scroll; "> <!--width: 45%;-->
 
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 'id'=>'cruge--user-grid',
@@ -114,6 +116,8 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 
 ),
 )); ?>
+
+</div>
 
 </div>
 

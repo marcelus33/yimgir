@@ -110,17 +110,31 @@ $this->render('update',array(
 */
 public function actionDelete($id)
 {
-if(Yii::app()->request->isPostRequest)
-{
-// we only allow deletion via POST request
-$this->loadModel($id)->delete();
+	if(Yii::app()->request->isPostRequest)
+	{
+		// we only allow deletion via POST request
 
-// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-if(!isset($_GET['ajax']))
-$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-}
-else
-throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
+		$error = "No se pudo eliminar registro, favor verificar si el timbrado no cuenta con Comprobantes asignados";//$e->getMessage();
+				
+		try {
+				$this->loadModel($id)->delete();
+			} catch (CDbException $e) 
+				{
+					if($e->errorInfo[1] == 1451) {
+						header("HTTP/1.0 400 Relation Restriction");
+						echo $error;
+					} else {
+						throw $e;
+					}
+				}
+
+		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+		if(!isset($_GET['ajax']))
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+	}
+	else
+
+	throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 }
 
 /**

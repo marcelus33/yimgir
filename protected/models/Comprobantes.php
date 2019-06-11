@@ -41,7 +41,9 @@ class Comprobantes extends CActiveRecord
 
   public $mac_add = array("7C-E9-D3-27-E4-1D", "00-FF-24-01-FD-A4", "mac3" );//"7C-E9-D3-27-E4-1D";
   const this_year = '2019';
-	public $ourLimit = 5;
+  public $ourLimit = 5;
+
+  public $id_clientes2;
 	
 
 	public function tableName()
@@ -59,6 +61,7 @@ class Comprobantes extends CActiveRecord
 		return array( //id_comprobantes, cruge_user_id
 			array('cruge_user_id, id_clientes, id_tipos_comprobantes, id_tipo_registro,  fecha_expedicion, numero_comprobante, total_importe, iva_simplificado', 'required'), //id_timbrado,
 			array('cruge_user_id, id_clientes, id_tipos_comprobantes, id_tipo_registro, id_timbrado, id_misiones_diplomaticas, importe_iva_5, importe_iva_10, importe_exenta, total_importe', 'numerical', 'integerOnly'=>true),
+			array('total_importe', 'isZero'),
 			array('mac_add', 'isMac'),
 			array('ourLimit', 'usersCant'),
 			array('fecha_expedicion', 'isYear', 'year'=>self::this_year),
@@ -154,6 +157,7 @@ class Comprobantes extends CActiveRecord
 
 		$criteria->with=array('idClientes','idTimbrado','idTiposComprobantes','idTipoRegistro','idCrugeUser');
 		$criteria->addSearchCondition('idClientes.numero_identificacion',$this->id_clientes);
+		$criteria->addSearchCondition('idClientes.nombre_razon_social',$this->id_clientes2);
 		$criteria->addSearchCondition('idTimbrado.numero_timbrado',$this->id_timbrado);
 		$criteria->addSearchCondition('idTiposComprobantes.tipo_comprobante', $this->id_tipos_comprobantes);
 		$criteria->addSearchCondition('idTipoRegistro.tipo_registro', $this->id_tipo_registro);
@@ -203,6 +207,13 @@ class Comprobantes extends CActiveRecord
 
 		if (!$flag)
 			$this->addError($mac, 'Este dispositivo no cuenta con permiso del sistema');
+	}
+
+	public function isZero($number)
+	{
+
+		if (!$this->$number > 0)
+			$this->addError($number, 'El campo Importe Total no puede ser 0 ni estar vacío');
 	}
 
 

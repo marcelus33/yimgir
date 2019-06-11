@@ -1,4 +1,12 @@
+# Created by https://www.gitignore.io/api/yii
+# Edit at https://www.gitignore.io/?templates=yii
 
-assets/
+### Yii ###
+assets/*
+!assets/.gitignore
+protected/runtime/*
+!protected/runtime/.gitignore
+protected/data/*.db
+themes/classic/views/
 
-*.log
+# End of https://www.gitignore.io/api/yii
