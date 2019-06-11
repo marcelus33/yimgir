@@ -61,6 +61,7 @@ class Comprobantes extends CActiveRecord
 		return array( //id_comprobantes, cruge_user_id
 			array('cruge_user_id, id_clientes, id_tipos_comprobantes, id_tipo_registro,  fecha_expedicion, numero_comprobante, total_importe, iva_simplificado', 'required'), //id_timbrado,
 			array('cruge_user_id, id_clientes, id_tipos_comprobantes, id_tipo_registro, id_timbrado, id_misiones_diplomaticas, importe_iva_5, importe_iva_10, importe_exenta, total_importe', 'numerical', 'integerOnly'=>true),
+			array('total_importe', 'isZero'),
 			array('mac_add', 'isMac'),
 			array('ourLimit', 'usersCant'),
 			array('fecha_expedicion', 'isYear', 'year'=>self::this_year),
@@ -206,6 +207,13 @@ class Comprobantes extends CActiveRecord
 
 		if (!$flag)
 			$this->addError($mac, 'Este dispositivo no cuenta con permiso del sistema');
+	}
+
+	public function isZero($number)
+	{
+
+		if (!$this->$number > 0)
+			$this->addError($number, 'El campo Importe Total no puede ser 0 ni estar vacío');
 	}
 
 
