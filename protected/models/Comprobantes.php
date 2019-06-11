@@ -41,7 +41,9 @@ class Comprobantes extends CActiveRecord
 
   public $mac_add = array("7C-E9-D3-27-E4-1D", "00-FF-24-01-FD-A4", "mac3" );//"7C-E9-D3-27-E4-1D";
   const this_year = '2019';
-	public $ourLimit = 5;
+  public $ourLimit = 5;
+
+  public $id_clientes2;
 	
 
 	public function tableName()
@@ -154,6 +156,7 @@ class Comprobantes extends CActiveRecord
 
 		$criteria->with=array('idClientes','idTimbrado','idTiposComprobantes','idTipoRegistro','idCrugeUser');
 		$criteria->addSearchCondition('idClientes.numero_identificacion',$this->id_clientes);
+		$criteria->addSearchCondition('idClientes.nombre_razon_social',$this->id_clientes2);
 		$criteria->addSearchCondition('idTimbrado.numero_timbrado',$this->id_timbrado);
 		$criteria->addSearchCondition('idTiposComprobantes.tipo_comprobante', $this->id_tipos_comprobantes);
 		$criteria->addSearchCondition('idTipoRegistro.tipo_registro', $this->id_tipo_registro);

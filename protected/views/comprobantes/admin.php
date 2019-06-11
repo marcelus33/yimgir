@@ -33,10 +33,10 @@ array('label'=>'Nueva Venta','url'=>array('venta')),
 			'htmlOptions'=>array('style' => 'text-align: right; width: 100px;')
 			),
 		array(
-			'name' => 'id_clientes',			
+			'name' => 'id_clientes2',			
 			'header' => 'Razon Social',			
 			'type' => 'text', 
-			'value' => 'CHtml::encode($data->idClientes->nombre_razon_social)',
+			'value' => 'CHtml::encode( strtoupper($data->idClientes->nombre_razon_social) )',
 			'headerHtmlOptions'=>array('style' => 'text-align: center;'),
 			'htmlOptions'=>array('style' => 'text-align: right; width: 100px;')
 			),	

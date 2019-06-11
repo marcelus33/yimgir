@@ -164,11 +164,13 @@ public function actionIndex()
 public function actionAdmin()
 {
     $model=new Comprobantes('search');
-    $model->unsetAttributes();  // clear any default values
-    
+    $model->unsetAttributes();  // clear any default values 
+  
    
-    if(isset($_GET['Comprobantes']))
+    if(isset($_GET['Comprobantes'])) {
      $model->attributes=$_GET['Comprobantes'];
+     $model->id_clientes2 = strtoupper($_GET['Comprobantes']['id_clientes2']);
+    }
 
     $this->render('admin',array(
     'model'=>$model,
