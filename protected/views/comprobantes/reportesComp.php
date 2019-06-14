@@ -39,6 +39,14 @@ array('label'=>'Nueva Venta','url'=>array('venta')),
     )
 );?>
 <div class = "row-fluid">
+    <div class="span 2">
+        <label>Tipo de Registro</label>
+        <?php
+            $name = "mySelect";
+            $options = array('1' => 'General', '2' => 'Compras', '3' => 'Ventas'); 
+            echo CHtml::dropDownList('mySelect', '1', $options);
+        ?>
+    </div>
     <div class = "span2">
     <?php echo CHtml::label('Desde','fecha_desde');?>  
     <?php
