@@ -137,7 +137,7 @@ class Comprobantes extends CActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
-
+		$criteria->order = 'id_comprobantes DESC' ;
 		$criteria->compare('id_comprobantes',$this->id_comprobantes);
 		// $criteria->compare('id_clientes',$this->id_clientes);
 		// $criteria->compare('id_tipos_comprobantes',$this->id_tipos_comprobantes);
@@ -253,4 +253,5 @@ class Comprobantes extends CActiveRecord
 	{
 		return $model->idTipoRegistro->tipo_registro;
 	}
+
 }
