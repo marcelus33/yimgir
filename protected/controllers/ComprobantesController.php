@@ -37,7 +37,7 @@ array('allow',  // allow all users to perform 'index' and 'view' actions
 ),
 array('allow', // allow authenticated user to perform 'create' and 'update' actions
 'actions'=>array('create','update','buscarClientes','CambiarComboBox','ObtenerTimbrados', 
-'Compra', 'Venta', 'reportesComp', 'reportesAjax', 'excelReport','ventaUpdate','compraUpdate'),
+'Compra', 'Venta', 'reportesComp', 'reportesAjax', 'reportesAjaxPdf' ,'excelReport','ventaUpdate','compraUpdate'),
 'users'=>array('@'),
 ),
 array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -950,6 +950,89 @@ public function actionexcelReport(){
 
 	
 }
+
+public function actionreportesAjaxPdf()
+	{
+	   
+		$model = new Comprobantes;
+        if( (isset($_POST['fecha_desde']) && $_POST['fecha_desde']!=='') && 
+            (isset($_POST['fecha_hasta']) && $_POST['fecha_hasta']!==''))
+	    {
+	    	$fecha_desde = $this->cambiarFecha($_POST['fecha_desde']);
+            $fecha_hasta = $this->cambiarFecha($_POST['fecha_hasta']);
+        }
+
+        $tipo_registro = $_POST['tipo_registro'];
+
+        $usuario = Yii::app()->user->id;
+
+        $criteria = new CDbCriteria;
+        $criteria->addCondition('fecha_expedicion >= :fr_d '); //1/10
+        $criteria->addCondition('fecha_expedicion <= :fr_h'); // 20/10
+        $criteria->addCondition('cruge_user_id = :ur');
+
+        if($tipo_registro <= 2) {
+            $criteria->addCondition('id_tipo_registro = :tr'); 
+            $criteria->params = array(':fr_d'=>$fecha_desde, ':fr_h'=>$fecha_hasta, 
+                                        ':ur'=>$usuario, ':tr'=>$tipo_registro);
+        }
+            else {
+                $criteria->addCondition('cruge_user_id = :ur'); 
+                $criteria->params = array(':fr_d'=>$fecha_desde, ':fr_h'=>$fecha_hasta, 
+                                            ':ur'=>$usuario);   
+            }
+
+        $comprobantes = Comprobantes::model()->findAll($criteria);
+                       
+        $model_usuario = Cruge_User::model()->findByPk($usuario);
+       
+        $identificacion_usuario = $model_usuario->numero_identificacion_irpc;
+        $periodo = 2019;
+        
+        $flag = 0;
+        
+        if($comprobantes) 
+        {   $flag = 1; // se encontraron resultados
+            $dataProvider = new CActiveDataProvider('Comprobantes', 
+                                array('criteria'=>$criteria,));
+
+
+
+            if($tipo_registro > 2){
+                $desc_registro = '';
+            }
+            else{
+                if ($tipo_registro > 1) {
+                    $desc_registro = "_VENTAS";
+                } else {
+                    $desc_registro = "_COMPRAS";
+                }
+            }        
+        } else $flag = 2; //no se encontraron resultados
+
+
+        $mpdf = Yii::app()->ePdf->mpdf();
+
+   
+        $mpdf->WriteHTML("<h5 align =\"center\" > Comprobantes ".$desc_registro." Período ".$periodo."</h5>");
+        $mpdf->WriteHTML("<h5 align =\"center\" > Desde: ".$this->cambiarFecha($fecha_desde)." hasta: ".$this->cambiarFecha($fecha_hasta) ."</h5>");
+        
+       if ($dataProvider)
+            $mpdf->WriteHTML($this->renderPartial( '_parcial_comprobantes_pdf',    
+                 array( 'dataProvider'=>$dataProvider, ),true, true ) ); 
+       else  $flag = 3; //error con el dataProvider
+
+       $mpdf->SetFooter('||{PAGENO}');
+
+
+       $fileName =  $identificacion_usuario . "_IRPC_" . $periodo . $desc_registro;  
+
+       if ($flag == 1)
+          $mpdf->Output('C:/reportes/'.$fileName .'.pdf', EYiiPdf::OUTPUT_TO_FILE);
+        
+       echo $flag;
+
+} 
 
 
 }

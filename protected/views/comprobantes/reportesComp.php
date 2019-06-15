@@ -97,6 +97,7 @@ array('label'=>'Nueva Venta','url'=>array('venta')),
                         'items' => array(
                             array('label' => 'Archivo TXT', 'url' => '', 'itemOptions' => array('id'=>'opcionTxt')),
                             array('label' => 'Archivo Excel', 'url' => '', 'itemOptions' => array('id'=>'opcionExcel')),
+                            array('label' => 'Archivo Pdf', 'url' => '', 'itemOptions' => array('id'=>'opcionPdf')),
                         )
                     ),
                 ),
