@@ -46,10 +46,10 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
 	 				array('label'=>'Usuarios'
 					, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
 					, 'visible'=>Yii::app()->user->isSuperAdmin),
-					array('label'=>'Login'
+					array('label'=>'Iniciar Sesion'
 					, 'url'=>Yii::app()->user->ui->loginUrl
 					, 'visible'=>Yii::app()->user->isGuest),
-					array('label'=>'Logout ('.Yii::app()->user->name.')'
+					array('label'=>'Cerrar Sesion ('.Yii::app()->user->name.')'
 					, 'url'=>Yii::app()->user->ui->logoutUrl
 					, 'visible'=>!Yii::app()->user->isGuest),
 					),
@@ -71,10 +71,14 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
  				'items' => array(
 							array('label' => 'Compras', 'url'=>$this->createUrl('/comprobantes/compra'),),
 							array('label' => 'Ventas', 'url'=>$this->createUrl('/comprobantes/venta'),),
-							array('label' => 'Administrar', 'url'=>$this->createUrl('/comprobantes/admin'),),
-							array('label' => 'Exportar', 'url'=>$this->createUrl('/comprobantes/reportesComp'),),
-				),
- 			),
+							array('label'=>'Reportes',
+								'items'=>array(
+									array('label' => 'Administrar', 'url'=>$this->createUrl('/comprobantes/admin'),),
+									array('label' => 'Exportar', 'url'=>$this->createUrl('/comprobantes/reportesComp'),),
+								),					
+							),
+						),
+ 				),
 			array('label'=>'Clientes',
  				'items' => array(
 					array('label' => 'Nuevo', 'url'=>$this->createUrl('/clientes/create'),),
@@ -101,8 +105,9 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
 						array('label' => 'Administrar', 'url'=>$this->createUrl('/tiposComprobantes/admin'),),
 					),
 				 ),
-			),
-		)
+				),
+				'visible'=>Yii::app()->user->isSuperAdmin
+			)
 	)
 )
 )

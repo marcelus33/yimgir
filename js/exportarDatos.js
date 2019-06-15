@@ -4,12 +4,13 @@ $(document).ready(function(){
     $( "#opcionTxt" ).click(function() {
         var fecha_desde = $("#fecha_desde").val();
         var fecha_hasta =  $("#fecha_hasta").val();
+        var tipo_registro =  $("#mySelect").val();
         if (fecha_desde != '' && fecha_hasta != '') {
             $.ajax({
                     url: "reportesAjax",
                     type: 'POST',
                         data:"&fecha_desde="+fecha_desde+
-                        "&fecha_hasta="+fecha_hasta,      
+                        "&fecha_hasta="+fecha_hasta+"&tipo_registro="+tipo_registro,      
                         
                         success:  function(response, status) 
                         {   
@@ -38,7 +39,8 @@ $(document).ready(function(){
 
      $( "#opcionExcel" ).click(function() {
         var fecha_desde = $("#fecha_desde").val();
-        var fecha_hasta =  $("#fecha_hasta").val();
+        var fecha_hasta = $("#fecha_hasta").val();
+        var drop_value =  $("#mySelect").val();
 
         if (fecha_desde != '' && fecha_hasta != '') {   
             

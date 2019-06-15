@@ -77,6 +77,13 @@ array('label'=>'Nueva Venta','url'=>array('venta')),
                    )
         );?>
     </div>
+    <div class="span4">
+        <label>Tipo de Registro</label>
+        <?php
+            $options = array('1' => 'Compras', '2' => 'Ventas', '3' => 'General');
+            echo CHtml::dropDownList('mySelect', '3', $options);
+        ?>
+    </div>
     <div style = "padding-top: 25px;">
     <?php
         $this->widget(

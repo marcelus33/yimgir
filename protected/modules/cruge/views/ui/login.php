@@ -1,7 +1,7 @@
 <?php $this->layout='//layouts/column1'; //column_login ?>
 <div id="login-content" style='width: 40%; float: left;' >
 <br>
-<h1 style="text-align:center;" >Iniciar sesión</h1>
+<h1 style="text-align:center;" >Iniciar Sesión</h1>
 
 <?php if(Yii::app()->user->hasFlash('loginflash')): ?>
 <div class="flash-error">
@@ -25,7 +25,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 		<?php echo $form->passwordFieldRow($model,'password'); ?>
 		<?php //echo $form->checkBoxRow($model,'rememberMe'); ?>
 		<br>	
-		<?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'label'=>'Login', 'htmlOptions'=>array('class'=>'btn btn-primary', 'style'=>'padding: 10px 20px;'))); //margin: 0 auto auto 20%; ?>
+		<?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'label'=>'Iniciar', 'htmlOptions'=>array('class'=>'btn btn-primary', 'style'=>'padding: 10px 20px;'))); //margin: 0 auto auto 20%; ?>
 		<?php //echo Yii::app()->user->ui->passwordRecoveryLink; ?>
 		<?php
 			/*if(Yii::app()->user->um->getDefaultSystem()->getn('registrationonlogin')===1)
@@ -81,7 +81,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 ?>
 <div style="width: 45%; float: right;" >
 
-<h1 style="text-align:center;">Clientes Usuarios</h1>
+<h1 style="text-align:center;">Usuarios</h1>
 <p style="text-align:center;"><b><i>Favor seleccione un usuario para ingresar</i></b></p>
 
 <div style="width: 95%; height: 300px; overflow-y: scroll; "> <!--width: 45%;-->
@@ -91,7 +91,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 'dataProvider'=>$dataProvider,
 'enableSorting' =>false,
 'summaryText' => false,
-'htmlOptions'=> array('style'=>'', 'class'=>'well'),
+'htmlOptions'=> array('style'=>'cursor: pointer', 'class'=>'well'),
 'columns'=>array(
 
 		array(

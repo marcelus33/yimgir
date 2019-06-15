@@ -764,18 +764,27 @@ public function actionreportesAjax()
 	    	$fecha_desde = $this->cambiarFecha($_POST['fecha_desde']);
             $fecha_hasta = $this->cambiarFecha($_POST['fecha_hasta']);
         }
-        
+
+        $tipo_registro = $_POST['tipo_registro'];
+
         $usuario = Yii::app()->user->id;
+
         $criteria = new CDbCriteria;
-        // $criteria->condition = 'id_misiones_diplomaticas > 0';
         $criteria->addCondition('fecha_expedicion >= :fr_d '); //1/10
         $criteria->addCondition('fecha_expedicion <= :fr_h'); // 20/10
-        $criteria->addCondition('cruge_user_id = :ur'); 
+        $criteria->addCondition('cruge_user_id = :ur');
+        if($tipo_registro <= 2) {
+        $criteria->addCondition('id_tipo_registro = :tr'); 
         $criteria->params = array(':fr_d'=>$fecha_desde, ':fr_h'=>$fecha_hasta, 
-                                ':ur'=>$usuario);
+                                    ':ur'=>$usuario, ':tr'=>$tipo_registro);
+        }
+        else {
+            $criteria->addCondition('cruge_user_id = :ur'); 
+            $criteria->params = array(':fr_d'=>$fecha_desde, ':fr_h'=>$fecha_hasta, 
+                                         ':ur'=>$usuario);   
+        }
         $comprobantes = Comprobantes::model()->findAll($criteria);
-        //4152379_IRPC_2019.txt
-        
+                       
         $model_usuario = Cruge_User::model()->findByPk($usuario);
        
         $identificacion_usuario = $model_usuario->numero_identificacion_irpc;
@@ -783,7 +792,17 @@ public function actionreportesAjax()
 
         
         if($comprobantes) {
-            $myfile = fopen("C:/reportes/" . $identificacion_usuario . "_IRPC_" . $periodo .".txt", "w+") or die("Error al crear el archivo");
+            if($tipo_registro > 2){
+                $desc_registro = '';
+            }
+            else{
+                if ($tipo_registro > 1) {
+                    $desc_registro = "_VENTAS";
+                } else {
+                    $desc_registro = "_COMPRAS";
+                }
+            }
+            $myfile = fopen("C:/reportes/" . $identificacion_usuario . "_IRPC_" . $periodo . $desc_registro . ".txt", "w+") or die("Error al crear el archivo");
             
                 foreach ($comprobantes as $comprobante) {
                 $linea = $comprobante->idTipoRegistro->tipo_registro .chr(9). //tipo_comprobante
@@ -874,7 +893,19 @@ public function actionexcelReport(){
 
             
         }
+    
+    $drop_value = $_POST['mySelect'];
+    
+    $sub_query_a_concatenar = "and co.id_tipo_registro = "; //comienzo de la parte de la query que queremos concatenar
+    // $tipo_registro = 3;
+			if ($drop_value == 1)
+				$sub_query_a_concatenar = $sub_query_a_concatenar. "1"; //"and co.id_tipo_registro = 1"
+				else if ($drop_value == 2)
+						$sub_query_a_concatenar = $sub_query_a_concatenar. "2"; //"and co.id_tipo_registro = 2"
+						else $sub_query_a_concatenar = ""; //vaciamos
+    
     $usuario = Yii::app()->user->id;
+    $usuario_identi = Yii::app()->user->name;
 
     $sql = 'select tr.tipo_registro, tc.tipo_comprobante, co.fecha_expedicion, ti.numero_timbrado, 
             co.numero_comprobante, di.documento_identificacion, cl.numero_identificacion, 
@@ -895,7 +926,7 @@ public function actionexcelReport(){
             left join misiones_diplomaticas as md
             on md.id_misiones_diplomaticas = co.id_misiones_diplomaticas
             where co.fecha_expedicion >=\''.$fecha_desde . '\' and co.fecha_expedicion <=\'' .$fecha_hasta . '\'
-            and co.cruge_user_id = '.$usuario;
+            and co.cruge_user_id = '.$usuario." ".$sub_query_a_concatenar; 
     
     $rawData = Yii::app()->db->createCommand($sql)->queryAll(); //or use ->queryAll(); in CArrayDataProvider
 	$r = new YiiReport(array('template'=> 'comprobantes.xls'));
@@ -908,9 +939,14 @@ public function actionexcelReport(){
 				'minRows'=>2
 			)
 		)
-	);
+    );
+    if ($drop_value == 1)
+        $tipo_drop = "_COMPRAS";
+    else if ($drop_value == 2)
+        $tipo_drop = "_VENTAS";
+            else $tipo_drop = "";
 	
-	echo $r->render('excel2007', 'comprobantes');
+	echo $r->render('excel2007', $usuario_identi . '_Comprobantes'.$tipo_drop);
 
 	
 }
