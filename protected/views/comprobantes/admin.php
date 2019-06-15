@@ -22,7 +22,7 @@ array('label'=>'Nueva Venta','url'=>array('venta')),
 			'type' => 'text', 
 			'value' => 'CHtml::encode($data->idTipoRegistro->tipo_registro)',
 			'headerHtmlOptions'=>array('style' => 'text-align: center;'),
-			'htmlOptions'=>array('style' => 'text-align: center; width: 100px;')
+			'htmlOptions'=>array('style' => 'text-align: center; width: 70px;')
 			),
 		array(
 			'name' => 'id_clientes',			
@@ -30,7 +30,7 @@ array('label'=>'Nueva Venta','url'=>array('venta')),
 			'type' => 'text', 
 			'value' => 'CHtml::encode($data->idClientes->numero_identificacion)',
 			'headerHtmlOptions'=>array('style' => 'text-align: center;'),
-			'htmlOptions'=>array('style' => 'text-align: right; width: 100px;')
+			'htmlOptions'=>array('style' => 'text-align: center; width: 80px;')
 			),
 		array(
 			'name' => 'id_clientes2',			
@@ -38,7 +38,7 @@ array('label'=>'Nueva Venta','url'=>array('venta')),
 			'type' => 'text', 
 			'value' => 'CHtml::encode( strtoupper($data->idClientes->nombre_razon_social) )',
 			'headerHtmlOptions'=>array('style' => 'text-align: center;'),
-			'htmlOptions'=>array('style' => 'text-align: right; width: 100px;')
+			'htmlOptions'=>array('style' => 'text-align: left; width: 230px;')
 			),	
 		array(
 			'name' => 'id_tipos_comprobantes',			
@@ -46,16 +46,24 @@ array('label'=>'Nueva Venta','url'=>array('venta')),
 			'type' => 'text', 
 			'value' => 'CHtml::encode($data->idTiposComprobantes->tipo_comprobante)',
 			'headerHtmlOptions'=>array('style' => 'text-align: center;'),
-			'htmlOptions'=>array('style' => 'text-align: center; width: 230px;')
+			'htmlOptions'=>array('style' => 'text-align: center; width: 100px;')
 			),
-		'fecha_expedicion',
+		array(
+            'name' => 'fecha_expedicion',			
+            'header' => 'Fecha',			
+            'type' => 'text', 
+            //'value' => 'CHtml::encode($data->fecha_expedicion)',
+            'value'=>'Yii::app()->dateFormatter->format("dd/MM/y",strtotime($data->fecha_expedicion))',
+            'headerHtmlOptions'=>array('style' => 'text-align: center;'),
+            'htmlOptions'=>array('style' => 'text-align: center; width: 100px;')
+             ),  
 		array(
 			'name' => 'numero_comprobante',			
 			'header' => 'Numero Comprobante',			
 			'type' => 'text', 
 			'value' => 'CHtml::encode($data->numero_comprobante)',
 			'headerHtmlOptions'=>array('style' => 'text-align: center;'),
-			'htmlOptions'=>array('style' => 'text-align: center; width: 150px;')
+			'htmlOptions'=>array('style' => 'text-align: center; width: 120px;')
 			),  
 		// array(
 		// 	'name' => 'id_timbrado',			

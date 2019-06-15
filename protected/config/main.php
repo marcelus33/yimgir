@@ -117,6 +117,7 @@ return array(
 			),
 		'format' => array(
 			'datetimeFormat'=>"d M, Y h:m:s a",
+			'class'=>'application.components.Formatter',
 			),
 
 		'bootstrap' => array(

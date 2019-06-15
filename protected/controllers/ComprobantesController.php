@@ -967,6 +967,7 @@ public function actionreportesAjaxPdf()
         $usuario = Yii::app()->user->id;
 
         $criteria = new CDbCriteria;
+        $criteria->order = "fecha_expedicion";
         $criteria->addCondition('fecha_expedicion >= :fr_d '); //1/10
         $criteria->addCondition('fecha_expedicion <= :fr_h'); // 20/10
         $criteria->addCondition('cruge_user_id = :ur');
@@ -981,6 +982,7 @@ public function actionreportesAjaxPdf()
                 $criteria->params = array(':fr_d'=>$fecha_desde, ':fr_h'=>$fecha_hasta, 
                                             ':ur'=>$usuario);   
             }
+        
 
         $comprobantes = Comprobantes::model()->findAll($criteria);
                        
@@ -994,7 +996,7 @@ public function actionreportesAjaxPdf()
         if($comprobantes) 
         {   $flag = 1; // se encontraron resultados
             $dataProvider = new CActiveDataProvider('Comprobantes', 
-                                array('criteria'=>$criteria,));
+                                array('criteria'=>$criteria, 'pagination'=> false, ));
 
 
 
@@ -1011,15 +1013,15 @@ public function actionreportesAjaxPdf()
         } else $flag = 2; //no se encontraron resultados
 
 
-        $mpdf = Yii::app()->ePdf->mpdf();
-
-   
-        $mpdf->WriteHTML("<h5 align =\"center\" > Comprobantes ".$desc_registro." Período ".$periodo."</h5>");
-        $mpdf->WriteHTML("<h5 align =\"center\" > Desde: ".$this->cambiarFecha($fecha_desde)." hasta: ".$this->cambiarFecha($fecha_hasta) ."</h5>");
+        $mpdf = Yii::app()->ePdf->mpdf('c', 'Legal-L');
+        $mpdf->WriteHTML("<h5 align =\"center\" > Comprobantes ".$desc_registro." Período: ".$periodo."</h5>");
+        $mpdf->WriteHTML("<h5 align =\"center\" > Del: ".$this->reverseFecha($fecha_desde)." Al: ".$this->reverseFecha($fecha_hasta) ."</h5>");
+        $mpdf->WriteHTML('');
+        
         
        if ($dataProvider)
             $mpdf->WriteHTML($this->renderPartial( '_parcial_comprobantes_pdf',    
-                 array( 'dataProvider'=>$dataProvider, ),true, true ) ); 
+                 array( 'dataProvider'=>$dataProvider,),true, true ) ); 
        else  $flag = 3; //error con el dataProvider
 
        $mpdf->SetFooter('||{PAGENO}');
