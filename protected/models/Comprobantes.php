@@ -39,9 +39,9 @@ class Comprobantes extends CActiveRecord
 	 * @return string the associated database table name
 	 */
 
-  public $mac_add = array("7C-E9-D3-27-E4-1D", "00-FF-24-01-FD-A4", "mac3" );//"7C-E9-D3-27-E4-1D";
+  public $mac_add = array("7C-E9-D3-27-E4-1D", "0A-00-27-00-00-0C", "mac3" );//"7C-E9-D3-27-E4-1D";
   const this_year = '2019';
-  public $ourLimit = 5;
+  public $ourLimit = 12;
 
   public $id_clientes2;
 	
@@ -67,7 +67,7 @@ class Comprobantes extends CActiveRecord
 			array('fecha_expedicion', 'isYear', 'year'=>self::this_year),
 			array('numero_comprobante, importe_iva_5, importe_iva_10, importe_exenta, total_importe', 'length', 'max'=>20),
 			array('ircp, iva_general, iva_simplificado', 'length', 'max'=>1),//
-			array('id_tipos_comprobantes+numero_comprobante+id_timbrado', 'application.extensions.uniqueMultiColumnValidator',
+			array('id_tipo_registro+id_tipos_comprobantes+numero_comprobante+id_timbrado', 'application.extensions.uniqueMultiColumnValidator',
 					'on'=>'insert','message'=>'La factura ya se encuentra cargada, favor verificar'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

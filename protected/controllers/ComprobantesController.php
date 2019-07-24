@@ -500,7 +500,7 @@ public function actionAdmin()
                             '<strong>Éxito!</strong> Se registró el Comprobante de manera éxitosa!.'
                     );
 
-                    $this->redirect('compra',array(
+                    $this->redirect('venta',array(
                         'model'=>$model, 
                         'id_registro'=>$id_registro,
                         'contribuyente'=>$contribuyente ));
@@ -688,7 +688,7 @@ public function actionAdmin()
                             '<strong>Éxito!</strong> Se registró el Comprobante de manera éxitosa!.'
                     );
 
-                    $this->redirect('compra',array(
+                    $this->redirect('venta',array(
                         'model'=>$model, 
                         'id_registro'=>$id_registro,
                         'contribuyente'=>$contribuyente ));
